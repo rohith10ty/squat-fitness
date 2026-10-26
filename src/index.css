@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    border-color: #262626;
+    border-color: rgba(255, 233, 217, 0.12);
   }
   
   html {
@@ -13,35 +13,152 @@
   }
 
   body {
-    background-color: #141414;
-    color: #f4f4f5;
+    background-color: #241105;
+    color: #ffe9d9;
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Custom minimal scrollbar */
+  /* Custom minimal warm scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #141414;
+    background: #1f0d04;
   }
   ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #47220e;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #3d3d3d;
+    background: #633215;
   }
 }
 
-/* === Exact Effect from Sample 61: Progressive Text Reveal Scrub === */
+/* === 3D Cubes Scroll Architecture (Sample 42) === */
+.sticky-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #331707;
+  color: #ffe9d9;
+  will-change: background-color;
+}
+
+.cubes-viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+  pointer-events: none;
+}
+
+.cube-3d {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  will-change: transform, top, left;
+}
+
+.cube-3d > div {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  overflow: hidden;
+  border: 1px solid rgba(255, 233, 217, 0.18);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.cube-3d > div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(110%) brightness(95%);
+}
+
+.face-front {
+  transform: translateZ(75px);
+}
+.face-back {
+  transform: translateZ(-75px) rotateY(180deg);
+}
+.face-right {
+  transform: translateX(75px) rotateY(90deg);
+}
+.face-left {
+  transform: translateX(-75px) rotateY(-90deg);
+}
+.face-top {
+  transform: translateY(-75px) rotateX(90deg);
+}
+.face-bottom {
+  transform: translateY(75px) rotateX(-90deg);
+}
+
+@media (max-width: 768px) {
+  .cube-3d, .cube-3d > div {
+    width: 110px;
+    height: 110px;
+  }
+  .face-front { transform: translateZ(55px); }
+  .face-back { transform: translateZ(-55px) rotateY(180deg); }
+  .face-right { transform: translateX(55px) rotateY(90deg); }
+  .face-left { transform: translateX(-55px) rotateY(-90deg); }
+  .face-top { transform: translateY(-55px) rotateX(90deg); }
+  .face-bottom { transform: translateY(55px) rotateX(-90deg); }
+}
+
+/* 42 Geometric Logo Blocks */
+.hero-42-logo {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 20px;
+  z-index: 20;
+}
+
+.hero-42-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-42-col:nth-child(2) {
+  gap: 22px;
+}
+
+.hero-42-block {
+  width: 32px;
+  height: 32px;
+  background-color: #ffe9d9;
+}
+
+.hero-42-block-1 {
+  transform: rotate(42deg);
+  transform-origin: bottom right;
+}
+
+.hero-42-block-5 {
+  transform: rotate(-42deg);
+  transform-origin: bottom left;
+}
+
+/* === Progressive Text Reveal Scrub (Sample 61) === */
 .animate-text {
   position: relative;
   width: 75%;
   margin: 0 auto;
-  color: #484848;
+  color: #613e2a;
   --clip-value: 100%;
   line-height: 1.25;
   transition: color 0.2s ease;
@@ -55,7 +172,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  color: #ffffff;
+  color: #ffe9d9;
   clip-path: inset(0 0 var(--clip-value) 0);
   will-change: clip-path;
 }
@@ -72,22 +189,22 @@
   }
 }
 
-/* Minimalist Utilities */
-.glass-panel {
-  background: rgba(24, 24, 24, 0.75);
+/* 42 Luxury Glass Panels */
+.glass-panel-luxury {
+  background: rgba(38, 17, 6, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 233, 217, 0.12);
 }
 
-.glass-pill {
-  background: rgba(28, 28, 28, 0.85);
+.glass-pill-luxury {
+  background: rgba(43, 19, 7, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 233, 217, 0.15);
 }
 
-/* Neon Glow utility */
-.glow-accent {
-  box-shadow: 0 0 25px rgba(204, 255, 0, 0.2);
+/* Warm Glow */
+.glow-warm {
+  box-shadow: 0 0 25px rgba(255, 126, 54, 0.25);
 }

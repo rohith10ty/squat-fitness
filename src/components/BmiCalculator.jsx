@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Scale, ArrowRight, CheckCircle2, AlertCircle, Info } from 'lucide-react';
+import { Scale, Info } from 'lucide-react';
 
 export default function BmiCalculator() {
   const [unit, setUnit] = useState('metric'); // 'metric' (cm, kg) or 'imperial' (ft/in, lbs)
@@ -34,32 +34,32 @@ export default function BmiCalculator() {
     if (val < 18.5) {
       return {
         label: 'Underweight',
-        color: 'text-[#00f0ff]',
-        bg: 'bg-[#00f0ff]/10 border-[#00f0ff]/20',
+        color: 'text-[#f3a675]',
+        bg: 'bg-[#f3a675]/10 border-[#f3a675]/25',
         advice: 'Focus on nutrient-dense whole foods and progressive strength training to build lean muscle mass.',
         idealRange: '60 - 76 kg',
       };
     } else if (val >= 18.5 && val <= 24.9) {
       return {
         label: 'Optimal / Healthy',
-        color: 'text-[#ccff00]',
-        bg: 'bg-[#ccff00]/10 border-[#ccff00]/20',
-        advice: 'Excellent body composition baseline. Maintain your current caloric balance and progressive training regimen.',
+        color: 'text-[#ffe9d9]',
+        bg: 'bg-[#ffe9d9]/10 border-[#ffe9d9]/25',
+        advice: 'Excellent body composition baseline. Maintain current caloric balance and progressive overload.',
         idealRange: 'Normal weight maintenance',
       };
     } else if (val >= 25 && val <= 29.9) {
       return {
         label: 'Overweight',
-        color: 'text-[#ff6b35]',
-        bg: 'bg-[#ff6b35]/10 border-[#ff6b35]/20',
+        color: 'text-[#ff7e36]',
+        bg: 'bg-[#ff7e36]/10 border-[#ff7e36]/25',
         advice: 'Incorporate steady-state aerobic conditioning (Zone 2) alongside a moderate 300-500 kcal deficit.',
         idealRange: 'Target 5-8% reduction',
       };
     } else {
       return {
         label: 'Obese',
-        color: 'text-[#ff3366]',
-        bg: 'bg-[#ff3366]/10 border-[#ff3366]/20',
+        color: 'text-[#e0533c]',
+        bg: 'bg-[#e0533c]/10 border-[#e0533c]/25',
         advice: 'Prioritize low-impact aerobic activity (swimming, brisk walking) and consult a sports clinical dietitian.',
         idealRange: 'Clinical lifestyle modification',
       };
@@ -72,27 +72,27 @@ export default function BmiCalculator() {
   const markerPercent = Math.min(Math.max(((roundedBmi - 15) / (35 - 15)) * 100, 0), 100);
 
   return (
-    <section id="bmi" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="bmi" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[#262626] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[rgba(255,233,217,0.15)] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#ccff00] uppercase mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#ccff00]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#f3a675] uppercase mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#f3a675]" />
             <span>BIOMETRIC ASSESSMENT</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#ffe9d9]">
             Precision BMI Calculator
           </h2>
         </div>
 
         {/* Metric vs Imperial Toggle */}
-        <div className="mt-4 md:mt-0 flex items-center gap-1 bg-[#1a1a1a] p-1 rounded-lg border border-[#262626]">
+        <div className="mt-4 md:mt-0 flex items-center gap-1 bg-[#2d1408] p-1 rounded-lg border border-[rgba(255,233,217,0.12)]">
           <button
             onClick={() => setUnit('metric')}
             className={`px-4 py-1.5 text-xs font-mono rounded-md transition-colors cursor-pointer ${
               unit === 'metric'
-                ? 'bg-[#2a2a2a] text-[#ccff00] font-bold'
-                : 'text-[#71717a] hover:text-white'
+                ? 'bg-[#ffe9d9] text-[#331707] font-bold'
+                : 'text-[#cdb9ab] hover:text-[#ffe9d9]'
             }`}
           >
             Metric (cm / kg)
@@ -101,8 +101,8 @@ export default function BmiCalculator() {
             onClick={() => setUnit('imperial')}
             className={`px-4 py-1.5 text-xs font-mono rounded-md transition-colors cursor-pointer ${
               unit === 'imperial'
-                ? 'bg-[#2a2a2a] text-[#ccff00] font-bold'
-                : 'text-[#71717a] hover:text-white'
+                ? 'bg-[#ffe9d9] text-[#331707] font-bold'
+                : 'text-[#cdb9ab] hover:text-[#ffe9d9]'
             }`}
           >
             Imperial (ft / lbs)
@@ -113,9 +113,9 @@ export default function BmiCalculator() {
       {/* Main Grid: Inputs + Results */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Inputs Panel */}
-        <div className="lg:col-span-7 bg-[#1a1a1a] border border-[#262626] rounded-xl p-6 sm:p-8 space-y-6">
-          <h3 className="text-lg font-bold text-white flex items-center gap-2">
-            <Scale className="w-5 h-5 text-[#ccff00]" />
+        <div className="lg:col-span-7 bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-6 sm:p-8 space-y-6 shadow-xl shadow-black/40">
+          <h3 className="text-lg font-bold text-[#ffe9d9] flex items-center gap-2">
+            <Scale className="w-5 h-5 text-[#f3a675]" />
             Anthropometric Inputs
           </h3>
 
@@ -124,8 +124,8 @@ export default function BmiCalculator() {
               {/* Height Slider & Input */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs font-mono">
-                  <label className="text-[#a1a1aa] uppercase tracking-wider">Height (cm)</label>
-                  <span className="text-white font-bold text-base">{heightCm} cm</span>
+                  <label className="text-[#cdb9ab] uppercase tracking-wider">Height (cm)</label>
+                  <span className="text-[#ffe9d9] font-bold text-base">{heightCm} cm</span>
                 </div>
                 <input
                   type="range"
@@ -133,9 +133,9 @@ export default function BmiCalculator() {
                   max="220"
                   value={heightCm}
                   onChange={(e) => setHeightCm(Number(e.target.value))}
-                  className="w-full accent-[#ccff00] bg-[#262626] h-2 rounded-lg cursor-pointer"
+                  className="w-full accent-[#ffe9d9] bg-[#1e0d05] h-2 rounded-lg cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-[#52525b]">
+                <div className="flex justify-between text-[10px] font-mono text-[#cdb9ab]/60">
                   <span>120 cm</span>
                   <span>170 cm</span>
                   <span>220 cm</span>
@@ -145,8 +145,8 @@ export default function BmiCalculator() {
               {/* Weight Slider & Input */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs font-mono">
-                  <label className="text-[#a1a1aa] uppercase tracking-wider">Weight (kg)</label>
-                  <span className="text-white font-bold text-base">{weightKg} kg</span>
+                  <label className="text-[#cdb9ab] uppercase tracking-wider">Weight (kg)</label>
+                  <span className="text-[#ffe9d9] font-bold text-base">{weightKg} kg</span>
                 </div>
                 <input
                   type="range"
@@ -154,9 +154,9 @@ export default function BmiCalculator() {
                   max="160"
                   value={weightKg}
                   onChange={(e) => setWeightKg(Number(e.target.value))}
-                  className="w-full accent-[#ccff00] bg-[#262626] h-2 rounded-lg cursor-pointer"
+                  className="w-full accent-[#ffe9d9] bg-[#1e0d05] h-2 rounded-lg cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-[#52525b]">
+                <div className="flex justify-between text-[10px] font-mono text-[#cdb9ab]/60">
                   <span>40 kg</span>
                   <span>100 kg</span>
                   <span>160 kg</span>
@@ -168,25 +168,25 @@ export default function BmiCalculator() {
               {/* Imperial Height (ft / in) */}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-[#a1a1aa] uppercase">Feet</label>
+                  <label className="text-xs font-mono text-[#cdb9ab] uppercase">Feet</label>
                   <input
                     type="number"
                     min="4"
                     max="7"
                     value={heightFeet}
                     onChange={(e) => setHeightFeet(Number(e.target.value))}
-                    className="w-full bg-[#202020] border border-[#2e2e2e] rounded-lg px-4 py-2.5 text-white font-mono focus:border-[#ccff00] focus:outline-none"
+                    className="w-full bg-[#1e0d05] border border-[rgba(255,233,217,0.15)] rounded-lg px-4 py-2.5 text-[#ffe9d9] font-mono focus:border-[#ffe9d9] focus:outline-none"
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-[#a1a1aa] uppercase">Inches</label>
+                  <label className="text-xs font-mono text-[#cdb9ab] uppercase">Inches</label>
                   <input
                     type="number"
                     min="0"
                     max="11"
                     value={heightInches}
                     onChange={(e) => setHeightInches(Number(e.target.value))}
-                    className="w-full bg-[#202020] border border-[#2e2e2e] rounded-lg px-4 py-2.5 text-white font-mono focus:border-[#ccff00] focus:outline-none"
+                    className="w-full bg-[#1e0d05] border border-[rgba(255,233,217,0.15)] rounded-lg px-4 py-2.5 text-[#ffe9d9] font-mono focus:border-[#ffe9d9] focus:outline-none"
                   />
                 </div>
               </div>
@@ -194,8 +194,8 @@ export default function BmiCalculator() {
               {/* Imperial Weight (lbs) */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center text-xs font-mono">
-                  <label className="text-[#a1a1aa] uppercase tracking-wider">Weight (lbs)</label>
-                  <span className="text-white font-bold text-base">{weightLbs} lbs</span>
+                  <label className="text-[#cdb9ab] uppercase tracking-wider">Weight (lbs)</label>
+                  <span className="text-[#ffe9d9] font-bold text-base">{weightLbs} lbs</span>
                 </div>
                 <input
                   type="range"
@@ -203,9 +203,9 @@ export default function BmiCalculator() {
                   max="350"
                   value={weightLbs}
                   onChange={(e) => setWeightLbs(Number(e.target.value))}
-                  className="w-full accent-[#ccff00] bg-[#262626] h-2 rounded-lg cursor-pointer"
+                  className="w-full accent-[#ffe9d9] bg-[#1e0d05] h-2 rounded-lg cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-[#52525b]">
+                <div className="flex justify-between text-[10px] font-mono text-[#cdb9ab]/60">
                   <span>80 lbs</span>
                   <span>215 lbs</span>
                   <span>350 lbs</span>
@@ -216,7 +216,7 @@ export default function BmiCalculator() {
 
           {/* Quick presets */}
           <div className="pt-2 flex items-center gap-2">
-            <span className="text-[11px] font-mono text-[#71717a]">Quick Presets:</span>
+            <span className="text-[11px] font-mono text-[#cdb9ab]">Quick Presets:</span>
             <button
               onClick={() => {
                 setHeightCm(170);
@@ -225,7 +225,7 @@ export default function BmiCalculator() {
                 setHeightInches(7);
                 setWeightLbs(143);
               }}
-              className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#242424] text-[#a1a1aa] hover:text-white transition-colors cursor-pointer"
+              className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#381909] text-[#cdb9ab] hover:text-[#ffe9d9] transition-colors cursor-pointer"
             >
               Athlete A (65kg)
             </button>
@@ -237,7 +237,7 @@ export default function BmiCalculator() {
                 setHeightInches(0);
                 setWeightLbs(180);
               }}
-              className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#242424] text-[#a1a1aa] hover:text-white transition-colors cursor-pointer"
+              className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#381909] text-[#cdb9ab] hover:text-[#ffe9d9] transition-colors cursor-pointer"
             >
               Athlete B (82kg)
             </button>
@@ -245,27 +245,27 @@ export default function BmiCalculator() {
         </div>
 
         {/* Right Output Card */}
-        <div className="lg:col-span-5 bg-[#1a1a1a] border border-[#262626] rounded-xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-xl shadow-black/40">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono text-[#71717a] uppercase">CALCULATED SCORE</span>
+              <span className="text-xs font-mono text-[#cdb9ab] uppercase">CALCULATED SCORE</span>
               <span className={`text-xs font-mono font-bold px-2.5 py-0.5 rounded border ${bmiDetails.bg} ${bmiDetails.color}`}>
                 {bmiDetails.label}
               </span>
             </div>
 
             {/* Score Big Display */}
-            <div className="text-6xl sm:text-7xl font-mono font-black text-white tracking-tighter my-2">
+            <div className="text-6xl sm:text-7xl font-mono font-black text-[#ffe9d9] tracking-tighter my-2">
               {roundedBmi}
             </div>
 
-            {/* Visual Gauge Bar */}
+            {/* Visual Gauge Bar in Luxury Tones */}
             <div className="mt-6 space-y-2">
               <div className="relative w-full h-3 rounded-full overflow-hidden flex">
-                <div className="w-[17.5%] bg-[#00f0ff]" title="Underweight (<18.5)" />
-                <div className="w-[32%] bg-[#ccff00]" title="Normal (18.5 - 24.9)" />
-                <div className="w-[25%] bg-[#ff6b35]" title="Overweight (25 - 29.9)" />
-                <div className="w-[25.5%] bg-[#ff3366]" title="Obese (>30)" />
+                <div className="w-[17.5%] bg-[#cdb9ab]" title="Underweight (<18.5)" />
+                <div className="w-[32%] bg-[#ffe9d9]" title="Normal (18.5 - 24.9)" />
+                <div className="w-[25%] bg-[#f3a675]" title="Overweight (25 - 29.9)" />
+                <div className="w-[25.5%] bg-[#ff7e36]" title="Obese (>30)" />
               </div>
 
               {/* Dynamic Indicator Arrow */}
@@ -274,13 +274,13 @@ export default function BmiCalculator() {
                   className="absolute -top-1 transform -translate-x-1/2 flex flex-col items-center transition-all duration-300"
                   style={{ left: `${markerPercent}%` }}
                 >
-                  <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-b-[6px] border-b-white" />
-                  <span className="text-[9px] font-mono text-white font-bold">▲</span>
+                  <div className="w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-b-[6px] border-b-[#ffe9d9]" />
+                  <span className="text-[9px] font-mono text-[#ffe9d9] font-bold">▲</span>
                 </div>
               </div>
 
               {/* Gauge Scale Labels */}
-              <div className="flex justify-between text-[10px] font-mono text-[#71717a]">
+              <div className="flex justify-between text-[10px] font-mono text-[#cdb9ab]">
                 <span>15</span>
                 <span>18.5</span>
                 <span>25.0</span>
@@ -291,12 +291,12 @@ export default function BmiCalculator() {
           </div>
 
           {/* Advice / Recommendations */}
-          <div className="p-4 rounded-xl bg-[#202020] border border-[#2c2c2c] space-y-2">
-            <div className="flex items-center gap-2 text-xs font-mono text-white font-bold">
-              <Info className="w-4 h-4 text-[#ccff00]" />
+          <div className="p-4 rounded-xl bg-[#381909] border border-[rgba(255,233,217,0.12)] space-y-2">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#ffe9d9] font-bold">
+              <Info className="w-4 h-4 text-[#f3a675]" />
               <span>COACH RECOMMENDATION</span>
             </div>
-            <p className="text-xs text-[#a1a1aa] leading-relaxed">
+            <p className="text-xs text-[#cdb9ab] leading-relaxed">
               {bmiDetails.advice}
             </p>
           </div>

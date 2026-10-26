@@ -3,7 +3,8 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from './components/Navbar';
-import LandingHeroEffect from './components/LandingHeroEffect';
+import Hero3DSection from './components/Hero3DSection';
+import FitnessLinesSection from './components/FitnessLinesSection';
 import FitnessDashboard from './components/FitnessDashboard';
 import WorkoutsSection from './components/WorkoutsSection';
 import ProgressTracking from './components/ProgressTracking';
@@ -76,19 +77,22 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#141414] text-white overflow-x-hidden selection:bg-[#ccff00] selection:text-black font-sans">
-      {/* Centered Minimal Floating Navbar */}
+    <div className="min-h-screen bg-[#241105] text-[#ffe9d9] overflow-x-hidden selection:bg-[#ff7e36] selection:text-white font-sans">
+      {/* Centered Minimal Floating Navbar in Luxury 42 Palette */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Landing with Left/Right Hero & Centered 61 Parallax Effect */}
-      <LandingHeroEffect
+      {/* Part 1: Exact 3D Cubes Scroll Hero from Sample 42 with Fitness Photos & Color Changing */}
+      <Hero3DSection />
+
+      {/* Part 2: The 3 "FITNESS" Parallax Lines & Progressive Text Reveal from Sample 61 */}
+      <FitnessLinesSection
         onExploreWorkouts={() => scrollTo('workouts')}
         onOpenDashboard={() => scrollTo('dashboard')}
       />
 
-      {/* Subtle Divider */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#2a2a2a] to-transparent" />
+      {/* Section Divider Bar */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,233,217,0.18)] to-transparent" />
       </div>
 
       {/* Fitness Dashboard */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Footprints, Flame, Clock, Heart, Plus, TrendingUp, CheckCircle2, Zap } from 'lucide-react';
+import { Footprints, Flame, Clock, Heart, Plus, TrendingUp } from 'lucide-react';
 import { WEEKLY_ACTIVITY } from '../data/fitnessData';
 
 export default function FitnessDashboard() {
@@ -38,60 +38,60 @@ export default function FitnessDashboard() {
   const durPercent = Math.min(Math.round((duration / durationGoal) * 100), 100);
 
   return (
-    <section id="dashboard" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="dashboard" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#262626] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[rgba(255,233,217,0.15)] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#ccff00] uppercase mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#ccff00]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#f3a675] uppercase mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#f3a675]" />
             <span>METRIC TELEMETRY</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#ffe9d9]">
             Daily Fitness Dashboard
           </h2>
         </div>
-        <p className="mt-2 md:mt-0 text-sm text-[#a1a1aa] font-mono">
-          UPDATED LIVE // TODAY'S RECOVERY SCORE: <span className="text-[#ccff00]">94%</span>
+        <p className="mt-2 md:mt-0 text-sm text-[#cdb9ab] font-mono">
+          UPDATED LIVE // RECOVERY SCORE: <span className="text-[#ffe9d9] font-bold">94%</span>
         </p>
       </div>
 
       {/* 4 Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {/* Card 1: Daily Steps */}
-        <div className="bg-[#1a1a1a] border border-[#262626] rounded-xl p-5 hover:border-[#383838] transition-all flex flex-col justify-between">
+        <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-5 hover:border-[rgba(255,233,217,0.25)] transition-all flex flex-col justify-between shadow-xl shadow-black/40">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#222] border border-[#303030] flex items-center justify-center text-[#ccff00]">
+            <div className="w-10 h-10 rounded-lg bg-[#3a1a0b] border border-[rgba(255,233,217,0.18)] flex items-center justify-center text-[#ffe9d9]">
               <Footprints className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono text-[#a1a1aa]">{stepPercent}%</span>
+            <span className="text-xs font-mono text-[#cdb9ab]">{stepPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#71717a] font-mono">Daily Steps</p>
+            <p className="text-xs uppercase tracking-wider text-[#cdb9ab] font-mono">Daily Steps</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#ffe9d9] tracking-tight">
                 {steps.toLocaleString()}
               </span>
-              <span className="text-xs text-[#71717a] font-mono">/ {stepGoal.toLocaleString()}</span>
+              <span className="text-xs text-[#cdb9ab]/70 font-mono">/ {stepGoal.toLocaleString()}</span>
             </div>
             {/* Progress Bar */}
-            <div className="w-full bg-[#262626] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#1e0d05] h-1.5 rounded-full mt-3 overflow-hidden">
               <div
-                className="bg-[#ccff00] h-full rounded-full transition-all duration-500"
+                className="bg-[#ffe9d9] h-full rounded-full transition-all duration-500"
                 style={{ width: `${stepPercent}%` }}
               />
             </div>
           </div>
           {/* Quick Increment buttons */}
-          <div className="mt-4 pt-3 border-t border-[#262626] flex items-center gap-2">
+          <div className="mt-4 pt-3 border-t border-[rgba(255,233,217,0.1)] flex items-center gap-2">
             <button
               onClick={() => addSteps(500)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#222] hover:bg-[#2c2c2c] text-[#d4d4d8] hover:text-[#ccff00] transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#3a1a0b] hover:bg-[#4a220e] text-[#ffe9d9] transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Plus className="w-3 h-3" /> 500
             </button>
             <button
               onClick={() => addSteps(1000)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#222] hover:bg-[#2c2c2c] text-[#d4d4d8] hover:text-[#ccff00] transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#3a1a0b] hover:bg-[#4a220e] text-[#ffe9d9] transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Plus className="w-3 h-3" /> 1,000
             </button>
@@ -99,67 +99,67 @@ export default function FitnessDashboard() {
         </div>
 
         {/* Card 2: Calories Burned */}
-        <div className="bg-[#1a1a1a] border border-[#262626] rounded-xl p-5 hover:border-[#383838] transition-all flex flex-col justify-between">
+        <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-5 hover:border-[rgba(255,233,217,0.25)] transition-all flex flex-col justify-between shadow-xl shadow-black/40">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#222] border border-[#303030] flex items-center justify-center text-[#ff6b35]">
+            <div className="w-10 h-10 rounded-lg bg-[#3a1a0b] border border-[rgba(255,233,217,0.18)] flex items-center justify-center text-[#ff7e36]">
               <Flame className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono text-[#a1a1aa]">{calPercent}%</span>
+            <span className="text-xs font-mono text-[#cdb9ab]">{calPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#71717a] font-mono">Active Burn</p>
+            <p className="text-xs uppercase tracking-wider text-[#cdb9ab] font-mono">Active Burn</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#ffe9d9] tracking-tight">
                 {calories}
               </span>
-              <span className="text-xs text-[#71717a] font-mono">/ {calorieGoal} kcal</span>
+              <span className="text-xs text-[#cdb9ab]/70 font-mono">/ {calorieGoal} kcal</span>
             </div>
-            <div className="w-full bg-[#262626] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#1e0d05] h-1.5 rounded-full mt-3 overflow-hidden">
               <div
-                className="bg-[#ff6b35] h-full rounded-full transition-all duration-500"
+                className="bg-[#ff7e36] h-full rounded-full transition-all duration-500"
                 style={{ width: `${calPercent}%` }}
               />
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[#262626] flex items-center justify-between text-[11px] font-mono text-[#71717a]">
+          <div className="mt-4 pt-3 border-t border-[rgba(255,233,217,0.1)] flex items-center justify-between text-[11px] font-mono text-[#cdb9ab]">
             <span>BASAL: 1,820 kcal</span>
-            <span className="text-[#ff6b35]">TOTAL: {calories + 1820}</span>
+            <span className="text-[#f3a675]">TOTAL: {calories + 1820}</span>
           </div>
         </div>
 
         {/* Card 3: Workout Duration */}
-        <div className="bg-[#1a1a1a] border border-[#262626] rounded-xl p-5 hover:border-[#383838] transition-all flex flex-col justify-between">
+        <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-5 hover:border-[rgba(255,233,217,0.25)] transition-all flex flex-col justify-between shadow-xl shadow-black/40">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#222] border border-[#303030] flex items-center justify-center text-[#00f0ff]">
+            <div className="w-10 h-10 rounded-lg bg-[#3a1a0b] border border-[rgba(255,233,217,0.18)] flex items-center justify-center text-[#f3a675]">
               <Clock className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono text-[#a1a1aa]">{durPercent}%</span>
+            <span className="text-xs font-mono text-[#cdb9ab]">{durPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#71717a] font-mono">Active Time</p>
+            <p className="text-xs uppercase tracking-wider text-[#cdb9ab] font-mono">Active Time</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#ffe9d9] tracking-tight">
                 {duration}
               </span>
-              <span className="text-xs text-[#71717a] font-mono">/ {durationGoal} min</span>
+              <span className="text-xs text-[#cdb9ab]/70 font-mono">/ {durationGoal} min</span>
             </div>
-            <div className="w-full bg-[#262626] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#1e0d05] h-1.5 rounded-full mt-3 overflow-hidden">
               <div
-                className="bg-[#00f0ff] h-full rounded-full transition-all duration-500"
+                className="bg-[#f3a675] h-full rounded-full transition-all duration-500"
                 style={{ width: `${durPercent}%` }}
               />
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[#262626] flex items-center gap-2">
+          <div className="mt-4 pt-3 border-t border-[rgba(255,233,217,0.1)] flex items-center gap-2">
             <button
               onClick={() => addDuration(10)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#222] hover:bg-[#2c2c2c] text-[#d4d4d8] hover:text-[#00f0ff] transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#3a1a0b] hover:bg-[#4a220e] text-[#ffe9d9] transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Plus className="w-3 h-3" /> 10m
             </button>
             <button
               onClick={() => addDuration(20)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#222] hover:bg-[#2c2c2c] text-[#d4d4d8] hover:text-[#00f0ff] transition-colors flex items-center gap-1 cursor-pointer"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#3a1a0b] hover:bg-[#4a220e] text-[#ffe9d9] transition-colors flex items-center gap-1 cursor-pointer"
             >
               <Plus className="w-3 h-3" /> 20m
             </button>
@@ -167,34 +167,34 @@ export default function FitnessDashboard() {
         </div>
 
         {/* Card 4: Heart Rate & ECG Monitor */}
-        <div className="bg-[#1a1a1a] border border-[#262626] rounded-xl p-5 hover:border-[#383838] transition-all flex flex-col justify-between">
+        <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-5 hover:border-[rgba(255,233,217,0.25)] transition-all flex flex-col justify-between shadow-xl shadow-black/40">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-lg bg-[#222] border border-[#303030] flex items-center justify-center text-[#ff3366]">
+            <div className="w-10 h-10 rounded-lg bg-[#3a1a0b] border border-[rgba(255,233,217,0.18)] flex items-center justify-center text-[#ff7e36]">
               <Heart className={`w-5 h-5 ${isTrainingBpm ? 'animate-ping' : 'animate-pulse'}`} />
             </div>
             <button
               onClick={() => setIsTrainingBpm(!isTrainingBpm)}
-              className="text-[10px] font-mono px-2 py-0.5 rounded border border-[#333] hover:border-[#ff3366] text-[#a1a1aa] hover:text-white transition-colors cursor-pointer"
+              className="text-[10px] font-mono px-2 py-0.5 rounded border border-[rgba(255,233,217,0.2)] hover:border-[#ffe9d9] text-[#cdb9ab] hover:text-[#ffe9d9] transition-colors cursor-pointer"
             >
               {isTrainingBpm ? 'TRAINING' : 'RESTING'}
             </button>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#71717a] font-mono">Heart Rate</p>
+            <p className="text-xs uppercase tracking-wider text-[#cdb9ab] font-mono">Heart Rate</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#ffe9d9] tracking-tight">
                 {heartRate}
               </span>
-              <span className="text-xs text-[#71717a] font-mono">BPM</span>
+              <span className="text-xs text-[#cdb9ab] font-mono">BPM</span>
             </div>
-            {/* Animated SVG Pulse wave */}
+            {/* Animated SVG Pulse wave in Warm Copper */}
             <div className="w-full h-8 mt-2 overflow-hidden flex items-center">
               <svg className="w-full h-full" viewBox="0 0 200 40" preserveAspectRatio="none">
                 <path
                   d="M0,20 L40,20 L50,8 L60,32 L70,12 L80,24 L90,20 L200,20"
                   fill="none"
-                  stroke="#ff3366"
-                  strokeWidth="2"
+                  stroke="#ff7e36"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   className="animate-pulse"
@@ -202,38 +202,38 @@ export default function FitnessDashboard() {
               </svg>
             </div>
           </div>
-          <div className="mt-2 pt-2 border-t border-[#262626] flex items-center justify-between text-[11px] font-mono text-[#71717a]">
+          <div className="mt-2 pt-2 border-t border-[rgba(255,233,217,0.1)] flex items-center justify-between text-[11px] font-mono text-[#cdb9ab]">
             <span>HRV: 68 ms</span>
-            <span className="text-[#ccff00]">OPTIMAL</span>
+            <span className="text-[#ffe9d9] font-bold">OPTIMAL</span>
           </div>
         </div>
       </div>
 
       {/* Weekly Activity Chart Component */}
-      <div className="bg-[#1a1a1a] border border-[#262626] rounded-xl p-6">
+      <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-6 shadow-xl shadow-black/40">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              <TrendingUp className="w-4 h-4 text-[#ccff00]" />
+            <h3 className="text-lg font-bold text-[#ffe9d9] flex items-center gap-2">
+              <TrendingUp className="w-4 h-4 text-[#f3a675]" />
               Weekly Activity Consistency
             </h3>
-            <p className="text-xs text-[#71717a] font-mono mt-1">
+            <p className="text-xs text-[#cdb9ab] font-mono mt-1">
               Click any day bar to inspect day telemetry
             </p>
           </div>
           {/* Legend */}
-          <div className="flex items-center gap-4 text-xs font-mono text-[#a1a1aa]">
+          <div className="flex items-center gap-4 text-xs font-mono text-[#cdb9ab]">
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#ccff00]" /> Steps Target Met (&gt;9,000)
+              <span className="w-2.5 h-2.5 rounded-full bg-[#ffe9d9]" /> Target Met (&gt;9,000)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#3d3d3d]" /> Baseline
+              <span className="w-2.5 h-2.5 rounded-full bg-[#4a240e]" /> Baseline
             </span>
           </div>
         </div>
 
         {/* 7-Day Bar Chart */}
-        <div className="grid grid-cols-7 gap-2 sm:gap-4 items-end h-48 pt-6 pb-2 border-b border-[#262626]">
+        <div className="grid grid-cols-7 gap-2 sm:gap-4 items-end h-48 pt-6 pb-2 border-b border-[rgba(255,233,217,0.12)]">
           {WEEKLY_ACTIVITY.map((item) => {
             const heightPercent = Math.min(Math.round((item.steps / 15000) * 100), 100);
             const isSelected = selectedDay.day === item.day;
@@ -245,25 +245,25 @@ export default function FitnessDashboard() {
                 onClick={() => setSelectedDay(item)}
                 className="flex flex-col items-center h-full justify-end group cursor-pointer"
               >
-                {/* Bar Value Tooltip on hover/select */}
+                {/* Bar Value Tooltip */}
                 <span
                   className={`text-[10px] font-mono mb-2 transition-all ${
-                    isSelected ? 'text-[#ccff00] font-bold' : 'text-[#71717a] group-hover:text-white'
+                    isSelected ? 'text-[#ffe9d9] font-bold' : 'text-[#cdb9ab] group-hover:text-white'
                   }`}
                 >
                   {(item.steps / 1000).toFixed(1)}k
                 </span>
 
                 {/* The Bar */}
-                <div className="w-full max-w-[44px] bg-[#242424] rounded-t-sm h-full flex items-end p-0.5 overflow-hidden">
+                <div className="w-full max-w-[44px] bg-[#3a1a0b] rounded-t-sm h-full flex items-end p-0.5 overflow-hidden">
                   <div
                     style={{ height: `${heightPercent}%` }}
                     className={`w-full rounded-t-sm transition-all duration-500 ${
                       isSelected
-                        ? 'bg-[#ccff00]'
+                        ? 'bg-[#ffe9d9]'
                         : isHigh
-                        ? 'bg-[#ccff00]/70 group-hover:bg-[#ccff00]'
-                        : 'bg-[#3f3f46] group-hover:bg-[#52525b]'
+                        ? 'bg-[#ffe9d9]/70 group-hover:bg-[#ffe9d9]'
+                        : 'bg-[#5c2b0e] group-hover:bg-[#733713]'
                     }`}
                   />
                 </div>
@@ -271,7 +271,7 @@ export default function FitnessDashboard() {
                 {/* Day label */}
                 <span
                   className={`mt-2 text-xs font-mono transition-colors ${
-                    isSelected ? 'text-[#ccff00] font-bold' : item.today ? 'text-white' : 'text-[#71717a]'
+                    isSelected ? 'text-[#ffe9d9] font-bold' : item.today ? 'text-[#f3a675]' : 'text-[#cdb9ab]'
                   }`}
                 >
                   {item.day}
@@ -283,19 +283,19 @@ export default function FitnessDashboard() {
 
         {/* Selected Day Summary Badge */}
         {selectedDay && (
-          <div className="mt-4 pt-2 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#a1a1aa]">
+          <div className="mt-4 pt-2 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-[#cdb9ab]">
             <div className="flex items-center gap-2">
-              <span className="text-white font-semibold">SELECTED: {selectedDay.day.toUpperCase()}</span>
+              <span className="text-[#ffe9d9] font-semibold">SELECTED: {selectedDay.day.toUpperCase()}</span>
               {selectedDay.today && (
-                <span className="px-2 py-0.5 rounded bg-[#ccff00]/10 text-[#ccff00] text-[10px]">
+                <span className="px-2 py-0.5 rounded bg-[#f3a675]/20 text-[#ffe9d9] text-[10px] border border-[#f3a675]/30">
                   TODAY
                 </span>
               )}
             </div>
             <div className="flex items-center gap-4">
-              <span>Steps: <strong className="text-white">{selectedDay.steps.toLocaleString()}</strong></span>
-              <span>Calories: <strong className="text-[#ff6b35]">{selectedDay.calories} kcal</strong></span>
-              <span>Active: <strong className="text-[#00f0ff]">{selectedDay.minutes} mins</strong></span>
+              <span>Steps: <strong className="text-[#ffe9d9]">{selectedDay.steps.toLocaleString()}</strong></span>
+              <span>Calories: <strong className="text-[#ff7e36]">{selectedDay.calories} kcal</strong></span>
+              <span>Active: <strong className="text-[#f3a675]">{selectedDay.minutes} mins</strong></span>
             </div>
           </div>
         )}
