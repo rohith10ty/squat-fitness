@@ -1,18 +1,12 @@
-/**
- * 3D Cubes Coordinates matching the exact 6-block geometric arch:
- * Initial coordinates match the exact positions of the 6 arch blocks at top: ~28%, left: 50%
- * Final coordinates expand outward to frame Header 2 on scroll scrub.
- */
 export const cubesData = {
   "cube-1": {
     initial: {
-      top: 28,
-      left: 45.5,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      top: -55,
+      left: 37.5,
+      rotateX: 360,
+      rotateY: -360,
+      rotateZ: -48,
+      z: -30000,
     },
     final: {
       top: 50,
@@ -21,18 +15,16 @@ export const cubesData = {
       rotateY: 3,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
   "cube-2": {
     initial: {
-      top: 34,
-      left: 45.5,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      top: -35,
+      left: 32.5,
+      rotateX: -360,
+      rotateY: 360,
+      rotateZ: 90,
+      z: -30000,
     },
     final: {
       top: 75,
@@ -41,18 +33,16 @@ export const cubesData = {
       rotateY: 2,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
   "cube-3": {
     initial: {
-      top: 24,
+      top: -65,
       left: 50,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      rotateX: -360,
+      rotateY: -360,
+      rotateZ: -180,
+      z: -30000,
     },
     final: {
       top: 25,
@@ -61,18 +51,16 @@ export const cubesData = {
       rotateY: 2,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
   "cube-4": {
     initial: {
-      top: 34,
+      top: -35,
       left: 50,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      rotateX: -360,
+      rotateY: -360,
+      rotateZ: -180,
+      z: -30000,
     },
     final: {
       top: 75,
@@ -81,18 +69,16 @@ export const cubesData = {
       rotateY: -2,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
   "cube-5": {
     initial: {
-      top: 24,
-      left: 54.5,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      top: -55,
+      left: 62.5,
+      rotateX: 360,
+      rotateY: 360,
+      rotateZ: -135,
+      z: -30000,
     },
     final: {
       top: 25,
@@ -101,18 +87,16 @@ export const cubesData = {
       rotateY: -2,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
   "cube-6": {
     initial: {
-      top: 34,
-      left: 54.5,
-      rotateX: 0,
-      rotateY: 0,
-      rotateZ: 0,
-      z: 0,
-      scale: 0.35,
+      top: -35,
+      left: 67.5,
+      rotateX: -180,
+      rotateY: -360,
+      rotateZ: -180,
+      z: -30000,
     },
     final: {
       top: 50,
@@ -121,7 +105,6 @@ export const cubesData = {
       rotateY: -3,
       rotateZ: 0,
       z: 0,
-      scale: 1,
     },
   },
 };

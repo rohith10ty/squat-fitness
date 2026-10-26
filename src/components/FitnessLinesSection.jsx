@@ -221,7 +221,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       </section>
 
       {/* ===== SECTION 3: SERVICES-COPY (Second Progressive Text Reveal on Pure Jet Black) ===== */}
-      <section className="services-copy relative w-full mt-[140svh] md:mt-[155svh] px-6 md:px-12 pb-[20svh] text-center bg-[#0A0A0A] text-[#F5F1E8]">
+      <section id="dark-theme-trigger" className="services-copy relative w-full mt-[140svh] md:mt-[155svh] px-6 md:px-12 pb-[20svh] text-center bg-[#0A0A0A] text-[#F5F1E8]">
         <h1
           ref={text2Ref}
           className="animate-text-dark font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans"
