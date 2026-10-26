@@ -88,6 +88,11 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
 
           if (self.progress <= 0.5) {
             const yProgress = self.progress / 0.5;
+            // Both outer lines visible and merging into the center line
+            headers[0].style.opacity = '1';
+            headers[1].style.opacity = '1';
+            headers[2].style.opacity = '1';
+
             gsap.set(headers[0], { y: `${yProgress * 100}%`, scale: 1 });
             gsap.set(headers[1], { y: '0%', scale: 1 });
             gsap.set(headers[2], { y: `${yProgress * -100}%`, scale: 1 });
@@ -107,16 +112,19 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
               t.style.fill = '#F5F1E8';
             });
 
+            // Once merged, hide the 2 redundant duplicate layers so only ONE single FITNESS remains
+            headers[0].style.opacity = '0';
+            headers[2].style.opacity = '0';
+            headers[1].style.opacity = '1';
+
             const scaleProgress = (self.progress - 0.5) / 0.5;
             const minScale = window.innerWidth <= 1000 ? 0.28 : 0.14;
             const scale = 1 - scaleProgress * (1 - minScale);
 
-            // Smoothly lift FITNESS upward as it scales so it sits directly above the incoming paragraph
-            const yLift = scaleProgress * 20; // 20vh upward lift
+            // Smoothly lift the single merged FITNESS upward as it scales so it sits directly above the incoming paragraph
+            const yLift = -scaleProgress * 18; // -18vh upward lift
 
-            gsap.set(headers[0], { y: `calc(100% - ${yLift}vh)`, scale });
-            gsap.set(headers[1], { y: `calc(0% - ${yLift}vh)`, scale });
-            gsap.set(headers[2], { y: `calc(-100% - ${yLift}vh)`, scale });
+            gsap.set(headers[1], { y: `${yLift}vh`, scale });
           }
         },
       });
