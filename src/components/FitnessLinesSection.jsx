@@ -13,8 +13,8 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // 1. Text fill scrub reveal for all .animate-text-light elements
-      const textElements = containerRef.current.querySelectorAll('.animate-text-light');
+      // 1. Text fill scrub reveal for all .animate-text elements
+      const textElements = containerRef.current.querySelectorAll('.animate-text');
       textElements.forEach((el) => {
         const text = el.textContent.trim();
         el.setAttribute('data-text', text);
@@ -81,12 +81,12 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-white text-gray-900 font-sans selection:bg-[#1D2B04] selection:text-white">
-      {/* ===== SECTION 1: ABOUT (Progressive Text Reveal on Pure White) ===== */}
-      <section className="relative w-full min-h-[85vh] h-[85svh] px-6 md:px-12 flex justify-center items-center overflow-hidden bg-white">
+    <div ref={containerRef} className="relative bg-[#050801] text-[#E5FBD4] font-sans selection:bg-[#E5FBD4] selection:text-[#050801]">
+      {/* ===== SECTION 1: ABOUT (Progressive Text Reveal on Sleek Black) ===== */}
+      <section className="relative w-full min-h-[85vh] h-[85svh] px-6 md:px-12 flex justify-center items-center overflow-hidden bg-[#050801]">
         <h1
           ref={text1Ref}
-          className="animate-text-light font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans text-gray-300"
+          className="animate-text font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans"
         >
           A space for training shaped with clarity and intention. Each protocol follows a simple path from discipline to strength, from strength to longevity.
         </h1>
@@ -95,11 +95,11 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       {/* ===== SECTION 2: SERVICES / 3 FITNESS LINES PINNED EFFECT ===== */}
       <section
         ref={servicesRef}
-        className="services relative w-full h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-white"
+        className="services relative w-full h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-[#050801]"
       >
         {/* Layer 1: Starts translateX(+100%) */}
         <div
-          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-white will-change-transform z-10 flex justify-center items-center text-center"
+          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-[#050801] will-change-transform z-10 flex justify-center items-center text-center"
           style={{ transform: 'translateX(100%) translateY(0%)' }}
         >
           <svg
@@ -111,7 +111,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
               y="52%"
               textAnchor="middle"
               dominantBaseline="middle"
-              className="fill-[#1D2B04] font-black"
+              className="fill-[#E5FBD4] font-black"
               style={{
                 fontFamily: "'Outfit', 'Impact', sans-serif",
                 fontWeight: 900,
@@ -126,7 +126,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
 
         {/* Layer 2: Starts translateX(-100%), z-index 2 */}
         <div
-          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-white will-change-transform z-20 flex justify-center items-center text-center"
+          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-[#050801] will-change-transform z-20 flex justify-center items-center text-center"
           style={{ transform: 'translateX(-100%) translateY(0%)' }}
         >
           <svg
@@ -138,7 +138,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
               y="52%"
               textAnchor="middle"
               dominantBaseline="middle"
-              className="fill-[#1D2B04] font-black"
+              className="fill-[#E5FBD4] font-black"
               style={{
                 fontFamily: "'Outfit', 'Impact', sans-serif",
                 fontWeight: 900,
@@ -153,7 +153,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
 
         {/* Layer 3: Starts translateX(+100%) */}
         <div
-          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-white will-change-transform z-10 flex justify-center items-center text-center"
+          className="services-header relative w-full px-2 sm:px-6 md:px-12 bg-[#050801] will-change-transform z-10 flex justify-center items-center text-center"
           style={{ transform: 'translateX(100%) translateY(0%)' }}
         >
           <svg
@@ -165,7 +165,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
               y="52%"
               textAnchor="middle"
               dominantBaseline="middle"
-              className="fill-[#1D2B04] font-black"
+              className="fill-[#E5FBD4] font-black"
               style={{
                 fontFamily: "'Outfit', 'Impact', sans-serif",
                 fontWeight: 900,
@@ -180,31 +180,31 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       </section>
 
       {/* ===== SECTION 3: SERVICES-COPY (Second Progressive Text Reveal) ===== */}
-      <section className="services-copy relative w-full mt-[140svh] md:mt-[155svh] px-6 md:px-12 pb-[20svh] text-center bg-white">
+      <section className="services-copy relative w-full mt-[140svh] md:mt-[155svh] px-6 md:px-12 pb-[20svh] text-center bg-[#050801]">
         <h1
           ref={text2Ref}
-          className="animate-text-light font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans text-gray-300"
+          className="animate-text font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans"
         >
           Squat Fitness engineers training that values clarity above excess. Through minimal form, precise biometrics, and quiet order, we turn daily habits into lifelong mastery.
         </h1>
       </section>
 
       {/* ===== SECTION 4: OUTRO PORTRAIT WITH ACTION BUTTONS ===== */}
-      <section className="relative w-full min-h-[90vh] h-[90svh] px-4 md:px-8 flex flex-col justify-center items-center overflow-hidden bg-[#F9FAFB] border-t border-gray-100">
+      <section className="relative w-full min-h-[90vh] h-[90svh] px-4 md:px-8 flex flex-col justify-center items-center overflow-hidden bg-[#050801] border-t border-[rgba(229,251,212,0.15)]">
         <div className="relative group mb-6">
-          <div className="relative w-[240px] sm:w-[270px] md:w-[290px] aspect-[5/7] rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-xl transition-transform duration-700 hover:scale-[1.02]">
+          <div className="relative w-[240px] sm:w-[270px] md:w-[290px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#0D1403] border border-[rgba(229,251,212,0.25)] shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
             <img
               src="/img/fitness-outro.jpg"
               alt="Squat Fitness athlete post-session"
               className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050801]/95 via-transparent to-[#050801]/30" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <div>
                 <p className="text-[9px] tracking-widest text-[#E5FBD4] uppercase font-mono font-bold">PHASE II</p>
                 <h3 className="text-xs font-bold tracking-wide text-white uppercase">THE ARENA AWAITS</h3>
               </div>
-              <span className="text-[10px] font-mono text-[#E5FBD4]/80">READY</span>
+              <span className="text-[10px] font-mono text-[#E5FBD4]/90 font-bold">READY</span>
             </div>
           </div>
         </div>
@@ -213,25 +213,25 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
         <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
           <button
             onClick={onExploreWorkouts}
-            className="px-6 py-2.5 rounded-full bg-[#1D2B04] text-white font-medium text-xs tracking-wider uppercase hover:bg-black transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md shadow-gray-300/50"
+            className="px-6 py-2.5 rounded-full bg-[#E5FBD4] text-[#050801] font-bold text-xs tracking-wider uppercase hover:bg-white transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-lg shadow-[#E5FBD4]/10 hover:shadow-[#E5FBD4]/20"
           >
-            <Flame className="w-3.5 h-3.5 text-[#E5FBD4]" />
+            <Flame className="w-3.5 h-3.5 text-[#050801]" />
             <span>Explore Regimens</span>
           </button>
           <button
             onClick={onOpenDashboard}
-            className="px-6 py-2.5 rounded-full bg-white text-gray-900 border border-gray-300 hover:border-gray-900 font-medium text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-xs"
+            className="px-6 py-2.5 rounded-full bg-[#182405] text-[#E5FBD4] border border-[rgba(229,251,212,0.25)] hover:border-[#E5FBD4] font-bold text-xs tracking-wider uppercase transition-all duration-300 flex items-center gap-2 cursor-pointer shadow-md"
           >
-            <Activity className="w-3.5 h-3.5 text-[#1D2B04]" />
+            <Activity className="w-3.5 h-3.5 text-[#E5FBD4]" />
             <span>Open Dashboard</span>
           </button>
         </div>
 
         <div className="mt-4 flex flex-col items-center gap-1.5">
-          <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-gray-400 font-medium">
+          <p className="text-[11px] font-mono uppercase tracking-[0.25em] text-[#E5FBD4]/60 font-semibold">
             CONTINUE DOWN TO LIVE TELEMETRY
           </p>
-          <ArrowDown className="w-4 h-4 text-gray-400 animate-bounce" />
+          <ArrowDown className="w-4 h-4 text-[#E5FBD4]/60 animate-bounce" />
         </div>
       </section>
     </div>

@@ -19,6 +19,7 @@ const CUBE_IMAGES = [
 export default function Hero3DSection() {
   const containerRef = useRef(null);
   const stickyRef = useRef(null);
+  const openerGroupRef = useRef(null);
   const logoRef = useRef(null);
   const cubesRef = useRef(null);
   const header1Ref = useRef(null);
@@ -40,13 +41,13 @@ export default function Hero3DSection() {
         return start + (end - start) * progress;
       };
 
-      // Helper for color interpolation (from forest green #1D2B04 to clean pure white #FFFFFF)
+      // Helper for color interpolation (from forest green #1D2B04 to deep sleek black #050801)
       // #1D2B04 is rgb(29, 43, 4)
-      // #FFFFFF is rgb(255, 255, 255)
+      // #050801 is rgb(5, 8, 1)
       const interpolateColor = (progress) => {
-        const r = Math.round(29 + (255 - 29) * progress);
-        const g = Math.round(43 + (255 - 43) * progress);
-        const b = Math.round(4 + (255 - 4) * progress);
+        const r = Math.round(29 + (5 - 29) * progress);
+        const g = Math.round(43 + (8 - 43) * progress);
+        const b = Math.round(4 + (1 - 4) * progress);
         return `rgb(${r}, ${g}, ${b})`;
       };
 
@@ -80,16 +81,16 @@ export default function Hero3DSection() {
           // 3. Header 1: Scale, Blur, Fade Out
           if (header1) {
             const header1Progress = Math.min(self.progress * 2.5, 1);
-            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.4, header1Progress)})`;
+            header1.style.transform = `scale(${interpolate(1, 1.35, header1Progress)})`;
             header1.style.filter = `blur(${interpolate(0, 20, header1Progress)}px)`;
             header1.style.opacity = `${1 - header1Progress}`;
           }
 
-          // 4. Header 2: Scale, Blur, Fade In (Compact, perfectly centered inside the arch)
+          // 4. Header 2: Scale, Blur, Fade In (Generous size, perfectly centered inside the arch)
           if (header2) {
             const header2StartProgress = (self.progress - 0.4) * 10;
             const header2Progress = Math.max(0, Math.min(header2StartProgress, 1));
-            const header2Scale = interpolate(0.8, 1, header2Progress);
+            const header2Scale = interpolate(0.85, 1, header2Progress);
             const header2Blur = interpolate(10, 0, header2Progress);
 
             header2.style.transform = `translate(-50%, -50%) scale(${header2Scale})`;
@@ -131,23 +132,12 @@ export default function Hero3DSection() {
             `;
           });
 
-          // 6. Smooth Transition to White Background (progress 0.65 to 1.0)
+          // 6. Smooth Transition to Deep Sleek Black Background (progress 0.65 to 1.0)
           if (self.progress >= 0.65) {
             const colorProgress = (self.progress - 0.65) / 0.35;
             stickySection.style.backgroundColor = interpolateColor(colorProgress);
-            if (header2) {
-              // Transition text color from mint white #E5FBD4 to dark charcoal #111827
-              const textColorProgress = Math.min(colorProgress * 1.5, 1);
-              const tr = Math.round(229 - (229 - 17) * textColorProgress);
-              const tg = Math.round(251 - (251 - 24) * textColorProgress);
-              const tb = Math.round(212 - (212 - 39) * textColorProgress);
-              header2.style.color = `rgb(${tr}, ${tg}, ${tb})`;
-            }
           } else {
             stickySection.style.backgroundColor = '#1D2B04';
-            if (header2) {
-              header2.style.color = '#E5FBD4';
-            }
           }
         },
       });
@@ -164,15 +154,25 @@ export default function Hero3DSection() {
         id="home"
         className="sticky-hero relative w-full h-[100vh] overflow-hidden flex items-center justify-center select-none bg-[#1D2B04] text-[#E5FBD4]"
       >
-        {/* Exact Geometric Arch Logo (Top 26%, Scaled Down & Centered) */}
+        {/* Combined Hero Opener: Arch Shape & Headline Centered Together as One Unit */}
         <div
-          ref={logoRef}
-          className="absolute top-[26%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
+          ref={openerGroupRef}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[80%] md:w-[72%] max-w-3xl flex flex-col items-center justify-center text-center z-10 pointer-events-none select-none"
         >
-          <ArchLogo className="w-20 sm:w-24 md:w-28 h-auto text-[#E5FBD4]" />
+          {/* Slightly Larger Arch Shape Centered Directly with the Headline */}
+          <div ref={logoRef} className="mb-6 sm:mb-8 transition-opacity">
+            <ArchLogo className="w-28 sm:w-36 md:w-40 lg:w-44 h-auto text-[#E5FBD4]" />
+          </div>
+
+          {/* Header 1 Headline Centered with the Arch Logo */}
+          <div ref={header1Ref} className="w-full">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-[#E5FBD4] font-sans">
+              The first performance company built for the disciplined generation.
+            </h1>
+          </div>
         </div>
 
-        {/* 3D Cubes Viewport Container (150px Sized Cubes Framing Center) */}
+        {/* 3D Cubes Viewport Container (150px Cubes Framing the Arch) */}
         <div ref={cubesRef} className="cubes-viewport" style={{ opacity: 0 }}>
           {[1, 2, 3, 4, 5, 6].map((num, cubeIdx) => {
             const imgStart = cubeIdx * 6;
@@ -201,26 +201,16 @@ export default function Hero3DSection() {
           })}
         </div>
 
-        {/* Header 1 (Initial Statement: Clean, Centered, Proportional) */}
-        <div
-          ref={header1Ref}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[75%] md:w-[60%] max-w-2xl text-center z-10 pointer-events-none"
-        >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-[1.12] tracking-tight text-[#E5FBD4] font-sans">
-            The first performance company built for the disciplined generation.
-          </h1>
-        </div>
-
-        {/* Header 2 (Phase 2 Statement: Compact, Perfectly Centered, Zero Overlap with Cubes) */}
+        {/* Header 2 (Phase 2 Statement: Sized Appropriately & Centered Inside Cubes Arch) */}
         <div
           ref={header2Ref}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[88%] sm:w-[420px] max-w-md text-center z-20 pointer-events-none opacity-0"
-          style={{ filter: 'blur(10px)', transform: 'translate(-50%, -50%) scale(0.8)' }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[88%] sm:w-[500px] md:w-[540px] max-w-xl text-center z-20 pointer-events-none opacity-0"
+          style={{ filter: 'blur(10px)', transform: 'translate(-50%, -50%) scale(0.85)' }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight mb-2.5 font-sans leading-snug">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal tracking-tight mb-3 font-sans leading-snug text-[#E5FBD4]">
             We've engineered the ultimate protocols for lasting strength.
           </h2>
-          <p className="text-xs sm:text-sm font-light leading-relaxed opacity-85 mx-auto">
+          <p className="text-sm sm:text-base md:text-lg font-light leading-relaxed opacity-90 mx-auto text-[#E5FBD4]">
             Squat Fitness unites strength science, progressive overload, and intelligent metabolic telemetry—collaborating seamlessly to deliver tailored regimens that drive human performance.
           </p>
         </div>

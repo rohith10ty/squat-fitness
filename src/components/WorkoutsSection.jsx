@@ -39,30 +39,30 @@ export default function WorkoutsSection() {
   const getDifficultyColor = (diff) => {
     switch (diff.toLowerCase()) {
       case 'beginner':
-        return 'text-emerald-800 bg-emerald-50 border-emerald-200';
+        return 'text-emerald-300 bg-emerald-950/60 border-emerald-500/40';
       case 'intermediate':
-        return 'text-blue-800 bg-blue-50 border-blue-200';
+        return 'text-blue-300 bg-blue-950/60 border-blue-500/40';
       case 'advanced':
-        return 'text-purple-800 bg-purple-50 border-purple-200';
+        return 'text-amber-300 bg-amber-950/60 border-amber-500/40';
       default:
-        return 'text-gray-800 bg-gray-50 border-gray-200';
+        return 'text-[#E5FBD4] bg-[#182405] border-[rgba(229,251,212,0.2)]';
     }
   };
 
   return (
-    <section id="workouts" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans bg-white text-gray-900">
+    <section id="workouts" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans bg-[#050801] text-[#E5FBD4]">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-gray-200 pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[rgba(229,251,212,0.15)] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#1D2B04] uppercase mb-2 font-semibold">
-            <span className="w-2 h-2 rounded-full bg-[#1D2B04]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#E5FBD4] uppercase mb-2 font-bold">
+            <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
             <span>MODULAR REGIMENS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#E5FBD4]">
             Targeted Workout Protocols
           </h2>
         </div>
-        <p className="mt-2 md:mt-0 text-sm text-gray-500 font-mono">
+        <p className="mt-2 md:mt-0 text-xs text-[#E5FBD4]/70 font-mono">
           SYSTEM CALIBRATED // SELECT CATEGORY &amp; ENGAGE
         </p>
       </div>
@@ -75,10 +75,10 @@ export default function WorkoutsSection() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide whitespace-nowrap transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'bg-[#1D2B04] text-white font-semibold shadow-xs'
-                  : 'bg-gray-100 text-gray-600 border border-gray-200 hover:text-gray-900 hover:bg-gray-200'
+                  ? 'bg-[#E5FBD4] text-[#050801] font-bold shadow-md shadow-[#E5FBD4]/15'
+                  : 'bg-[#0D1403] text-[#E5FBD4]/75 border border-[rgba(229,251,212,0.2)] hover:text-[#E5FBD4] hover:bg-[#182405]'
               }`}
             >
               {cat}
@@ -92,24 +92,24 @@ export default function WorkoutsSection() {
         {filteredWorkouts.map((workout) => (
           <div
             key={workout.id}
-            className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 flex flex-col justify-between shadow-xs hover:shadow-md"
+            className="group bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl overflow-hidden hover:border-[rgba(229,251,212,0.35)] transition-all duration-300 flex flex-col justify-between shadow-xl"
           >
             {/* Card Visual Header */}
-            <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+            <div className="relative h-48 w-full overflow-hidden bg-[#111A04]">
               <img
                 src={workout.image}
                 alt={workout.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500 filter brightness-90 group-hover:brightness-100"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D1403] via-transparent to-black/30" />
 
               {/* Category & Difficulty Badges */}
               <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-white border border-white/20">
+                <span className="px-2.5 py-1 rounded bg-black/70 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-[#E5FBD4] border border-[rgba(229,251,212,0.2)]">
                   {workout.category}
                 </span>
                 <span
-                  className={`px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider border font-medium ${getDifficultyColor(
+                  className={`px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider border font-bold ${getDifficultyColor(
                     workout.difficulty
                   )}`}
                 >
@@ -119,7 +119,7 @@ export default function WorkoutsSection() {
 
               {/* Status Pill */}
               {workout.completed && (
-                <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-emerald-500 text-white text-[10px] font-mono font-bold flex items-center gap-1 shadow-md">
+                <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-emerald-500 text-black text-[10px] font-mono font-bold flex items-center gap-1 shadow-md">
                   <Check className="w-3 h-3 stroke-[3]" /> COMPLETED
                 </div>
               )}
@@ -128,38 +128,38 @@ export default function WorkoutsSection() {
             {/* Card Content */}
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#1D2B04] transition-colors">
+                <h3 className="text-lg font-bold text-[#E5FBD4] group-hover:text-white transition-colors">
                   {workout.title}
                 </h3>
-                <p className="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-[#E5FBD4]/70 mt-2 line-clamp-2 leading-relaxed">
                   {workout.description}
                 </p>
               </div>
 
               {/* Specs: Duration, Calories */}
-              <div className="mt-5 pt-4 border-t border-gray-100 space-y-3">
-                <div className="flex items-center justify-between text-xs font-mono text-gray-700">
-                  <span className="flex items-center gap-1.5 text-gray-500">
-                    <Clock className="w-3.5 h-3.5 text-gray-700" />
+              <div className="mt-5 pt-4 border-t border-[rgba(229,251,212,0.1)] space-y-3">
+                <div className="flex items-center justify-between text-xs font-mono text-[#E5FBD4]">
+                  <span className="flex items-center gap-1.5 text-[#E5FBD4]/80">
+                    <Clock className="w-3.5 h-3.5 text-[#E5FBD4]" />
                     {workout.duration} Mins
                   </span>
-                  <span className="flex items-center gap-1.5 text-gray-500">
-                    <Flame className="w-3.5 h-3.5 text-orange-500" />
+                  <span className="flex items-center gap-1.5 text-[#E5FBD4]/80">
+                    <Flame className="w-3.5 h-3.5 text-orange-400" />
                     {workout.calories} kcal
                   </span>
                 </div>
 
                 {/* Progress bar */}
                 <div>
-                  <div className="flex items-center justify-between text-[11px] font-mono text-gray-500 mb-1">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-[#E5FBD4]/70 mb-1">
                     <span>PROGRESS</span>
-                    <span className={workout.completed ? 'text-emerald-600 font-bold' : 'text-gray-800'}>
+                    <span className={workout.completed ? 'text-emerald-400 font-bold' : 'text-[#E5FBD4]'}>
                       {workout.progress}%
                     </span>
                   </div>
-                  <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
+                  <div className="w-full bg-[#182405] h-1.5 rounded-full overflow-hidden border border-[rgba(229,251,212,0.1)]">
                     <div
-                      className="h-full rounded-full transition-all duration-500 bg-[#1D2B04]"
+                      className="h-full rounded-full transition-all duration-500 bg-gradient-to-r from-emerald-500 to-[#E5FBD4]"
                       style={{ width: `${workout.progress}%` }}
                     />
                   </div>
@@ -169,9 +169,9 @@ export default function WorkoutsSection() {
                 <div className="pt-2 flex items-center gap-2">
                   <button
                     onClick={() => setActiveModalWorkout(workout)}
-                    className="flex-1 py-2 px-3 rounded-lg bg-[#1D2B04] hover:bg-black text-white text-xs font-medium tracking-wide transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+                    className="flex-1 py-2 px-3 rounded-lg bg-[#E5FBD4] hover:bg-white text-[#050801] text-xs font-bold font-mono tracking-wide transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md shadow-[#E5FBD4]/10"
                   >
-                    <Play className="w-3.5 h-3.5" />
+                    <Play className="w-3.5 h-3.5 fill-[#050801]" />
                     <span>View Protocol &amp; Timer</span>
                   </button>
                   <button
@@ -179,8 +179,8 @@ export default function WorkoutsSection() {
                     title={workout.completed ? 'Mark Incomplete' : 'Mark Completed'}
                     className={`p-2 rounded-lg border transition-colors cursor-pointer ${
                       workout.completed
-                        ? 'bg-emerald-50 border-emerald-500 text-emerald-600'
-                        : 'border-gray-200 text-gray-400 hover:text-gray-900 hover:border-gray-300'
+                        ? 'bg-emerald-950/80 border-emerald-500 text-emerald-300'
+                        : 'border-[rgba(229,251,212,0.2)] bg-[#182405] text-[#E5FBD4]/60 hover:text-[#E5FBD4] hover:border-[rgba(229,251,212,0.4)]'
                     }`}
                   >
                     <Check className="w-4 h-4 stroke-[2.5]" />
