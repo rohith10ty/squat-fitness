@@ -129,8 +129,28 @@ export default function Hero3DSection() {
             if (!cube) return;
             const { initial, final } = data;
 
-            const currentTop = interpolate(initial.top, final.top, firstPhaseProgress);
-            const currentLeft = interpolate(initial.left, final.left, firstPhaseProgress);
+            // Responsive final coordinates: on mobile/tablets, push cubes outward to cleanly frame Header 2
+            const isMobile = window.innerWidth <= 768;
+            let targetFinalTop = final.top;
+            let targetFinalLeft = final.left;
+
+            if (isMobile) {
+              const mobileCoords = {
+                'cube-1': { top: 50, left: 13 },
+                'cube-2': { top: 78, left: 14 },
+                'cube-3': { top: 22, left: 14 },
+                'cube-4': { top: 78, left: 86 },
+                'cube-5': { top: 22, left: 86 },
+                'cube-6': { top: 50, left: 87 },
+              };
+              if (mobileCoords[cubeClass]) {
+                targetFinalTop = mobileCoords[cubeClass].top;
+                targetFinalLeft = mobileCoords[cubeClass].left;
+              }
+            }
+
+            const currentTop = interpolate(initial.top, targetFinalTop, firstPhaseProgress);
+            const currentLeft = interpolate(initial.left, targetFinalLeft, firstPhaseProgress);
             const currentRotateX = interpolate(initial.rotateX, final.rotateX, firstPhaseProgress);
             const currentRotateY = interpolate(initial.rotateY, final.rotateY, firstPhaseProgress);
             const currentRotateZ = interpolate(initial.rotateZ, final.rotateZ, firstPhaseProgress);

@@ -17,11 +17,14 @@ export default function Navbar({ activeSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Default to false: Home screen is cream (#F5F1E8), so navbar starts BLACK (#1E1B18)
   const [isOverDark, setIsOverDark] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
     let ticking = false;
 
     const checkBrightness = () => {
+      setHasScrolled(window.scrollY > 30);
+
       // 1. If at the top of the page / within hero, always light screen (Cream #F5F1E8) -> BLACK navbar
       if (window.scrollY < window.innerHeight * 3.5) {
         setIsOverDark(false);
@@ -111,9 +114,14 @@ export default function Navbar({ activeSection }) {
 
   const textColor = isOverDark ? 'text-white' : 'text-[#1E1B18]';
   const logoColor = isOverDark ? '#FFFFFF' : '#1E1B18';
+  const headerBg = hasScrolled
+    ? (isOverDark
+        ? 'backdrop-blur-md bg-[#0A0A0A]/85 border-b border-white/10 shadow-lg'
+        : 'backdrop-blur-md bg-[#F5F1E8]/85 border-b border-[#1E1B18]/10 shadow-sm')
+    : 'bg-transparent border-transparent';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 sm:px-10 lg:px-14 py-6 flex items-center justify-between bg-transparent border-none shadow-none pointer-events-none select-none">
+    <header className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-14 py-3 sm:py-4 lg:py-6 flex items-center justify-between transition-all duration-300 pointer-events-none select-none ${headerBg}`}>
       <div className="flex items-center justify-between w-full">
         {/* Brand: Minimalist Geometric Arch Icon + Bold Squat Fitness on the Left */}
         <a

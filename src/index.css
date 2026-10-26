@@ -195,64 +195,105 @@ header span, header a, header svg, header svg rect, header svg polygon {
 
 @media (max-width: 1024px) {
   .hero-logo {
-    gap: 20px;
-    top: 22%;
+    gap: 18px;
+    top: 25%;
   }
   .hero-col:nth-child(2) {
-    gap: 22px;
+    gap: 20px;
   }
   .hero-block {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
   }
   .hero-header-1 {
-    width: 85%;
+    width: 75%;
     top: 52%;
   }
   .hero-header-2 {
-    width: 60%;
+    width: 44%;
   }
-  .cube-3d, .cube-3d > div {
-    width: 110px;
-    height: 110px;
+  .cube, .cube > div {
+    width: 90px !important;
+    height: 90px !important;
   }
-  .face-front { transform: translateZ(55px); }
-  .face-back { transform: translateZ(-55px) rotateY(180deg); }
-  .face-right { transform: translateX(55px) rotateY(90deg); }
-  .face-left { transform: translateX(-55px) rotateY(-90deg); }
-  .face-top { transform: translateY(-55px) rotateX(90deg); }
-  .face-bottom { transform: translateY(55px) rotateX(-90deg); }
+  .front { transform: translateZ(45px) !important; }
+  .back { transform: translateZ(-45px) rotateY(180deg) !important; }
+  .right { transform: translateX(45px) rotateY(90deg) !important; }
+  .left { transform: translateX(-45px) rotateY(-90deg) !important; }
+  .top { transform: translateY(-45px) rotateX(90deg) !important; }
+  .bottom { transform: translateY(45px) rotateX(-90deg) !important; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hero-logo {
-    gap: 16px;
-    top: 20%;
+    gap: 14px;
+    top: 25%;
   }
   .hero-col:nth-child(2) {
-    gap: 18px;
+    gap: 16px;
   }
   .hero-block {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
   }
   .hero-header-1 {
-    width: 92%;
-    top: 54%;
+    width: 86%;
+    max-width: 330px;
+    top: 52%;
+  }
+  .hero-header-1 h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.22 !important;
   }
   .hero-header-2 {
-    width: 85%;
+    width: 58% !important;
+    max-width: 215px !important;
+    top: 50% !important;
   }
-  .cube-3d, .cube-3d > div {
-    width: 80px;
-    height: 80px;
+  .hero-header-2 h2 {
+    font-size: 1.05rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.35rem !important;
+    font-weight: 700 !important;
   }
-  .face-front { transform: translateZ(40px); }
-  .face-back { transform: translateZ(-40px) rotateY(180deg); }
-  .face-right { transform: translateX(40px) rotateY(90deg); }
-  .face-left { transform: translateX(-40px) rotateY(-90deg); }
-  .face-top { transform: translateY(-40px) rotateX(90deg); }
-  .face-bottom { transform: translateY(40px) rotateX(-90deg); }
+  .hero-header-2 p {
+    font-size: 0.70rem !important;
+    line-height: 1.35 !important;
+    opacity: 0.85 !important;
+  }
+  .cube, .cube > div {
+    width: 58px !important;
+    height: 58px !important;
+  }
+  .front { transform: translateZ(29px) !important; }
+  .back { transform: translateZ(-29px) rotateY(180deg) !important; }
+  .right { transform: translateX(29px) rotateY(90deg) !important; }
+  .left { transform: translateX(-29px) rotateY(-90deg) !important; }
+  .top { transform: translateY(-29px) rotateX(90deg) !important; }
+  .bottom { transform: translateY(29px) rotateX(-90deg) !important; }
+}
+
+@media (max-width: 380px) {
+  .hero-header-2 {
+    width: 56% !important;
+    max-width: 195px !important;
+  }
+  .hero-header-2 h2 {
+    font-size: 0.95rem !important;
+  }
+  .hero-header-2 p {
+    font-size: 0.65rem !important;
+  }
+  .cube, .cube > div {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  .front { transform: translateZ(26px) !important; }
+  .back { transform: translateZ(-26px) rotateY(180deg) !important; }
+  .right { transform: translateX(26px) rotateY(90deg) !important; }
+  .left { transform: translateX(-26px) rotateY(-90deg) !important; }
+  .top { transform: translateY(-26px) rotateX(90deg) !important; }
+  .bottom { transform: translateY(26px) rotateX(-90deg) !important; }
 }
 
 /* === Progressive Text Reveal Scrub (Attachment 3 Fix: Pure Black on Cream) === */

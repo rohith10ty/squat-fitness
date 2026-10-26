@@ -128,7 +128,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       <section className="relative w-full min-h-[85vh] h-[85svh] px-6 md:px-12 flex justify-center items-center overflow-hidden bg-[#F5F1E8]">
         <h1
           ref={text1Ref}
-          className="animate-text font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans"
+          className="animate-text font-black text-xl sm:text-3xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.22] select-none uppercase font-sans"
         >
           A space for training shaped with clarity and intention. Each protocol follows a simple path from discipline to strength, from strength to longevity.
         </h1>
@@ -226,10 +226,10 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       </section>
 
       {/* ===== SECTION 3: SERVICES-COPY (Second Progressive Text Reveal on Pure Jet Black) ===== */}
-      <section id="dark-theme-trigger" className="services-copy relative w-full mt-[140svh] md:mt-[155svh] px-6 md:px-12 pb-[20svh] text-center bg-[#0A0A0A] text-[#F5F1E8]">
+      <section id="dark-theme-trigger" className="services-copy relative w-full mt-[180vh] md:mt-[190vh] pt-28 sm:pt-36 pb-24 px-6 md:px-12 text-center bg-[#0A0A0A] text-[#F5F1E8]">
         <h1
           ref={text2Ref}
-          className="animate-text-dark font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.18] select-none uppercase font-sans"
+          className="animate-text-dark font-black text-xl sm:text-3xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.22] select-none uppercase font-sans"
         >
           Squat Fitness engineers training that values clarity above excess. Through minimal form, precise biometrics, and quiet order, we turn daily habits into lifelong mastery.
         </h1>
