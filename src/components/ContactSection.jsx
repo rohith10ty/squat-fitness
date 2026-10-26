@@ -60,8 +60,8 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[10px] font-mono uppercase text-[#71717a] block">Direct Email</span>
-                <a href="mailto:performance@aura-fitness.com" className="text-sm font-mono text-white hover:text-[#ccff00] transition-colors">
-                  performance@aura-fitness.com
+                <a href="mailto:performance@squatfitness.com" className="text-sm font-mono text-white hover:text-[#ccff00] transition-colors">
+                  performance@squatfitness.com
                 </a>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <span className="text-[10px] font-mono uppercase text-[#71717a] block">Phone Support</span>
-                <span className="text-sm font-mono text-white">+1 (800) 428-AURA</span>
+                <span className="text-sm font-mono text-white">+1 (800) 428-SQUAT</span>
               </div>
             </div>
 

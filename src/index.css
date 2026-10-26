@@ -15,7 +15,7 @@
   body {
     background-color: #141414;
     color: #f4f4f5;
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
@@ -45,6 +45,7 @@
   --clip-value: 100%;
   line-height: 1.25;
   transition: color 0.2s ease;
+  font-family: 'Outfit', sans-serif;
 }
 
 .animate-text::before {
@@ -73,15 +74,16 @@
 
 /* Minimalist Utilities */
 .glass-panel {
-  background: rgba(28, 28, 28, 0.75);
+  background: rgba(24, 24, 24, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-pill {
-  background: rgba(36, 36, 36, 0.8);
-  backdrop-filter: blur(12px);
+  background: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 

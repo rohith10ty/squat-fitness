@@ -1,3 +1,15 @@
-<svg width="5172" height="723" viewBox="0 0 5172 723" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M 480 20 H 960 V 155 H 615 V 295 H 900 V 431 H 615 V 705 H 480 Z M 1060 20 H 1240 V 705 H 1060 Z M 1340 20 H 1840 V 155 H 1658 V 705 H 1523 V 155 H 1340 Z M 1940 20 H 2075 L 2345 525 V 20 H 2480 V 705 H 2345 L 2075 200 V 705 H 1940 Z M 2580 20 H 3060 V 155 H 2715 V 295 H 2980 V 431 H 2715 V 570 H 3060 V 705 H 2580 Z M 3160 20 H 3650 V 431 H 3295 V 570 H 3650 V 705 H 3160 V 295 H 3515 V 155 H 3160 Z M 3750 20 H 4240 V 431 H 3885 V 570 H 4240 V 705 H 3750 V 295 H 4105 V 155 H 3750 Z" fill="white" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4000 600" width="100%" height="100%" fill="none">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@900&amp;display=swap');
+    .fitness-text {
+      font-family: 'Outfit', 'Montserrat', 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: 460px;
+      letter-spacing: 0.12em;
+      fill: #ffffff;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+  </style>
+  <text x="50%" y="50%" class="fitness-text">FITNESS</text>
 </svg>

@@ -8,26 +8,30 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#101010] border-t border-[#222222] text-[#a1a1aa] pt-16 pb-12">
+    <footer className="relative bg-[#101010] border-t border-[#222222] text-[#a1a1aa] pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#222]">
-          {/* Brand Column */}
+          {/* Brand Column - Squat Fitness */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-sm bg-[#1c1c1c] border border-[#2e2e2e] flex items-center justify-center">
-                <span className="w-2.5 h-2.5 bg-[#ccff00] rounded-[2px]" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded bg-[#1c1c1c] border border-[#2e2e2e] flex items-center justify-center">
+                <span className="w-2.5 h-2.5 bg-[#ccff00] rounded-sm" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-black tracking-widest text-white leading-none">AURA</span>
-                <span className="text-[9px] font-mono tracking-widest text-[#71717a] uppercase">KINETICS</span>
+                <span className="text-base font-black tracking-wider text-white leading-none">
+                  SQUAT
+                </span>
+                <span className="text-[9px] font-mono tracking-widest text-[#ccff00] uppercase mt-0.5">
+                  FITNESS LABS
+                </span>
               </div>
             </div>
-            <p className="text-xs text-[#71717a] leading-relaxed max-w-sm font-sans">
-              A minimalist fitness tracker engineered with clarity and intention. We distill training telemetry, macro nutrition, and progressive overload into quiet order.
+            <p className="text-xs text-[#71717a] leading-relaxed max-w-sm">
+              Squat Fitness is a minimalist performance platform engineered with clarity and intention. We distill training telemetry, macro nutrition, and progressive overload into quiet order.
             </p>
             <div className="pt-2 flex items-center gap-3">
               <span className="w-2 h-2 rounded-full bg-[#ccff00]" />
-              <span className="text-[11px] font-mono text-[#a1a1aa]">SYSTEM v2.6 // ONLINE</span>
+              <span className="text-[11px] font-mono text-[#a1a1aa]">SQUAT TELEMETRY v2.6 // ONLINE</span>
             </div>
           </div>
 
@@ -137,7 +141,7 @@ export default function Footer() {
 
         {/* Bottom Bar with Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#71717a]">
-          <p>© {new Date().getFullYear()} AURA FITNESS LABS. ALL RIGHTS RESERVED.</p>
+          <p>© {new Date().getFullYear()} SQUAT FITNESS LABS. ALL RIGHTS RESERVED.</p>
           
           <button
             onClick={scrollToTop}

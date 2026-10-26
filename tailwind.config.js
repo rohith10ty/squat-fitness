@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Manrope', 'system-ui', 'sans-serif'],
-        display: ['Manrope', 'sans-serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
       },
       colors: {
         fitness: {
