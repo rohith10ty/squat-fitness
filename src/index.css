@@ -5,7 +5,6 @@
 @layer base {
   * {
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-    border-color: rgba(30, 27, 24, 0.12);
   }
   
   html {
@@ -16,8 +15,8 @@
   }
 
   body {
-    background-color: #F5F1E8;
-    color: #1E1B18;
+    background-color: #050801;
+    color: #E5FBD4;
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scrollbar-width: none !important;
@@ -42,15 +41,10 @@
   color: #1E1B18;
 }
 
-/* 6-Block Geometric Arch Logo from Reference 42 */
+/* Enlarged 6-Block Geometric Arch Logo Centered with Header 1 */
 .hero-logo {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  gap: 24px;
-  z-index: 2;
+  gap: 32px;
   pointer-events: none;
 }
 
@@ -61,13 +55,14 @@
 }
 
 .hero-col:nth-child(2) {
-  gap: 26px;
+  gap: 36px;
 }
 
 .hero-block {
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 48px;
   background-color: #1E1B18;
+  transition: all 0.3s ease;
 }
 
 .hero-block-1 {
@@ -109,7 +104,7 @@
   transform-style: preserve-3d;
   backface-visibility: visible;
   overflow: hidden;
-  border: 1px solid rgba(30, 27, 24, 0.12);
+  border: 1px solid rgba(30, 27, 24, 0.15);
   box-shadow: 0 16px 36px rgba(30, 27, 24, 0.12);
   background-color: #EAE3D5;
 }
@@ -166,6 +161,16 @@
 }
 
 @media (max-width: 1024px) {
+  .hero-logo {
+    gap: 26px;
+  }
+  .hero-col:nth-child(2) {
+    gap: 28px;
+  }
+  .hero-block {
+    width: 38px;
+    height: 38px;
+  }
   .cube-3d, .cube-3d > div {
     width: 110px;
     height: 110px;
@@ -180,15 +185,14 @@
 
 @media (max-width: 640px) {
   .hero-logo {
-    gap: 16px;
-    top: 20%;
-  }
-  .hero-col:nth-child(2) {
     gap: 18px;
   }
+  .hero-col:nth-child(2) {
+    gap: 20px;
+  }
   .hero-block {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
   }
   .cube-3d, .cube-3d > div {
     width: 80px;
@@ -202,12 +206,12 @@
   .face-bottom { transform: translateY(40px) rotateX(-90deg); }
 }
 
-/* === Progressive Text Reveal Scrub (Sample 61 Cream & Beige Aesthetic) === */
+/* === Progressive Text Reveal Scrub (Sample 61 Deep Black & Mint White) === */
 .animate-text {
   position: relative;
   width: 80%;
   margin: 0 auto;
-  color: #C8BFAF;
+  color: #2D4409;
   --clip-value: 100%;
   line-height: 1.22;
   transition: color 0.2s ease;
@@ -221,7 +225,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  color: #1E1B18;
+  color: #E5FBD4;
   clip-path: inset(0 0 var(--clip-value) 0);
   will-change: clip-path;
 }

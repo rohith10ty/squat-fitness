@@ -77,7 +77,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F5F1E8] text-[#1E1B18] overflow-x-hidden selection:bg-[#1E1B18] selection:text-[#F5F1E8] font-sans">
+    <div className="min-h-screen bg-[#F5F1E8] text-[#1E1B18] overflow-x-hidden selection:bg-[#E5FBD4] selection:text-[#050801] font-sans">
       {/* 42 Minimal Edge-to-Edge Navbar */}
       <Navbar activeSection={activeSection} />
 
@@ -90,34 +90,37 @@ export default function App() {
         onOpenDashboard={() => scrollTo('dashboard')}
       />
 
-      {/* Section Divider Bar */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-[#D8CFBF] to-transparent" />
+      {/* Downstream Luxury Black Theme Container */}
+      <div className="bg-[#050801] text-[#E5FBD4] relative">
+        {/* Section Divider Bar */}
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="h-px bg-gradient-to-r from-transparent via-[rgba(229,251,212,0.15)] to-transparent" />
+        </div>
+
+        {/* Fitness Dashboard */}
+        <FitnessDashboard />
+
+        {/* Modular Workouts & Regimens */}
+        <WorkoutsSection />
+
+        {/* Performance Progress & Analytics */}
+        <ProgressTracking />
+
+        {/* Precision BMI Calculator */}
+        <BmiCalculator />
+
+        {/* Targeted Nutrition & Hydration */}
+        <NutritionSection />
+
+        {/* Goals & Objectives */}
+        <GoalsSection />
+
+        {/* Coach Inquiries & Contact */}
+        <ContactSection />
+
+        {/* Minimal Footer */}
+        <Footer />
       </div>
-
-      {/* Fitness Dashboard */}
-      <FitnessDashboard />
-
-      {/* Modular Workouts & Regimens */}
-      <WorkoutsSection />
-
-      {/* Performance Progress & Analytics */}
-      <ProgressTracking />
-
-      {/* Precision BMI Calculator */}
-      <BmiCalculator />
-
-      {/* Targeted Nutrition & Hydration */}
-      <NutritionSection />
-
-      {/* Goals & Objectives */}
-      <GoalsSection />
-
-      {/* Coach Inquiries & Contact */}
-      <ContactSection />
-
-      {/* Minimal Footer */}
-      <Footer />
     </div>
   );
 }

@@ -9,24 +9,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#EAE3D5] border-t border-[#D8CFBF] text-[#1E1B18] pt-16 pb-12 font-sans">
+    <footer className="relative bg-[#030501] border-t border-[rgba(229,251,212,0.15)] text-[#E5FBD4] pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#D8CFBF]/70">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[rgba(229,251,212,0.1)]">
           {/* Brand Column - Squat Fitness */}
           <div className="lg:col-span-2 space-y-4">
-            <Logo size="md" showText={true} />
-            <p className="text-xs text-[#6A6055] leading-relaxed max-w-sm">
+            <Logo size="md" showText={true} className="text-white" />
+            <p className="text-xs text-[#E5FBD4]/70 leading-relaxed max-w-sm">
               Squat Fitness is a minimalist performance platform engineered with clarity and intention. We distill training telemetry, macro nutrition, and progressive overload into quiet order.
             </p>
             <div className="pt-2 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#1E1B18]" />
-              <span className="text-[11px] font-mono text-[#1E1B18] font-bold">SQUAT TELEMETRY v2.6 // ONLINE</span>
+              <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
+              <span className="text-[11px] font-mono text-[#E5FBD4] font-bold">SQUAT TELEMETRY v2.6 // ONLINE</span>
             </div>
           </div>
 
           {/* Quick Navigation - 6 Links */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-mono uppercase text-[#1E1B18] font-bold tracking-wider mb-4">
+            <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4">
               Navigation &amp; Protocols
             </h4>
             <ul className="grid grid-cols-2 gap-2 text-xs font-mono">
@@ -34,7 +34,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-black transition-colors text-[#6A6055] font-medium"
+                    className="hover:text-white transition-colors text-[#E5FBD4]/70 font-medium"
                   >
                     {link.name}
                   </a>
@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Social & Connect */}
           <div>
-            <h4 className="text-xs font-mono uppercase text-[#1E1B18] font-bold tracking-wider mb-4">
+            <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4">
               Community
             </h4>
             <div className="flex items-center gap-2 mb-4">
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] hover:border-[#1E1B18] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] hover:border-[#1E1B18] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
                 aria-label="X / Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] hover:border-[#1E1B18] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-white border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] hover:border-[#1E1B18] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -103,22 +103,22 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-[11px] font-mono text-[#6A6055]">
+            <p className="text-[11px] font-mono text-[#E5FBD4]/60">
               HQ: San Francisco, CA
             </p>
           </div>
         </div>
 
         {/* Bottom Bar with Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#6A6055]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#E5FBD4]/60">
           <p>© {new Date().getFullYear()} SQUAT FITNESS LABS. ALL RIGHTS RESERVED.</p>
           
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-[#1E1B18] transition-colors cursor-pointer"
+            className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
           >
             <span>BACK TO TOP</span>
-            <div className="w-6 h-6 rounded bg-white border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] shadow-xs">
+            <div className="w-6 h-6 rounded bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] shadow-xs hover:border-[#E5FBD4]">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import ArchLogo from './ArchLogo';
 
@@ -14,6 +14,16 @@ export const NAV_LINKS = [
 
 export default function Navbar({ activeSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkNavbar, setIsDarkNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Transition navbar colors when entering the deep black converted section
+      setIsDarkNavbar(window.scrollY > window.innerHeight * 1.6);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
@@ -30,10 +40,12 @@ export default function Navbar({ activeSection }) {
       <a
         href="#home"
         onClick={(e) => scrollToSection(e, '#home')}
-        className="flex items-center gap-3 group cursor-pointer pointer-events-auto"
+        className={`flex items-center gap-3 group cursor-pointer pointer-events-auto transition-colors duration-300 ${
+          isDarkNavbar ? 'text-[#E5FBD4]' : 'text-[#1E1B18]'
+        }`}
       >
-        <ArchLogo className="w-6 sm:w-7 h-auto shrink-0 text-[#1E1B18]" />
-        <span className="text-lg sm:text-xl font-bold tracking-tight text-[#1E1B18] font-sans">
+        <ArchLogo className="w-6 sm:w-7 h-auto shrink-0" />
+        <span className="text-lg sm:text-xl font-bold tracking-tight font-sans">
           Squat Fitness
         </span>
       </a>
@@ -47,8 +59,12 @@ export default function Navbar({ activeSection }) {
               key={link.name}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className={`text-sm tracking-wider font-semibold transition-all duration-200 cursor-pointer ${
-                isActive
+              className={`text-sm tracking-wider font-semibold transition-all duration-300 cursor-pointer ${
+                isDarkNavbar
+                  ? isActive
+                    ? 'text-[#E5FBD4] border-b-2 border-[#E5FBD4] pb-0.5'
+                    : 'text-[#E5FBD4]/75 hover:text-[#E5FBD4]'
+                  : isActive
                   ? 'text-[#1E1B18] border-b-2 border-[#1E1B18] pb-0.5'
                   : 'text-[#1E1B18]/70 hover:text-[#1E1B18]'
               }`}
@@ -62,7 +78,9 @@ export default function Navbar({ activeSection }) {
       {/* Mobile Hamburger Button */}
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="lg:hidden p-2 rounded-lg text-[#1E1B18] hover:bg-black/5 transition-colors cursor-pointer pointer-events-auto"
+        className={`lg:hidden p-2 rounded-lg transition-colors cursor-pointer pointer-events-auto ${
+          isDarkNavbar ? 'text-[#E5FBD4] hover:bg-white/10' : 'text-[#1E1B18] hover:bg-black/5'
+        }`}
         aria-label="Toggle menu"
       >
         {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -70,7 +88,13 @@ export default function Navbar({ activeSection }) {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-[#F5F1E8]/98 backdrop-blur-xl border-b border-[#D8CFBF] shadow-2xl py-6 px-6 lg:hidden flex flex-col gap-4 pointer-events-auto">
+        <div
+          className={`absolute top-full left-0 right-0 backdrop-blur-xl border-b shadow-2xl py-6 px-6 lg:hidden flex flex-col gap-4 pointer-events-auto transition-colors duration-300 ${
+            isDarkNavbar
+              ? 'bg-[#080D02]/98 border-[rgba(229,251,212,0.15)] text-[#E5FBD4]'
+              : 'bg-[#F5F1E8]/98 border-[#D8CFBF] text-[#1E1B18]'
+          }`}
+        >
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -78,8 +102,14 @@ export default function Navbar({ activeSection }) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`text-base font-semibold py-1.5 border-b border-black/5 ${
-                  isActive ? 'text-[#1E1B18] font-bold' : 'text-[#1E1B18]/70 hover:text-[#1E1B18]'
+                className={`text-base font-semibold py-1.5 border-b border-black/5 transition-colors ${
+                  isDarkNavbar
+                    ? isActive
+                      ? 'text-[#E5FBD4] font-bold'
+                      : 'text-[#E5FBD4]/75 hover:text-[#E5FBD4]'
+                    : isActive
+                    ? 'text-[#1E1B18] font-bold'
+                    : 'text-[#1E1B18]/70 hover:text-[#1E1B18]'
                 }`}
               >
                 {link.name}

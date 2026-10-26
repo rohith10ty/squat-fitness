@@ -1,7 +1,7 @@
 import React from 'react';
 import ArchLogo from './ArchLogo';
 
-export default function Logo({ size = 'md', showText = true, className = '' }) {
+export default function Logo({ size = 'md', showText = true, className = '', color = 'currentColor' }) {
   const iconSizes = {
     sm: 'w-6 h-auto',
     md: 'w-8 h-auto',
@@ -10,9 +10,9 @@ export default function Logo({ size = 'md', showText = true, className = '' }) {
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <ArchLogo className={`${iconSizes[size]} text-[#1E1B18] shrink-0`} />
+      <ArchLogo className={`${iconSizes[size]} shrink-0`} color={color} />
       {showText && (
-        <span className="text-base font-bold tracking-tight text-[#1E1B18] leading-tight font-sans">
+        <span className="text-base font-bold tracking-tight leading-tight font-sans">
           Squat Fitness
         </span>
       )}

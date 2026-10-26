@@ -48,6 +48,7 @@ const CUBE_IMAGES = [
 export default function Hero3DSection() {
   const containerRef = useRef(null);
   const stickyRef = useRef(null);
+  const openerGroupRef = useRef(null);
   const logoRef = useRef(null);
   const cubesRef = useRef(null);
   const header1Ref = useRef(null);
@@ -111,11 +112,7 @@ export default function Hero3DSection() {
           // 3. Header 1 (The first performance company...) Scale & Blur Out
           const header1Progress = Math.min(self.progress * 2.5, 1);
           if (header1) {
-            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(
-              1,
-              1.5,
-              header1Progress
-            )})`;
+            header1.style.transform = `scale(${interpolate(1, 1.5, header1Progress)})`;
             header1.style.filter = `blur(${interpolate(0, 20, header1Progress)}px)`;
             header1.style.opacity = `${1 - header1Progress}`;
           }
@@ -185,30 +182,33 @@ export default function Hero3DSection() {
         id="home"
         className="sticky-hero relative w-full h-[100vh] overflow-hidden flex items-center justify-center select-none bg-[#F5F1E8] text-[#1E1B18]"
       >
-        {/* Exact 6-Block Geometric Arch Logo from Reference 42 at Top 25% */}
-        <div ref={logoRef} className="hero-logo">
-          <div className="hero-col">
-            <div className="hero-block hero-block-1" />
-            <div className="hero-block hero-block-2" />
-          </div>
-          <div className="hero-col">
-            <div className="hero-block hero-block-3" />
-            <div className="hero-block hero-block-4" />
-          </div>
-          <div className="hero-col">
-            <div className="hero-block hero-block-5" />
-            <div className="hero-block hero-block-6" />
-          </div>
-        </div>
-
-        {/* Header 1: Centered at Top 50% with Reference 42 Layout & Font */}
+        {/* Opener Group: Enlarged Arch Logo & Headline Centered Together as One Unit */}
         <div
-          ref={header1Ref}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] sm:w-[75%] md:w-[62%] max-w-4xl text-center pointer-events-none select-none z-10"
+          ref={openerGroupRef}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[80%] md:w-[72%] max-w-4xl flex flex-col items-center justify-center text-center pointer-events-none select-none z-10"
         >
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-[#1E1B18] font-sans">
-            The first performance company built for the disciplined generation.
-          </h1>
+          {/* Enlarged 6-Block Geometric Arch Logo Centered Right Above the Headline */}
+          <div ref={logoRef} className="hero-logo mb-8 sm:mb-10 transition-all">
+            <div className="hero-col">
+              <div className="hero-block hero-block-1" />
+              <div className="hero-block hero-block-2" />
+            </div>
+            <div className="hero-col">
+              <div className="hero-block hero-block-3" />
+              <div className="hero-block hero-block-4" />
+            </div>
+            <div className="hero-col">
+              <div className="hero-block hero-block-5" />
+              <div className="hero-block hero-block-6" />
+            </div>
+          </div>
+
+          {/* Header 1 Headline Centered with the Arch Logo */}
+          <div ref={header1Ref} className="w-full">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-[#1E1B18] font-sans">
+              The first performance company built for the disciplined generation.
+            </h1>
+          </div>
         </div>
 
         {/* 3D Cubes Viewport Container (Hidden Initially with Opacity 0) */}
