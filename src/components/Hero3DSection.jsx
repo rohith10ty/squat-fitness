@@ -5,8 +5,45 @@ import { cubesData } from '../data/cubesData';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 36 cube face images using original Reference 42 crisp textures
-const CUBE_IMAGES = Array.from({ length: 36 }, (_, i) => `/assets/img${(i % 33) + 1}.jpeg`);
+// 36 authentic fitness training images for the 3D cube faces (barbells, dumbbells, squats, deadlifts, conditioning)
+const CUBE_IMAGES = [
+  '/img/cubes/fitness1.jpg',
+  '/img/cubes/fitness2.jpg',
+  '/img/cubes/fitness3.jpg',
+  '/img/cubes/fitness4.jpg',
+  '/img/cubes/fitness5.jpg',
+  '/img/cubes/fitness6.jpg',
+  '/img/cubes/fitness7.jpg',
+  '/img/cubes/fitness8.jpg',
+  '/img/cubes/fitness9.jpg',
+  '/img/cubes/fitness10.jpg',
+  '/img/cubes/fitness11.jpg',
+  '/img/cubes/fitness12.jpg',
+  '/img/cubes/fitness13.jpg',
+  '/img/cubes/fitness14.jpg',
+  '/img/cubes/fitness15.jpg',
+  '/img/cubes/fitness16.jpg',
+  '/img/cubes/fitness17.jpg',
+  '/img/cubes/fitness18.jpg',
+  '/img/cubes/fitness19.jpg',
+  '/img/cubes/fitness20.jpg',
+  '/img/cubes/fitness21.jpg',
+  '/img/cubes/fitness22.jpg',
+  '/img/cubes/fitness23.jpg',
+  '/img/cubes/fitness24.jpg',
+  '/img/cubes/fitness25.jpg',
+  '/img/cubes/fitness26.jpg',
+  '/img/cubes/fitness27.jpg',
+  '/img/cubes/fitness28.jpg',
+  '/img/cubes/fit1.jpg',
+  '/img/cubes/fit2.jpg',
+  '/img/cubes/fit3.jpg',
+  '/img/cubes/fit4.jpg',
+  '/img/cubes/fit5.jpg',
+  '/img/cubes/fit6.jpg',
+  '/img/cubes/strength.jpg',
+  '/img/cubes/cardio.jpg'
+];
 
 export default function Hero3DSection() {
   const containerRef = useRef(null);
