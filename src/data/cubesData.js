@@ -1,12 +1,13 @@
 /**
- * Exact 3D cubes coordinates from Reference 42 ("C:\Users\rohit\Downloads\42-20261026T055316Z-1-001.zip")
- * Initial coordinates at z: -30000px mathematically project into the arch shape at top: 25%
- * and expand outward into the final framing positions around Header 2.
+ * Centered 3D cubes coordinates:
+ * Mathematically projected under perspective: 10000px and z: -30000px to start
+ * EXACTLY where the centered arch logo is (top: 36%, left: 50%) in the middle of the viewport,
+ * tumble forward through 3D space, and expand outward into the framing positions around Header 2.
  */
 export const cubesData = {
   "cube-1": {
     initial: {
-      top: -55,
+      top: -11,
       left: 37.5,
       rotateX: 360,
       rotateY: -360,
@@ -24,7 +25,7 @@ export const cubesData = {
   },
   "cube-2": {
     initial: {
-      top: -35,
+      top: 9,
       left: 32.5,
       rotateX: -360,
       rotateY: 360,
@@ -42,7 +43,7 @@ export const cubesData = {
   },
   "cube-3": {
     initial: {
-      top: -65,
+      top: -21,
       left: 50,
       rotateX: -360,
       rotateY: -360,
@@ -60,7 +61,7 @@ export const cubesData = {
   },
   "cube-4": {
     initial: {
-      top: -35,
+      top: 9,
       left: 50,
       rotateX: -360,
       rotateY: -360,
@@ -78,7 +79,7 @@ export const cubesData = {
   },
   "cube-5": {
     initial: {
-      top: -55,
+      top: -11,
       left: 62.5,
       rotateX: 360,
       rotateY: 360,
@@ -96,7 +97,7 @@ export const cubesData = {
   },
   "cube-6": {
     initial: {
-      top: -35,
+      top: 9,
       left: 67.5,
       rotateX: -180,
       rotateY: -360,

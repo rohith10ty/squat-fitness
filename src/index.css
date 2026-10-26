@@ -48,7 +48,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
 
 .hero-logo {
   position: absolute;
-  top: 25%;
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -126,49 +126,49 @@ header span, header a, header svg, header svg rect, header svg polygon {
 .top { transform: translateY(-75px) rotateX(90deg); }
 .bottom { transform: translateY(75px) rotateX(-90deg); }
 
-/* Initial Exact 3D Perspective Transforms from Reference 42 */
+/* Initial 3D Perspective Transforms originating from the centered arch */
 .cube-1 {
-  top: -55%;
+  top: -11%;
   left: 37.5%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
 }
 
 .cube-2 {
-  top: -35%;
+  top: 9%;
   left: 32.5%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
 }
 
 .cube-3 {
-  top: -65%;
+  top: -21%;
   left: 50%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-4 {
-  top: -35%;
+  top: 9%;
   left: 50%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-5 {
-  top: -55%;
+  top: -11%;
   left: 62.5%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
 }
 
 .cube-6 {
-  top: -35%;
+  top: 9%;
   left: 67.5%;
   transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
 }
 
-/* Header 1 Centered directly below the arch */
+/* Header 1 Centered directly below the arch in viewport center */
 .hero-header-1 {
   width: 60%;
   max-width: 900px;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center center;
@@ -196,7 +196,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
 @media (max-width: 1024px) {
   .hero-logo {
     gap: 18px;
-    top: 25%;
+    top: 36%;
   }
   .hero-col:nth-child(2) {
     gap: 20px;
@@ -207,7 +207,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
   }
   .hero-header-1 {
     width: 75%;
-    top: 52%;
+    top: 55%;
   }
   .hero-header-2 {
     width: 44%;
@@ -227,7 +227,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
 @media (max-width: 768px) {
   .hero-logo {
     gap: 14px;
-    top: 25%;
+    top: 36%;
   }
   .hero-col:nth-child(2) {
     gap: 16px;
@@ -239,7 +239,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
   .hero-header-1 {
     width: 86%;
     max-width: 330px;
-    top: 52%;
+    top: 55%;
   }
   .hero-header-1 h1 {
     font-size: 1.65rem !important;

@@ -50,8 +50,8 @@ export default function App() {
 
       // 2. Check each downstream section in reverse order so the lowest reached section wins
       const navOrder = [
-        { id: 'dashboard', nav: 'dashboard' },
         { id: 'workouts', nav: 'workouts' },
+        { id: 'dashboard', nav: 'dashboard' },
         { id: 'progress', nav: 'progress' },
         { id: 'nutrition', nav: 'nutrition' },
         { id: 'contact', nav: 'contact' },
@@ -116,11 +116,11 @@ export default function App() {
           <div className="h-px bg-gradient-to-r from-transparent via-[#333333] to-transparent" />
         </div>
 
-        {/* Fitness Dashboard */}
-        <FitnessDashboard />
-
-        {/* Modular Workouts & Regimens */}
+        {/* Modular Workouts & Regimens (1st after Home, matching Navbar) */}
         <WorkoutsSection />
+
+        {/* Fitness Dashboard (2nd after Home, matching Navbar) */}
+        <FitnessDashboard />
 
         {/* Performance Progress & Analytics */}
         <ProgressTracking />
