@@ -82,6 +82,10 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
             h.style.backgroundColor = 'transparent';
           });
 
+          // Notify navbar when background enters dark phase
+          const isDark = self.progress >= 0.25;
+          document.body.classList.toggle('dark-nav', isDark);
+
           if (self.progress <= 0.5) {
             const yProgress = self.progress / 0.5;
             gsap.set(headers[0], { y: `${yProgress * 100}%` });

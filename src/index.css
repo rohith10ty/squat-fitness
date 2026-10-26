@@ -31,7 +31,10 @@
   }
 }
 
-/* === Navbar Inversion: Managed via dynamic theme classes === */
+/* === Navbar Dynamic Transitions === */
+header span, header a, header svg, header svg rect, header svg polygon {
+  transition: color 0.25s ease, fill 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+}
 
 /* === Centered Hero Architecture: Arch and Text Centered in Viewport === */
 .hero-sticky {

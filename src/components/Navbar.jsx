@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { gsap } from 'gsap';
 import ArchLogo from './ArchLogo';
 
 // Exactly 6 key navlinks matching the clean reference specification
@@ -21,39 +22,56 @@ export default function Navbar({ activeSection }) {
     let ticking = false;
 
     const checkBrightness = () => {
-      // 1. If at top of page or within hero section, always light screen (Cream #F5F1E8)
-      const currentScroll = window.scrollY;
-      const heroHeight = window.innerHeight * 4.0;
-
-      if (currentScroll < heroHeight) {
+      // 1. If at the top of the page / within hero, always light screen (Cream #F5F1E8) -> BLACK navbar
+      if (window.scrollY < window.innerHeight * 3.5) {
         setIsOverDark(false);
         ticking = false;
         return;
       }
 
-      // 2. Check the services section transition where background turns from Cream to Black
-      const servicesSection = document.getElementById('services-section');
-      if (servicesSection) {
-        const rect = servicesSection.getBoundingClientRect();
-        // Before services section reaches top, we are still on the cream intro
-        if (rect.top > 0) {
-          setIsOverDark(false);
-          ticking = false;
-          return;
-        }
+      // 2. If body has dark-nav marker class set by GSAP ScrollTrigger -> WHITE navbar
+      if (document.body.classList.contains('dark-nav')) {
+        setIsOverDark(true);
+        ticking = false;
+        return;
+      }
 
-        // Inside the pinned section: it transitions to black at around 40% of viewport height scrub
-        const scrolledInside = -rect.top;
-        if (scrolledInside < window.innerHeight * 0.4) {
-          setIsOverDark(false); // Still cream screen -> BLACK navbar
+      // 3. If user has scrolled into any downstream section (Workouts, Dashboard, Progress, Nutrition, Contact) -> WHITE navbar
+      if (activeSection && activeSection !== 'home') {
+        setIsOverDark(true);
+        ticking = false;
+        return;
+      }
+
+      // 4. Check services section pinned background or position
+      const services = document.getElementById('services-section');
+      if (services) {
+        const bg = window.getComputedStyle(services).backgroundColor;
+        const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (match) {
+          const lum = 0.299 * parseInt(match[1], 10) + 0.587 * parseInt(match[2], 10) + 0.114 * parseInt(match[3], 10);
+          const rect = services.getBoundingClientRect();
+          // If services is pinned at top and its background has turned dark -> WHITE navbar
+          if (rect.top <= 10 && lum < 130) {
+            setIsOverDark(true);
+            ticking = false;
+            return;
+          }
+        }
+      }
+
+      // 5. Fallback: Check dark theme trigger element
+      const darkTrigger = document.getElementById('dark-theme-trigger');
+      if (darkTrigger) {
+        const rect = darkTrigger.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.8) {
+          setIsOverDark(true);
           ticking = false;
           return;
         }
       }
 
-      // 3. For all downstream screens (FITNESS coming together, Dashboard, Workouts, Progress, etc.):
-      // The screen is Pure Jet Black (#0A0A0A) -> WHITE navbar
-      setIsOverDark(true);
+      setIsOverDark(false);
       ticking = false;
     };
 
@@ -66,13 +84,21 @@ export default function Navbar({ activeSection }) {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
+
+    // Sync with GSAP ticker so scroll scrub animations smoothly update navbar brightness
+    const tickerUpdate = () => {
+      checkBrightness();
+    };
+    gsap.ticker.add(tickerUpdate);
+
     checkBrightness();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      gsap.ticker.remove(tickerUpdate);
     };
-  }, []);
+  }, [activeSection]);
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
