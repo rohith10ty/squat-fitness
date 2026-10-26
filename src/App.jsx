@@ -38,22 +38,40 @@ export default function App() {
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
 
-    // Scroll section observer
+    // Scroll section observer using accurate getBoundingClientRect
     const handleScroll = () => {
-      const sections = ['home', 'workouts', 'dashboard', 'progress', 'nutrition', 'bmi', 'goals', 'contact'];
-      const scrollPosition = window.scrollY + 250;
+      // 1. If within Hero section (top 3.8 viewports), active is ALWAYS 'home'
+      const heroThreshold = window.innerHeight * 3.8;
+      if (window.scrollY < heroThreshold) {
+        setActiveSection('home');
+        return;
+      }
 
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(sectionId);
+      // 2. Check each downstream section in reverse order so the lowest reached section wins
+      const navOrder = [
+        { id: 'dashboard', nav: 'dashboard' },
+        { id: 'workouts', nav: 'workouts' },
+        { id: 'progress', nav: 'progress' },
+        { id: 'nutrition', nav: 'nutrition' },
+        { id: 'contact', nav: 'contact' },
+      ];
+
+      const thresholdY = window.innerHeight * 0.45;
+      let matched = null;
+
+      for (let i = navOrder.length - 1; i >= 0; i--) {
+        const item = navOrder[i];
+        const el = document.getElementById(item.id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= thresholdY) {
+            matched = item.nav;
             break;
           }
         }
       }
+
+      setActiveSection(matched || 'home');
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });

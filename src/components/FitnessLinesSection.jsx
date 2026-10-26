@@ -231,18 +231,18 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
         </h1>
       </section>
 
-      {/* ===== SECTION 4: OUTRO TRIPTYCH GALLERY (Left, Center, Right 3 Photos) ===== */}
-      <section className="relative w-full min-h-[95vh] py-16 px-4 sm:px-8 flex flex-col justify-center items-center overflow-hidden bg-[#0A0A0A] border-t border-[#262626] text-[#F5F1E8]">
-        {/* 3 Photos Triptych Layout */}
+      {/* ===== SECTION 4: OUTRO TRIPTYCH GALLERY (Left, Center, Right 3 Full-Color Photos) ===== */}
+      <section className="relative w-full min-h-[90vh] py-16 px-4 sm:px-8 flex flex-col justify-center items-center overflow-hidden bg-[#0A0A0A] border-t border-[#262626] text-[#F5F1E8]">
+        {/* 3 Photos Triptych Layout: Pure Full Color, No Filters or Effects */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 mb-10 w-full max-w-5xl">
           {/* Card 1: Left Photo (Phase I) */}
-          <div className="relative group w-[230px] sm:w-[260px] md:w-[275px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border border-[#333333] shadow-xl transition-all duration-500 hover:scale-[1.03] hover:border-[#F5F1E8]/40">
+          <div className="relative w-[230px] sm:w-[260px] md:w-[275px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border border-[#333333] shadow-xl">
             <img
               src="/img/strength.jpg"
               alt="Squat Fitness athletic strength protocol"
-              className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+              className="w-full h-full object-cover block"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <div>
                 <p className="text-[9px] tracking-widest text-[#D4C9B7] uppercase font-mono font-bold">PHASE I</p>
@@ -253,13 +253,13 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
           </div>
 
           {/* Card 2: Center Featured Photo (Phase II) */}
-          <div className="relative group w-[245px] sm:w-[275px] md:w-[295px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border-2 border-[#D8CFBF] shadow-2xl transition-all duration-500 hover:scale-[1.04] md:-translate-y-2">
+          <div className="relative w-[245px] sm:w-[275px] md:w-[295px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border-2 border-[#D8CFBF] shadow-2xl md:-translate-y-2">
             <img
               src="/img/fitness-outro.jpg"
               alt="Squat Fitness athlete post-session arena"
-              className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+              className="w-full h-full object-cover block"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <div>
                 <p className="text-[9px] tracking-widest text-[#F5F1E8] uppercase font-mono font-bold">PHASE II</p>
@@ -270,13 +270,13 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
           </div>
 
           {/* Card 3: Right Photo (Phase III) */}
-          <div className="relative group w-[230px] sm:w-[260px] md:w-[275px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border border-[#333333] shadow-xl transition-all duration-500 hover:scale-[1.03] hover:border-[#F5F1E8]/40">
+          <div className="relative w-[230px] sm:w-[260px] md:w-[275px] aspect-[5/7] rounded-2xl overflow-hidden bg-[#141414] border border-[#333333] shadow-xl">
             <img
               src="/img/hiit.jpg"
               alt="Squat Fitness metabolic recovery and telemetry"
-              className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+              className="w-full h-full object-cover block"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <div>
                 <p className="text-[9px] tracking-widest text-[#D4C9B7] uppercase font-mono font-bold">PHASE III</p>

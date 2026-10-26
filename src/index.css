@@ -45,7 +45,7 @@
 
 .hero-logo {
   position: absolute;
-  top: 30%;
+  top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -80,7 +80,7 @@
   transform-origin: bottom left;
 }
 
-/* 3D Cubes Viewport Container: Exact Reference 42 10000px Perspective */
+/* 3D Cubes Viewport Container: True 3D perspective fly-in starting from the arch */
 .cubes {
   position: absolute;
   top: 0;
@@ -88,7 +88,7 @@
   width: 100vw;
   height: 100vh;
   transform-style: preserve-3d;
-  perspective: 10000px;
+  perspective: 3000px;
   pointer-events: none;
 }
 
@@ -123,41 +123,41 @@
 .top { transform: translateY(-75px) rotateX(90deg); }
 .bottom { transform: translateY(75px) rotateX(-90deg); }
 
-/* Initial Exact 3D Perspective Transforms from Reference 42 */
+/* Initial Exact 3D Perspective Transforms originating from the arch */
 .cube-1 {
-  top: -55%;
-  left: 37.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
+  top: 29.5%;
+  left: 46.5%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
 }
 
 .cube-2 {
-  top: -35%;
-  left: 32.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
+  top: 36.5%;
+  left: 46.0%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(-360deg) rotateY(360deg) rotateZ(90deg);
 }
 
 .cube-3 {
-  top: -65%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  top: 29.5%;
+  left: 50.0%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-4 {
-  top: -35%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  top: 36.5%;
+  left: 50.0%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-5 {
-  top: -55%;
-  left: 62.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
+  top: 29.5%;
+  left: 53.5%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
 }
 
 .cube-6 {
-  top: -35%;
-  left: 67.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
+  top: 36.5%;
+  left: 54.0%;
+  transform: translate3d(-50%, -50%, -7000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
 }
 
 /* Header 1 Centered directly below the arch */
@@ -165,7 +165,7 @@
   width: 65%;
   max-width: 960px;
   position: absolute;
-  top: 52%;
+  top: 54%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center center;

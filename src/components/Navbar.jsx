@@ -110,10 +110,10 @@ export default function Navbar({ activeSection }) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`text-[15px] tracking-wider font-bold transition-all duration-200 cursor-pointer ${
+                className={`relative text-[15px] tracking-wider font-bold transition-all duration-200 cursor-pointer py-1 border-b-2 inline-flex items-center justify-center leading-normal ${textColor} ${
                   isActive
-                    ? `${textColor} border-b-2 ${isOverDark ? 'border-white' : 'border-[#1E1B18]'} pb-0.5 opacity-100`
-                    : `${textColor} opacity-75 hover:opacity-100`
+                    ? `${isOverDark ? 'border-white' : 'border-[#1E1B18]'} opacity-100`
+                    : 'border-transparent opacity-75 hover:opacity-100'
                 }`}
               >
                 {link.name}

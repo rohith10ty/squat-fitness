@@ -1,28 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <rect width="100" height="100" rx="24" fill="#331707" />
-  <rect x="2" y="2" width="96" height="96" rx="22" stroke="rgba(255,233,217,0.25)" stroke-width="3" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <rect width="256" height="256" rx="48" fill="#1E1B18" />
+  <g transform="translate(18, 62) scale(0.89)" fill="#F5F1E8">
+    <!-- 1. Left bottom square -->
+    <rect x="0" y="95.598" width="56" height="56" rx="4" />
 
-  <!-- Barbell Plates Left -->
-  <rect x="14" y="28" width="8" height="44" rx="3" fill="#ffe9d9" />
-  <rect x="25" y="34" width="5" height="32" rx="2" fill="#cdb9ab" />
+    <!-- 2. Left angled diamond block (rotated 45°) -->
+    <polygon points="56,95.598 95.598,56 56,16.402 16.402,56" />
 
-  <!-- Barbell Bar -->
-  <path d="M18 50 H82" stroke="#cdb9ab" stroke-width="6" stroke-linecap="round" />
+    <!-- 3. Top-center keystone square -->
+    <rect x="95.598" y="0" width="56" height="56" rx="4" />
 
-  <!-- Barbell Plates Right -->
-  <rect x="70" y="34" width="5" height="32" rx="2" fill="#cdb9ab" />
-  <rect x="78" y="28" width="8" height="44" rx="3" fill="#ffe9d9" />
+    <!-- 4. Right angled diamond block (rotated -45°) -->
+    <polygon points="151.598,56 191.196,95.598 230.794,56 191.196,16.402" />
 
-  <!-- Central Dynamic 'S' in Warm Champagne -->
-  <path
-    d="M60 35 H42 C38.5 35 36 37.5 36 41 C36 44.5 38.5 47 42 47 H58 C61.5 47 64 49.5 64 53 C64 56.5 61.5 59 58 59 H40"
-    stroke="#ffe9d9"
-    stroke-width="8"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+    <!-- 5. Right bottom square -->
+    <rect x="191.196" y="95.598" width="56" height="56" rx="4" />
 
-  <!-- Kinetic Sparks in Copper -->
-  <circle cx="50" cy="22" r="3.5" fill="#f3a675" />
-  <circle cx="50" cy="78" r="3.5" fill="#f3a675" />
+    <!-- 6. Center bottom pedestal square -->
+    <rect x="95.598" y="95.598" width="56" height="56" rx="4" />
+  </g>
 </svg>
