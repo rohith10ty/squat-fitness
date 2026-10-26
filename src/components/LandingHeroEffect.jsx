@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowDown, Flame, Activity, ShieldCheck, Dumbbell } from 'lucide-react';
+import { ArrowDown, Flame, Activity } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,24 +82,24 @@ export default function LandingHeroEffect({ onExploreWorkouts, onOpenDashboard }
   }, []);
 
   return (
-    <div ref={containerRef} className="relative bg-[#141414] text-white selection:bg-[#ccff00] selection:text-black">
-      {/* ===== SECTION 1: HERO (Split Layout: Left Text / Right Photo) ===== */}
+    <div ref={containerRef} className="relative bg-[#141414] text-white selection:bg-[#ccff00] selection:text-black font-sans">
+      {/* ===== SECTION 1: HERO (Compact & Perfectly Scaled to 100svh Viewport) ===== */}
       <section
         ref={heroRef}
         id="home"
-        className="relative w-full min-h-screen pt-28 pb-12 px-4 sm:px-6 lg:px-12 flex flex-col justify-between overflow-hidden"
+        className="relative w-full h-[100svh] min-h-[580px] max-h-[860px] pt-16 sm:pt-20 pb-3 px-4 sm:px-6 lg:px-12 flex flex-col justify-between overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto w-full my-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Column: Strong Typography & Justified Actions */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-8 text-left">
+        <div className="max-w-7xl mx-auto w-full my-auto grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+          {/* Left Column: Clean, Compact Typography & Aligned Actions */}
+          <div className="lg:col-span-7 flex flex-col justify-center space-y-3.5 sm:space-y-4 text-left">
             {/* Minimalist Top Tag */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#1c1c1c] border border-[#2e2e2e] w-fit text-[11px] font-mono tracking-widest text-[#a1a1aa] uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#ccff00] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1c1c1c] border border-[#2e2e2e] w-fit text-[10px] font-mono tracking-widest text-[#a1a1aa] uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ccff00] animate-pulse" />
               <span>SQUAT FITNESS // 01 ARCHITECTURE OF DISCIPLINE</span>
             </div>
 
-            {/* Main Headline in Outfit */}
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-white leading-[1.05] uppercase">
+            {/* Headline in Outfit */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-[1.08] uppercase">
               Discipline <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-[#71717a]">
                 Shaped With
@@ -107,52 +107,51 @@ export default function LandingHeroEffect({ onExploreWorkouts, onOpenDashboard }
               <span className="text-[#ccff00]">Clarity.</span>
             </h1>
 
-            {/* Minimal Description */}
-            <p className="text-sm sm:text-base text-[#a1a1aa] leading-relaxed max-w-xl font-sans">
-              Squat Fitness is a minimalist performance intelligence platform engineered for athletes who prioritize quiet consistency. Track daily loads, macro periodization, and biometric progression without excess noise.
+            {/* Compact Description */}
+            <p className="text-xs sm:text-[13px] text-[#a1a1aa] leading-relaxed max-w-lg font-sans">
+              Squat Fitness is a minimalist performance platform built for athletes who prioritize quiet consistency. Track daily loads, macro periodization, and biometric progression without excess noise.
             </p>
 
-            {/* Justified Action Buttons Row */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+            {/* Justified CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <button
                 onClick={onExploreWorkouts}
-                className="px-7 py-3 rounded-full bg-[#ccff00] text-black font-extrabold text-xs tracking-wider uppercase hover:bg-white transition-all duration-300 shadow-lg shadow-[#ccff00]/15 flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-2.5 rounded-full bg-[#ccff00] text-black font-extrabold text-xs tracking-wider uppercase hover:bg-white transition-all duration-300 shadow-md shadow-[#ccff00]/15 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Flame className="w-4 h-4 fill-black" />
+                <Flame className="w-3.5 h-3.5 fill-black" />
                 <span>Explore Protocols</span>
               </button>
 
               <button
                 onClick={onOpenDashboard}
-                className="px-7 py-3 rounded-full bg-[#1c1c1c] text-white border border-[#333333] hover:border-[#ccff00] hover:text-[#ccff00] font-bold text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-2.5 rounded-full bg-[#1c1c1c] text-white border border-[#333333] hover:border-[#ccff00] hover:text-[#ccff00] font-bold text-xs tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Activity className="w-4 h-4" />
+                <Activity className="w-3.5 h-3.5" />
                 <span>Open Dashboard</span>
               </button>
             </div>
 
-            {/* Telemetry Stats Row */}
-            <div className="pt-4 border-t border-[#262626] grid grid-cols-3 gap-4 max-w-lg">
+            {/* Compact Telemetry Stats Row */}
+            <div className="pt-3 border-t border-[#262626] grid grid-cols-3 gap-3 max-w-md">
               <div>
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono text-white">12.5K</span>
-                <p className="text-[10px] font-mono text-[#71717a] uppercase mt-0.5">Active Athletes</p>
+                <span className="text-xl sm:text-2xl font-black font-mono text-white">12.5K</span>
+                <p className="text-[9px] font-mono text-[#71717a] uppercase mt-0.5">Active Athletes</p>
               </div>
               <div>
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#ccff00]">99.4%</span>
-                <p className="text-[10px] font-mono text-[#71717a] uppercase mt-0.5">Telemetry Uptime</p>
+                <span className="text-xl sm:text-2xl font-black font-mono text-[#ccff00]">99.4%</span>
+                <p className="text-[9px] font-mono text-[#71717a] uppercase mt-0.5">Telemetry Uptime</p>
               </div>
               <div>
-                <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#00f0ff]">0%</span>
-                <p className="text-[10px] font-mono text-[#71717a] uppercase mt-0.5">Fluff or Clutter</p>
+                <span className="text-xl sm:text-2xl font-black font-mono text-[#00f0ff]">0%</span>
+                <p className="text-[9px] font-mono text-[#71717a] uppercase mt-0.5">Fluff or Clutter</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: 5/7 Athletic Portrait Card */}
+          {/* Right Column: Scaled 5/7 Athletic Portrait Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative group">
-              {/* The 5/7 Card */}
-              <div className="relative w-[280px] sm:w-[320px] md:w-[340px] xl:w-[360px] aspect-[5/7] rounded-xl overflow-hidden bg-[#1c1c1c] border border-[#2e2e2e] shadow-2xl shadow-black/80 transition-transform duration-700 hover:scale-[1.02]">
+              <div className="relative w-[210px] sm:w-[240px] md:w-[260px] lg:w-[270px] xl:w-[285px] aspect-[5/7] rounded-xl overflow-hidden bg-[#1c1c1c] border border-[#2e2e2e] shadow-2xl shadow-black/80 transition-transform duration-700 hover:scale-[1.02]">
                 <img
                   src="/img/fitness-hero.jpg"
                   alt="Squat Fitness Athlete in Training"
@@ -163,7 +162,7 @@ export default function LandingHeroEffect({ onExploreWorkouts, onOpenDashboard }
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30 pointer-events-none" />
 
                 {/* Corner tags */}
-                <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-[10px] font-mono text-white/70">
+                <div className="absolute top-3 left-3 right-3 flex justify-between items-center text-[9px] font-mono text-white/80">
                   <span className="px-2 py-0.5 rounded bg-black/60 backdrop-blur-md border border-white/10 uppercase">
                     SQUAT LABS
                   </span>
@@ -171,29 +170,29 @@ export default function LandingHeroEffect({ onExploreWorkouts, onOpenDashboard }
                 </div>
 
                 {/* Bottom Card Coordinates */}
-                <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 flex justify-between items-end">
                   <div>
-                    <p className="text-[10px] tracking-widest text-[#ccff00] uppercase font-mono font-bold">
+                    <p className="text-[9px] tracking-widest text-[#ccff00] uppercase font-mono font-bold">
                       PHASE I
                     </p>
-                    <h3 className="text-sm font-bold tracking-wide text-white uppercase font-sans">
+                    <h3 className="text-xs font-bold tracking-wide text-white uppercase font-sans">
                       Foundational Capacity
                     </h3>
                   </div>
-                  <span className="text-[11px] font-mono text-[#a1a1aa]">EST. 2026</span>
+                  <span className="text-[10px] font-mono text-[#a1a1aa]">EST. 2026</span>
                 </div>
               </div>
 
-              {/* Floating Vertical Subtle Tag */}
-              <div className="hidden xl:flex absolute -left-12 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[9px] font-mono tracking-[0.3em] text-[#52525b] uppercase select-none whitespace-nowrap">
-                PRECISION // OVERLOAD
+              {/* Subtle side coordinate */}
+              <div className="hidden xl:flex absolute -left-10 top-1/2 -translate-y-1/2 -rotate-90 origin-center text-[9px] font-mono tracking-[0.25em] text-[#52525b] uppercase select-none whitespace-nowrap">
+                PRECISION // LOAD
               </div>
             </div>
           </div>
         </div>
 
-        {/* Hero Bottom Centered Scroll Prompt */}
-        <div className="w-full flex justify-center items-center gap-2 pt-8 text-xs text-[#71717a] font-mono">
+        {/* Hero Bottom Centered Scroll Prompt (Fully visible within 100svh) */}
+        <div className="w-full flex justify-center items-center gap-2 pt-1 text-[11px] text-[#71717a] font-mono">
           <span>SCROLL TO ENGAGE EFFECT</span>
           <ArrowDown className="w-3.5 h-3.5 animate-bounce text-[#ccff00]" />
         </div>
@@ -309,19 +308,19 @@ export default function LandingHeroEffect({ onExploreWorkouts, onOpenDashboard }
       {/* ===== SECTION 5: OUTRO PORTRAIT ===== */}
       <section className="relative w-full min-h-[90vh] h-[90svh] px-4 md:px-8 flex flex-col justify-center items-center overflow-hidden bg-[#141414]">
         <div className="relative group">
-          <div className="relative w-[260px] sm:w-[300px] md:w-[320px] aspect-[5/7] rounded-xl overflow-hidden bg-[#1c1c1c] border border-[#2e2e2e] shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
+          <div className="relative w-[240px] sm:w-[270px] md:w-[300px] aspect-[5/7] rounded-xl overflow-hidden bg-[#1c1c1c] border border-[#2e2e2e] shadow-2xl transition-transform duration-700 hover:scale-[1.02]">
             <img
               src="/img/fitness-outro.jpg"
               alt="Squat Fitness athlete post-session"
               className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20" />
-            <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end">
+            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
               <div>
-                <p className="text-[10px] tracking-widest text-[#ccff00] uppercase font-mono font-bold">PHASE II</p>
-                <h3 className="text-sm font-bold tracking-wide text-white uppercase">THE ARENA AWAITS</h3>
+                <p className="text-[9px] tracking-widest text-[#ccff00] uppercase font-mono font-bold">PHASE II</p>
+                <h3 className="text-xs font-bold tracking-wide text-white uppercase">THE ARENA AWAITS</h3>
               </div>
-              <span className="text-[11px] font-mono text-[#a1a1aa]">READY</span>
+              <span className="text-[10px] font-mono text-[#a1a1aa]">READY</span>
             </div>
           </div>
         </div>

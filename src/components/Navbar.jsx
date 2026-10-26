@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, Zap } from 'lucide-react';
+import { Menu, X, ChevronRight } from 'lucide-react';
+import Logo from './Logo';
 
 export const NAV_LINKS = [
   { name: 'Home', href: '#home' },
@@ -34,32 +35,22 @@ export default function Navbar({ activeSection }) {
   };
 
   return (
-    <header className="fixed top-4 sm:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       {/* Centered Minimal Floating Pill */}
       <div
-        className={`pointer-events-auto flex items-center justify-between gap-4 sm:gap-6 px-4 sm:px-6 py-2.5 rounded-full border transition-all duration-300 max-w-5xl w-full ${
+        className={`pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 px-3.5 sm:px-5 py-2 rounded-full border transition-all duration-300 max-w-5xl w-full ${
           scrolled
-            ? 'bg-[#161616]/95 backdrop-blur-xl border-[#333333] shadow-2xl shadow-black/80 py-2'
-            : 'bg-[#181818]/85 backdrop-blur-lg border-[#2e2e2e] shadow-xl py-2.5'
+            ? 'bg-[#161616]/95 backdrop-blur-xl border-[#333333] shadow-2xl shadow-black/80'
+            : 'bg-[#181818]/90 backdrop-blur-lg border-[#2e2e2e] shadow-xl'
         }`}
       >
-        {/* Brand Logo - Squat Fitness */}
+        {/* Proper Brand Logo - Squat Fitness */}
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, '#home')}
-          className="flex items-center gap-2.5 group cursor-pointer shrink-0"
+          className="group cursor-pointer shrink-0"
         >
-          <div className="w-7 h-7 rounded bg-[#202020] border border-[#333] flex items-center justify-center group-hover:border-[#ccff00] transition-colors">
-            <span className="w-2 h-2 bg-[#ccff00] rounded-sm group-hover:scale-125 transition-transform" />
-          </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-black tracking-wider text-white leading-none font-sans">
-              SQUAT
-            </span>
-            <span className="text-[8px] font-mono tracking-widest text-[#ccff00] uppercase leading-none mt-0.5">
-              FITNESS
-            </span>
-          </div>
+          <Logo size="sm" showText={true} />
         </a>
 
         {/* Desktop Navigation Links (Centered) */}
@@ -107,7 +98,7 @@ export default function Navbar({ activeSection }) {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="pointer-events-auto absolute top-16 left-4 right-4 bg-[#181818]/95 backdrop-blur-xl border border-[#2e2e2e] rounded-2xl p-5 shadow-2xl lg:hidden animate-in fade-in slide-in-from-top-4 duration-200 max-w-md mx-auto">
+        <div className="pointer-events-auto absolute top-16 left-4 right-4 bg-[#181818]/95 backdrop-blur-xl border border-[#2e2e2e] rounded-2xl p-5 shadow-2xl lg:hidden animate-in fade-in slide-from-top-4 duration-200 max-w-md mx-auto">
           <div className="grid grid-cols-2 gap-2 mb-4">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
