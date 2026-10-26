@@ -39,30 +39,30 @@ export default function WorkoutsSection() {
   const getDifficultyColor = (diff) => {
     switch (diff.toLowerCase()) {
       case 'beginner':
-        return 'text-[#E5FBD4] bg-[#E5FBD4]/10 border-[#E5FBD4]/25';
+        return 'text-emerald-800 bg-emerald-50 border-emerald-200';
       case 'intermediate':
-        return 'text-[#D4F5BE] bg-[#D4F5BE]/10 border-[#D4F5BE]/25';
+        return 'text-blue-800 bg-blue-50 border-blue-200';
       case 'advanced':
-        return 'text-[#E5FBD4] bg-[#E5FBD4]/20 border-[#E5FBD4]/35 font-semibold';
+        return 'text-purple-800 bg-purple-50 border-purple-200';
       default:
-        return 'text-[#E5FBD4] bg-[#E5FBD4]/10 border-[#E5FBD4]/20';
+        return 'text-gray-800 bg-gray-50 border-gray-200';
     }
   };
 
   return (
-    <section id="workouts" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans">
+    <section id="workouts" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans bg-white text-gray-900">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[rgba(229,251,212,0.15)] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-gray-200 pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#B2CD9C] uppercase mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#1D2B04] uppercase mb-2 font-semibold">
+            <span className="w-2 h-2 rounded-full bg-[#1D2B04]" />
             <span>MODULAR REGIMENS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#E5FBD4]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
             Targeted Workout Protocols
           </h2>
         </div>
-        <p className="mt-2 md:mt-0 text-sm text-[#B2CD9C] font-mono">
+        <p className="mt-2 md:mt-0 text-sm text-gray-500 font-mono">
           SYSTEM CALIBRATED // SELECT CATEGORY &amp; ENGAGE
         </p>
       </div>
@@ -77,8 +77,8 @@ export default function WorkoutsSection() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-medium tracking-wide whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 isActive
-                  ? 'bg-[#E5FBD4] text-[#1D2B04] font-bold shadow-md shadow-black/40'
-                  : 'bg-[#233306] text-[#B2CD9C] border border-[rgba(229,251,212,0.12)] hover:text-[#E5FBD4] hover:border-[rgba(229,251,212,0.25)]'
+                  ? 'bg-[#1D2B04] text-white font-semibold shadow-xs'
+                  : 'bg-gray-100 text-gray-600 border border-gray-200 hover:text-gray-900 hover:bg-gray-200'
               }`}
             >
               {cat}
@@ -92,24 +92,24 @@ export default function WorkoutsSection() {
         {filteredWorkouts.map((workout) => (
           <div
             key={workout.id}
-            className="group bg-[#233306] border border-[rgba(229,251,212,0.12)] rounded-xl overflow-hidden hover:border-[rgba(229,251,212,0.25)] transition-all duration-300 flex flex-col justify-between shadow-xl shadow-black/40"
+            className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all duration-300 flex flex-col justify-between shadow-xs hover:shadow-md"
           >
             {/* Card Visual Header */}
-            <div className="relative h-48 w-full overflow-hidden bg-[#182403]">
+            <div className="relative h-48 w-full overflow-hidden bg-gray-100">
               <img
                 src={workout.image}
                 alt={workout.title}
-                className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#233306] via-[#233306]/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
               {/* Category & Difficulty Badges */}
               <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-                <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-[#E5FBD4] border border-white/10">
+                <span className="px-2.5 py-1 rounded bg-black/60 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-white border border-white/20">
                   {workout.category}
                 </span>
                 <span
-                  className={`px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider border ${getDifficultyColor(
+                  className={`px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider border font-medium ${getDifficultyColor(
                     workout.difficulty
                   )}`}
                 >
@@ -119,7 +119,7 @@ export default function WorkoutsSection() {
 
               {/* Status Pill */}
               {workout.completed && (
-                <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-[#E5FBD4] text-[#1D2B04] text-[10px] font-mono font-bold flex items-center gap-1 shadow-md">
+                <div className="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-emerald-500 text-white text-[10px] font-mono font-bold flex items-center gap-1 shadow-md">
                   <Check className="w-3 h-3 stroke-[3]" /> COMPLETED
                 </div>
               )}
@@ -128,38 +128,38 @@ export default function WorkoutsSection() {
             {/* Card Content */}
             <div className="p-5 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#E5FBD4] group-hover:text-white transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#1D2B04] transition-colors">
                   {workout.title}
                 </h3>
-                <p className="text-xs text-[#B2CD9C] mt-2 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed">
                   {workout.description}
                 </p>
               </div>
 
               {/* Specs: Duration, Calories */}
-              <div className="mt-5 pt-4 border-t border-[rgba(229,251,212,0.1)] space-y-3">
-                <div className="flex items-center justify-between text-xs font-mono text-[#E5FBD4]">
-                  <span className="flex items-center gap-1.5 text-[#B2CD9C]">
-                    <Clock className="w-3.5 h-3.5 text-[#E5FBD4]" />
+              <div className="mt-5 pt-4 border-t border-gray-100 space-y-3">
+                <div className="flex items-center justify-between text-xs font-mono text-gray-700">
+                  <span className="flex items-center gap-1.5 text-gray-500">
+                    <Clock className="w-3.5 h-3.5 text-gray-700" />
                     {workout.duration} Mins
                   </span>
-                  <span className="flex items-center gap-1.5 text-[#B2CD9C]">
-                    <Flame className="w-3.5 h-3.5 text-[#E5FBD4]" />
+                  <span className="flex items-center gap-1.5 text-gray-500">
+                    <Flame className="w-3.5 h-3.5 text-orange-500" />
                     {workout.calories} kcal
                   </span>
                 </div>
 
                 {/* Progress bar */}
                 <div>
-                  <div className="flex items-center justify-between text-[11px] font-mono text-[#B2CD9C] mb-1">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-gray-500 mb-1">
                     <span>PROGRESS</span>
-                    <span className={workout.completed ? 'text-[#E5FBD4]' : 'text-[#E5FBD4]/80'}>
+                    <span className={workout.completed ? 'text-emerald-600 font-bold' : 'text-gray-800'}>
                       {workout.progress}%
                     </span>
                   </div>
-                  <div className="w-full bg-[#141E03] h-1.5 rounded-full overflow-hidden">
+                  <div className="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
                     <div
-                      className="h-full rounded-full transition-all duration-500 bg-[#E5FBD4]"
+                      className="h-full rounded-full transition-all duration-500 bg-[#1D2B04]"
                       style={{ width: `${workout.progress}%` }}
                     />
                   </div>
@@ -169,9 +169,9 @@ export default function WorkoutsSection() {
                 <div className="pt-2 flex items-center gap-2">
                   <button
                     onClick={() => setActiveModalWorkout(workout)}
-                    className="flex-1 py-2 px-3 rounded-lg bg-[#2E4308] hover:bg-[#3D580C] text-[#E5FBD4] text-xs font-medium tracking-wide transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="flex-1 py-2 px-3 rounded-lg bg-[#1D2B04] hover:bg-black text-white text-xs font-medium tracking-wide transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
                   >
-                    <Play className="w-3.5 h-3.5 text-[#E5FBD4]" />
+                    <Play className="w-3.5 h-3.5" />
                     <span>View Protocol &amp; Timer</span>
                   </button>
                   <button
@@ -179,8 +179,8 @@ export default function WorkoutsSection() {
                     title={workout.completed ? 'Mark Incomplete' : 'Mark Completed'}
                     className={`p-2 rounded-lg border transition-colors cursor-pointer ${
                       workout.completed
-                        ? 'bg-[#E5FBD4]/20 border-[#E5FBD4] text-[#E5FBD4]'
-                        : 'border-[rgba(229,251,212,0.15)] text-[#B2CD9C] hover:text-[#E5FBD4] hover:border-[rgba(229,251,212,0.3)]'
+                        ? 'bg-emerald-50 border-emerald-500 text-emerald-600'
+                        : 'border-gray-200 text-gray-400 hover:text-gray-900 hover:border-gray-300'
                     }`}
                   >
                     <Check className="w-4 h-4 stroke-[2.5]" />

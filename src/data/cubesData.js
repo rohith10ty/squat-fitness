@@ -28,7 +28,7 @@ export const cubesData = {
     },
     final: {
       top: 80,
-      left: 25,
+      left: 24,
       rotateX: 1,
       rotateY: 2,
       rotateZ: 0,
@@ -45,8 +45,8 @@ export const cubesData = {
       z: -30000,
     },
     final: {
-      top: 22,
-      left: 25,
+      top: 20,
+      left: 24,
       rotateX: -1,
       rotateY: 2,
       rotateZ: 0,
@@ -64,7 +64,7 @@ export const cubesData = {
     },
     final: {
       top: 80,
-      left: 75,
+      left: 76,
       rotateX: 1,
       rotateY: -2,
       rotateZ: 0,
@@ -81,8 +81,8 @@ export const cubesData = {
       z: -30000,
     },
     final: {
-      top: 22,
-      left: 75,
+      top: 20,
+      left: 76,
       rotateX: -1,
       rotateY: -2,
       rotateZ: 0,

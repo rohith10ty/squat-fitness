@@ -40,13 +40,13 @@ export default function Hero3DSection() {
         return start + (end - start) * progress;
       };
 
-      // Helper for color interpolation (from forest green #1D2B04 to clean light #EBEBEB)
+      // Helper for color interpolation (from forest green #1D2B04 to clean pure white #FFFFFF)
       // #1D2B04 is rgb(29, 43, 4)
-      // #EBEBEB is rgb(235, 235, 235)
+      // #FFFFFF is rgb(255, 255, 255)
       const interpolateColor = (progress) => {
-        const r = Math.round(29 + (235 - 29) * progress);
-        const g = Math.round(43 + (235 - 43) * progress);
-        const b = Math.round(4 + (235 - 4) * progress);
+        const r = Math.round(29 + (255 - 29) * progress);
+        const g = Math.round(43 + (255 - 43) * progress);
+        const b = Math.round(4 + (255 - 4) * progress);
         return `rgb(${r}, ${g}, ${b})`;
       };
 
@@ -80,16 +80,16 @@ export default function Hero3DSection() {
           // 3. Header 1: Scale, Blur, Fade Out
           if (header1) {
             const header1Progress = Math.min(self.progress * 2.5, 1);
-            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.5, header1Progress)})`;
+            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.4, header1Progress)})`;
             header1.style.filter = `blur(${interpolate(0, 20, header1Progress)}px)`;
             header1.style.opacity = `${1 - header1Progress}`;
           }
 
-          // 4. Header 2: Scale, Blur, Fade In
+          // 4. Header 2: Scale, Blur, Fade In (Compact, perfectly centered inside the arch)
           if (header2) {
             const header2StartProgress = (self.progress - 0.4) * 10;
             const header2Progress = Math.max(0, Math.min(header2StartProgress, 1));
-            const header2Scale = interpolate(0.75, 1, header2Progress);
+            const header2Scale = interpolate(0.8, 1, header2Progress);
             const header2Blur = interpolate(10, 0, header2Progress);
 
             header2.style.transform = `translate(-50%, -50%) scale(${header2Scale})`;
@@ -97,7 +97,7 @@ export default function Hero3DSection() {
             header2.style.opacity = `${header2Progress}`;
           }
 
-          // 5. 3D Cubes Interpolation to Form the Proper Arch
+          // 5. 3D Cubes Interpolation into the Proper Arch
           const firstPhaseProgress = Math.min(self.progress * 2, 1);
           const secondPhaseProgress =
             self.progress >= 0.5 ? (self.progress - 0.5) * 2 : 0;
@@ -131,15 +131,16 @@ export default function Hero3DSection() {
             `;
           });
 
-          // 6. Color Changing Transition on Scroll (Between progress 0.65 and 1.0)
+          // 6. Smooth Transition to White Background (progress 0.65 to 1.0)
           if (self.progress >= 0.65) {
             const colorProgress = (self.progress - 0.65) / 0.35;
             stickySection.style.backgroundColor = interpolateColor(colorProgress);
             if (header2) {
+              // Transition text color from mint white #E5FBD4 to dark charcoal #111827
               const textColorProgress = Math.min(colorProgress * 1.5, 1);
-              const tr = Math.round(229 - (229 - 29) * textColorProgress);
-              const tg = Math.round(251 - (251 - 43) * textColorProgress);
-              const tb = Math.round(212 - (212 - 4) * textColorProgress);
+              const tr = Math.round(229 - (229 - 17) * textColorProgress);
+              const tg = Math.round(251 - (251 - 24) * textColorProgress);
+              const tb = Math.round(212 - (212 - 39) * textColorProgress);
               header2.style.color = `rgb(${tr}, ${tg}, ${tb})`;
             }
           } else {
@@ -157,77 +158,77 @@ export default function Hero3DSection() {
 
   return (
     <div ref={containerRef} className="relative w-full">
-      {/* Pinned Sticky 3D Cubes Section in Deep Forest Green #1D2B04 */}
+      {/* Pinned Sticky 3D Cubes Section */}
       <section
         ref={stickyRef}
         id="home"
         className="sticky-hero relative w-full h-[100vh] overflow-hidden flex items-center justify-center select-none bg-[#1D2B04] text-[#E5FBD4]"
       >
-        {/* Exact Geometric 6-Block Arch Logo (Top 26%, Matching Sample 42 Reference) */}
+        {/* Exact Geometric Arch Logo (Top 26%, Scaled Down & Centered) */}
         <div
           ref={logoRef}
           className="absolute top-[26%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
         >
-          <ArchLogo className="w-28 sm:w-36 md:w-44 lg:w-48 h-auto text-[#E5FBD4]" />
+          <ArchLogo className="w-20 sm:w-24 md:w-28 h-auto text-[#E5FBD4]" />
         </div>
 
-        {/* 3D Cubes Viewport Container (Forms the Proper Arch Around Center) */}
+        {/* 3D Cubes Viewport Container (150px Sized Cubes Framing Center) */}
         <div ref={cubesRef} className="cubes-viewport" style={{ opacity: 0 }}>
           {[1, 2, 3, 4, 5, 6].map((num, cubeIdx) => {
             const imgStart = cubeIdx * 6;
             return (
               <div key={num} className={`cube-3d cube-${num}`}>
                 <div className="face-front">
-                  <img src={CUBE_IMAGES[imgStart]} alt={`Fitness 1`} />
+                  <img src={CUBE_IMAGES[imgStart]} alt="Fitness 1" />
                 </div>
                 <div className="face-back">
-                  <img src={CUBE_IMAGES[imgStart + 1]} alt={`Fitness 2`} />
+                  <img src={CUBE_IMAGES[imgStart + 1]} alt="Fitness 2" />
                 </div>
                 <div className="face-right">
-                  <img src={CUBE_IMAGES[imgStart + 2]} alt={`Fitness 3`} />
+                  <img src={CUBE_IMAGES[imgStart + 2]} alt="Fitness 3" />
                 </div>
                 <div className="face-left">
-                  <img src={CUBE_IMAGES[imgStart + 3]} alt={`Fitness 4`} />
+                  <img src={CUBE_IMAGES[imgStart + 3]} alt="Fitness 4" />
                 </div>
                 <div className="face-top">
-                  <img src={CUBE_IMAGES[imgStart + 4]} alt={`Fitness 5`} />
+                  <img src={CUBE_IMAGES[imgStart + 4]} alt="Fitness 5" />
                 </div>
                 <div className="face-bottom">
-                  <img src={CUBE_IMAGES[imgStart + 5]} alt={`Fitness 6`} />
+                  <img src={CUBE_IMAGES[imgStart + 5]} alt="Fitness 6" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Header 1 (Initial Hero Statement in Clean Mint White #E5FBD4) */}
+        {/* Header 1 (Initial Statement: Clean, Centered, Proportional) */}
         <div
           ref={header1Ref}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[75%] md:w-[68%] text-center z-10 pointer-events-none"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[75%] md:w-[60%] max-w-2xl text-center z-10 pointer-events-none"
         >
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-normal leading-[1.08] tracking-tight text-[#E5FBD4] font-sans">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-normal leading-[1.12] tracking-tight text-[#E5FBD4] font-sans">
             The first performance company built for the disciplined generation.
           </h1>
         </div>
 
-        {/* Header 2 (Reveals in Phase 2 in Center Enclosed by the Arch of Cubes) */}
+        {/* Header 2 (Phase 2 Statement: Compact, Perfectly Centered, Zero Overlap with Cubes) */}
         <div
           ref={header2Ref}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[85%] sm:w-[65%] md:w-[50%] text-center z-20 pointer-events-none opacity-0"
-          style={{ filter: 'blur(10px)', transform: 'translate(-50%, -50%) scale(0.75)' }}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[88%] sm:w-[420px] max-w-md text-center z-20 pointer-events-none opacity-0"
+          style={{ filter: 'blur(10px)', transform: 'translate(-50%, -50%) scale(0.8)' }}
         >
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-normal tracking-tight mb-4 font-sans leading-tight">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight mb-2.5 font-sans leading-snug">
             We've engineered the ultimate protocols for lasting strength.
           </h2>
-          <p className="text-sm sm:text-base md:text-lg font-light leading-relaxed opacity-90 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm font-light leading-relaxed opacity-85 mx-auto">
             Squat Fitness unites strength science, progressive overload, and intelligent metabolic telemetry—collaborating seamlessly to deliver tailored regimens that drive human performance.
           </p>
         </div>
 
-        {/* Bottom Scroll Down Arrow (Exactly Like 42 Reference Video) */}
+        {/* Bottom Scroll Down Arrow */}
         <div
           ref={arrowRef}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-2xl text-[#E5FBD4] animate-bounce pointer-events-none font-light"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xl text-[#E5FBD4] animate-bounce pointer-events-none font-light"
         >
           ↓
         </div>

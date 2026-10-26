@@ -4,39 +4,39 @@
 
 @layer base {
   * {
-    border-color: rgba(229, 251, 212, 0.15);
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   }
   
   html {
     scroll-behavior: smooth;
-    color-scheme: dark;
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   }
 
   body {
-    background-color: #1D2B04;
-    color: #E5FBD4;
+    background-color: #FFFFFF;
+    color: #111827;
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
-  /* Custom minimal forest scrollbar */
+  /* Custom subtle minimal scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #141E03;
+    background: #F3F4F6;
   }
   ::-webkit-scrollbar-thumb {
-    background: #31480A;
+    background: #9CA3AF;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #46670E;
+    background: #6B7280;
   }
 }
 
-/* === 3D Cubes Scroll Architecture (Sample 42 Deep Green & White) === */
+/* === 3D Cubes Scroll Architecture (Sample 42 Reference Dimensions) === */
 .sticky-hero {
   position: relative;
   width: 100%;
@@ -58,24 +58,24 @@
   pointer-events: none;
 }
 
-/* Sizable, prominent 3D perspective cubes forming the arch around Header 2 */
+/* Reference 150px cube size from Sample 42 — no overlap with center text */
 .cube-3d {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   transform-style: preserve-3d;
   will-change: transform, top, left;
 }
 
 .cube-3d > div {
   position: absolute;
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   transform-style: preserve-3d;
   backface-visibility: visible;
   overflow: hidden;
-  border: 1px solid rgba(229, 251, 212, 0.25);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(229, 251, 212, 0.3);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
   background-color: #162103;
 }
 
@@ -87,119 +87,82 @@
 }
 
 .face-front {
-  transform: translateZ(125px);
+  transform: translateZ(75px);
 }
 .face-back {
-  transform: translateZ(-125px) rotateY(180deg);
+  transform: translateZ(-75px) rotateY(180deg);
 }
 .face-right {
-  transform: translateX(125px) rotateY(90deg);
+  transform: translateX(75px) rotateY(90deg);
 }
 .face-left {
-  transform: translateX(-125px) rotateY(-90deg);
+  transform: translateX(-75px) rotateY(-90deg);
 }
 .face-top {
-  transform: translateY(-125px) rotateX(90deg);
+  transform: translateY(-75px) rotateX(90deg);
 }
 .face-bottom {
-  transform: translateY(125px) rotateX(-90deg);
+  transform: translateY(75px) rotateX(-90deg);
 }
 
 @media (max-width: 1024px) {
   .cube-3d, .cube-3d > div {
-    width: 180px;
-    height: 180px;
+    width: 110px;
+    height: 110px;
   }
-  .face-front { transform: translateZ(90px); }
-  .face-back { transform: translateZ(-90px) rotateY(180deg); }
-  .face-right { transform: translateX(90px) rotateY(90deg); }
-  .face-left { transform: translateX(-90px) rotateY(-90deg); }
-  .face-top { transform: translateY(-90px) rotateX(90deg); }
-  .face-bottom { transform: translateY(90px) rotateX(-90deg); }
+  .face-front { transform: translateZ(55px); }
+  .face-back { transform: translateZ(-55px) rotateY(180deg); }
+  .face-right { transform: translateX(55px) rotateY(90deg); }
+  .face-left { transform: translateX(-55px) rotateY(-90deg); }
+  .face-top { transform: translateY(-55px) rotateX(90deg); }
+  .face-bottom { transform: translateY(55px) rotateX(-90deg); }
 }
 
 @media (max-width: 640px) {
   .cube-3d, .cube-3d > div {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
   }
-  .face-front { transform: translateZ(60px); }
-  .face-back { transform: translateZ(-60px) rotateY(180deg); }
-  .face-right { transform: translateX(60px) rotateY(90deg); }
-  .face-left { transform: translateX(-60px) rotateY(-90deg); }
-  .face-top { transform: translateY(-60px) rotateX(90deg); }
-  .face-bottom { transform: translateY(60px) rotateX(-90deg); }
+  .face-front { transform: translateZ(40px); }
+  .face-back { transform: translateZ(-40px) rotateY(180deg); }
+  .face-right { transform: translateX(40px) rotateY(90deg); }
+  .face-left { transform: translateX(-40px) rotateY(-90deg); }
+  .face-top { transform: translateY(-40px) rotateX(90deg); }
+  .face-bottom { transform: translateY(40px) rotateX(-90deg); }
 }
 
-/* 42 Geometric Arch Logo (Exact Reference Proportions) */
-.hero-42-logo {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  gap: 24px;
-  z-index: 20;
-}
-
-.hero-42-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.hero-42-col:nth-child(2) {
-  gap: 26px;
-}
-
-.hero-42-block {
-  width: 35px;
-  height: 35px;
-  background-color: #E5FBD4;
-}
-
-.hero-42-block-1 {
-  transform: rotate(42deg);
-  transform-origin: bottom right;
-}
-
-.hero-42-block-5 {
-  transform: rotate(-42deg);
-  transform-origin: bottom left;
-}
-
-/* === Progressive Text Reveal Scrub === */
-.animate-text {
+/* === Progressive Text Reveal Scrub (Light Theme) === */
+.animate-text-light {
   position: relative;
   width: 75%;
   margin: 0 auto;
-  color: #31480A;
+  color: #D1D5DB;
   --clip-value: 100%;
   line-height: 1.25;
   transition: color 0.2s ease;
   font-family: 'Outfit', sans-serif;
 }
 
-.animate-text::before {
+.animate-text-light::before {
   content: attr(data-text);
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  color: #E5FBD4;
+  color: #111827;
   clip-path: inset(0 0 var(--clip-value) 0);
   will-change: clip-path;
 }
 
 @media (max-width: 1024px) {
-  .animate-text {
+  .animate-text-light {
     width: 90%;
   }
 }
 
 @media (max-width: 640px) {
-  .animate-text {
+  .animate-text-light {
     width: 100%;
   }
 }
