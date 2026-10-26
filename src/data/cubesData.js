@@ -1,18 +1,17 @@
 /**
- * Coordinates for the 6 3D cubes.
- * The cubes start EXACTLY where the centered arch logo is in the middle of the viewport (top: ~33%, left: ~50%),
- * tumble forward through 3D space with perspective rotation,
- * and expand outward to form the signature arch framing Header 2 in the center.
+ * Exact 3D cubes coordinates from Reference 42 ("C:\Users\rohit\Downloads\42-20261026T055316Z-1-001.zip")
+ * Initial coordinates at z: -30000px mathematically project into the arch shape at top: 25%
+ * and expand outward into the final framing positions around Header 2.
  */
 export const cubesData = {
   "cube-1": {
     initial: {
-      top: 29.5,
-      left: 46.5,
+      top: -55,
+      left: 37.5,
       rotateX: 360,
       rotateY: -360,
       rotateZ: -48,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 50,
@@ -25,16 +24,16 @@ export const cubesData = {
   },
   "cube-2": {
     initial: {
-      top: 36.5,
-      left: 46.0,
+      top: -35,
+      left: 32.5,
       rotateX: -360,
       rotateY: 360,
       rotateZ: 90,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 75,
-      left: 24,
+      left: 25,
       rotateX: 1,
       rotateY: 2,
       rotateZ: 0,
@@ -43,16 +42,16 @@ export const cubesData = {
   },
   "cube-3": {
     initial: {
-      top: 29.5,
-      left: 50.0,
+      top: -65,
+      left: 50,
       rotateX: -360,
       rotateY: -360,
       rotateZ: -180,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 25,
-      left: 24,
+      left: 25,
       rotateX: -1,
       rotateY: 2,
       rotateZ: 0,
@@ -61,16 +60,16 @@ export const cubesData = {
   },
   "cube-4": {
     initial: {
-      top: 36.5,
-      left: 50.0,
+      top: -35,
+      left: 50,
       rotateX: -360,
       rotateY: -360,
       rotateZ: -180,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 75,
-      left: 76,
+      left: 75,
       rotateX: 1,
       rotateY: -2,
       rotateZ: 0,
@@ -79,16 +78,16 @@ export const cubesData = {
   },
   "cube-5": {
     initial: {
-      top: 29.5,
-      left: 53.5,
+      top: -55,
+      left: 62.5,
       rotateX: 360,
       rotateY: 360,
       rotateZ: -135,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 25,
-      left: 76,
+      left: 75,
       rotateX: -1,
       rotateY: -2,
       rotateZ: 0,
@@ -97,12 +96,12 @@ export const cubesData = {
   },
   "cube-6": {
     initial: {
-      top: 36.5,
-      left: 54.0,
+      top: -35,
+      left: 67.5,
       rotateX: -180,
       rotateY: -360,
       rotateZ: -180,
-      z: -7000,
+      z: -30000,
     },
     final: {
       top: 50,
