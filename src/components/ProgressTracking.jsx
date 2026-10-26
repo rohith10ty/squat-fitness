@@ -7,10 +7,10 @@ export default function ProgressTracking() {
   const [hoveredPoint, setHoveredPoint] = useState(null);
 
   const muscleGroups = [
-    { name: 'Lower Body (Quads & Glutes)', percent: 34, color: 'bg-[#ffe9d9]' },
-    { name: 'Posterior Chain & Back', percent: 26, color: 'bg-[#f3a675]' },
-    { name: 'Chest & Anterior Deltoids', percent: 22, color: 'bg-[#ff7e36]' },
-    { name: 'Core Stability & Lumbar', percent: 18, color: 'bg-[#cdb9ab]' },
+    { name: 'Lower Body (Quads & Glutes)', percent: 34, color: 'bg-[#E5FBD4]' },
+    { name: 'Posterior Chain & Back', percent: 26, color: 'bg-[#C5F3A9]' },
+    { name: 'Chest & Anterior Deltoids', percent: 22, color: 'bg-[#A2E27E]' },
+    { name: 'Core Stability & Lumbar', percent: 18, color: 'bg-[#7EBE59]' },
   ];
 
   const milestones = [
@@ -43,27 +43,27 @@ export default function ProgressTracking() {
   return (
     <section id="progress" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[rgba(255,233,217,0.15)] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 border-b border-[rgba(229,251,212,0.15)] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#f3a675] uppercase mb-2">
-            <span className="w-2 h-2 rounded-full bg-[#f3a675]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#B2CD9C] uppercase mb-2">
+            <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
             <span>PROGRESSION CURVES</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#ffe9d9]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#E5FBD4]">
             Performance Analytics &amp; Trends
           </h2>
         </div>
 
         {/* Timeframe selector */}
-        <div className="mt-4 md:mt-0 flex items-center gap-1 bg-[#2d1408] p-1 rounded-lg border border-[rgba(255,233,217,0.12)]">
+        <div className="mt-4 md:mt-0 flex items-center gap-1 bg-[#233306] p-1 rounded-lg border border-[rgba(229,251,212,0.12)]">
           {['7D', '30D', '90D', '1Y'].map((t) => (
             <button
               key={t}
               onClick={() => setTimeframe(t)}
               className={`px-3 py-1 text-xs font-mono rounded-md transition-colors cursor-pointer ${
                 timeframe === t
-                  ? 'bg-[#ffe9d9] text-[#331707] font-bold'
-                  : 'text-[#cdb9ab] hover:text-[#ffe9d9]'
+                  ? 'bg-[#E5FBD4] text-[#1D2B04] font-bold'
+                  : 'text-[#B2CD9C] hover:text-[#E5FBD4]'
               }`}
             >
               {t}
@@ -75,19 +75,19 @@ export default function ProgressTracking() {
       {/* Main Chart + Muscle Balance Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         {/* Calorie & Volume Progression Chart */}
-        <div className="lg:col-span-2 bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-black/40">
+        <div className="lg:col-span-2 bg-[#233306] border border-[rgba(229,251,212,0.12)] rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-black/40">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-lg font-bold text-[#ffe9d9] flex items-center gap-2">
-                <BarChart2 className="w-4 h-4 text-[#f3a675]" />
+              <h3 className="text-lg font-bold text-[#E5FBD4] flex items-center gap-2">
+                <BarChart2 className="w-4 h-4 text-[#E5FBD4]" />
                 Expenditure &amp; Load Trajectory
               </h3>
-              <p className="text-xs text-[#cdb9ab] font-mono mt-0.5">
+              <p className="text-xs text-[#B2CD9C] font-mono mt-0.5">
                 Hover data points to inspect caloric burn &amp; training volume
               </p>
             </div>
             <div className="text-right">
-              <span className="text-xs font-mono text-[#ffe9d9] bg-[#ffe9d9]/10 px-2.5 py-1 rounded border border-[#ffe9d9]/25 font-bold">
+              <span className="text-xs font-mono text-[#E5FBD4] bg-[#E5FBD4]/10 px-2.5 py-1 rounded border border-[#E5FBD4]/25 font-bold">
                 +14.2% VS LAST CYCLE
               </span>
             </div>
@@ -101,9 +101,9 @@ export default function ProgressTracking() {
               preserveAspectRatio="none"
             >
               <defs>
-                <linearGradient id="chartGradientLuxury" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ffe9d9" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#ffe9d9" stopOpacity="0.0" />
+                <linearGradient id="chartGradientForest" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#E5FBD4" stopOpacity="0.28" />
+                  <stop offset="100%" stopColor="#E5FBD4" stopOpacity="0.0" />
                 </linearGradient>
               </defs>
 
@@ -117,7 +117,7 @@ export default function ProgressTracking() {
                     y1={y}
                     x2={chartWidth - padding}
                     y2={y}
-                    stroke="rgba(255, 233, 217, 0.08)"
+                    stroke="rgba(229, 251, 212, 0.08)"
                     strokeDasharray="4 4"
                     strokeWidth="1"
                   />
@@ -125,13 +125,13 @@ export default function ProgressTracking() {
               })}
 
               {/* Area fill */}
-              <path d={areaD} fill="url(#chartGradientLuxury)" />
+              <path d={areaD} fill="url(#chartGradientForest)" />
 
               {/* Curve line */}
               <path
                 d={pathD}
                 fill="none"
-                stroke="#ffe9d9"
+                stroke="#E5FBD4"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -144,8 +144,8 @@ export default function ProgressTracking() {
                     cx={pt.x}
                     cy={pt.y}
                     r={hoveredPoint === index ? 6 : 4}
-                    fill={hoveredPoint === index ? '#f3a675' : '#ffe9d9'}
-                    stroke="#2d1408"
+                    fill={hoveredPoint === index ? '#FFFFFF' : '#E5FBD4'}
+                    stroke="#1D2B04"
                     strokeWidth="2"
                     onMouseEnter={() => setHoveredPoint(index)}
                     onMouseLeave={() => setHoveredPoint(null)}
@@ -158,20 +158,20 @@ export default function ProgressTracking() {
             {/* Hover Tooltip Overlay */}
             {hoveredPoint !== null && (
               <div
-                className="absolute -top-4 pointer-events-none bg-[#381909] border border-[rgba(255,233,217,0.25)] px-3 py-1.5 rounded-lg text-xs font-mono shadow-xl transform -translate-x-1/2 transition-all"
+                className="absolute -top-4 pointer-events-none bg-[#141E03] border border-[rgba(229,251,212,0.25)] px-3 py-1.5 rounded-lg text-xs font-mono shadow-xl transform -translate-x-1/2 transition-all"
                 style={{
                   left: `${(points[hoveredPoint].x / chartWidth) * 100}%`,
                 }}
               >
-                <p className="text-[#cdb9ab]">{points[hoveredPoint].date}</p>
-                <p className="text-[#ffe9d9] font-bold">{points[hoveredPoint].calories} kcal</p>
-                <p className="text-[#f3a675] text-[10px]">{points[hoveredPoint].hours} hrs active</p>
+                <p className="text-[#B2CD9C]">{points[hoveredPoint].date}</p>
+                <p className="text-[#E5FBD4] font-bold">{points[hoveredPoint].calories} kcal</p>
+                <p className="text-[#E5FBD4]/80 text-[10px]">{points[hoveredPoint].hours} hrs active</p>
               </div>
             )}
           </div>
 
           {/* Chart X-axis labels */}
-          <div className="flex justify-between items-center px-4 pt-3 border-t border-[rgba(255,233,217,0.12)] text-[11px] font-mono text-[#cdb9ab]">
+          <div className="flex justify-between items-center px-4 pt-3 border-t border-[rgba(229,251,212,0.12)] text-[11px] font-mono text-[#B2CD9C]">
             {PROGRESS_TRENDS.map((item, idx) => (
               <span key={idx}>{item.date}</span>
             ))}
@@ -179,10 +179,10 @@ export default function ProgressTracking() {
         </div>
 
         {/* Muscle Load Distribution */}
-        <div className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-black/40">
+        <div className="bg-[#233306] border border-[rgba(229,251,212,0.12)] rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-black/40">
           <div>
-            <h3 className="text-lg font-bold text-[#ffe9d9] mb-1">Muscle Group Loading</h3>
-            <p className="text-xs text-[#cdb9ab] font-mono">
+            <h3 className="text-lg font-bold text-[#E5FBD4] mb-1">Muscle Group Loading</h3>
+            <p className="text-xs text-[#B2CD9C] font-mono">
               Biomechanical stress distribution
             </p>
           </div>
@@ -191,10 +191,10 @@ export default function ProgressTracking() {
             {muscleGroups.map((group) => (
               <div key={group.name} className="space-y-1.5">
                 <div className="flex justify-between text-xs font-mono">
-                  <span className="text-[#cdb9ab]">{group.name}</span>
-                  <span className="text-[#ffe9d9] font-bold">{group.percent}%</span>
+                  <span className="text-[#B2CD9C]">{group.name}</span>
+                  <span className="text-[#E5FBD4] font-bold">{group.percent}%</span>
                 </div>
-                <div className="w-full bg-[#1e0d05] h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-[#141E03] h-2 rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full ${group.color} transition-all duration-700`}
                     style={{ width: `${group.percent}%` }}
@@ -204,9 +204,9 @@ export default function ProgressTracking() {
             ))}
           </div>
 
-          <div className="p-3 rounded-lg bg-[#381909] border border-[rgba(255,233,217,0.12)] text-[11px] font-mono text-[#cdb9ab] flex items-center justify-between">
+          <div className="p-3 rounded-lg bg-[#141E03] border border-[rgba(229,251,212,0.12)] text-[11px] font-mono text-[#B2CD9C] flex items-center justify-between">
             <span>SYMMETRY INDEX</span>
-            <span className="text-[#ffe9d9] font-bold">BALANCED 98.4%</span>
+            <span className="text-[#E5FBD4] font-bold">BALANCED 98.4%</span>
           </div>
         </div>
       </div>
@@ -218,14 +218,14 @@ export default function ProgressTracking() {
           return (
             <div
               key={m.title}
-              className="bg-[#2d1408] border border-[rgba(255,233,217,0.12)] rounded-xl p-4 hover:border-[rgba(255,233,217,0.25)] transition-colors shadow-lg"
+              className="bg-[#233306] border border-[rgba(229,251,212,0.12)] rounded-xl p-4 hover:border-[rgba(229,251,212,0.25)] transition-colors shadow-lg"
             >
-              <div className="flex items-center justify-between text-[#cdb9ab] mb-2">
+              <div className="flex items-center justify-between text-[#B2CD9C] mb-2">
                 <span className="text-xs font-mono uppercase">{m.title}</span>
-                <Icon className="w-4 h-4 text-[#f3a675]" />
+                <Icon className="w-4 h-4 text-[#E5FBD4]" />
               </div>
-              <p className="text-2xl font-extrabold text-[#ffe9d9] tracking-tight">{m.value}</p>
-              <p className="text-[11px] font-mono text-[#cdb9ab] mt-1">{m.note}</p>
+              <p className="text-2xl font-extrabold text-[#E5FBD4] tracking-tight">{m.value}</p>
+              <p className="text-[11px] font-mono text-[#B2CD9C] mt-1">{m.note}</p>
             </div>
           );
         })}

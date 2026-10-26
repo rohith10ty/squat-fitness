@@ -40,7 +40,7 @@ export default function App() {
 
     // Scroll section observer
     const handleScroll = () => {
-      const sections = ['home', 'dashboard', 'workouts', 'progress', 'nutrition', 'bmi', 'goals', 'contact'];
+      const sections = ['home', 'workouts', 'dashboard', 'progress', 'nutrition', 'bmi', 'goals', 'contact'];
       const scrollPosition = window.scrollY + 250;
 
       for (const sectionId of sections) {
@@ -77,11 +77,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#241105] text-[#ffe9d9] overflow-x-hidden selection:bg-[#ff7e36] selection:text-white font-sans">
-      {/* Centered Minimal Floating Navbar in Luxury 42 Palette */}
+    <div className="min-h-screen bg-[#1D2B04] text-[#E5FBD4] overflow-x-hidden selection:bg-[#E5FBD4] selection:text-[#1D2B04] font-sans">
+      {/* 42 Minimal Edge-to-Edge Navbar */}
       <Navbar activeSection={activeSection} />
 
-      {/* Part 1: Exact 3D Cubes Scroll Hero from Sample 42 with Fitness Photos & Color Changing */}
+      {/* Part 1: Exact 3D Cubes Scroll Hero from Sample 42 in Forest Green #1D2B04 & Mint White #E5FBD4 */}
       <Hero3DSection />
 
       {/* Part 2: The 3 "FITNESS" Parallax Lines & Progressive Text Reveal from Sample 61 */}
@@ -92,7 +92,7 @@ export default function App() {
 
       {/* Section Divider Bar */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(255,233,217,0.18)] to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(229,251,212,0.2)] to-transparent" />
       </div>
 
       {/* Fitness Dashboard */}

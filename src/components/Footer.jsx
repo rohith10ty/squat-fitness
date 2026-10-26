@@ -9,24 +9,24 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#101010] border-t border-[#222222] text-[#a1a1aa] pt-16 pb-12 font-sans">
+    <footer className="relative bg-[#141E03] border-t border-[rgba(229,251,212,0.12)] text-[#B2CD9C] pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#222]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[rgba(229,251,212,0.1)]">
           {/* Brand Column - Squat Fitness */}
           <div className="lg:col-span-2 space-y-4">
             <Logo size="md" showText={true} />
-            <p className="text-xs text-[#71717a] leading-relaxed max-w-sm">
+            <p className="text-xs text-[#B2CD9C] leading-relaxed max-w-sm">
               Squat Fitness is a minimalist performance platform engineered with clarity and intention. We distill training telemetry, macro nutrition, and progressive overload into quiet order.
             </p>
             <div className="pt-2 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#ccff00]" />
-              <span className="text-[11px] font-mono text-[#a1a1aa]">SQUAT TELEMETRY v2.6 // ONLINE</span>
+              <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
+              <span className="text-[11px] font-mono text-[#E5FBD4]">SQUAT TELEMETRY v2.6 // ONLINE</span>
             </div>
           </div>
 
           {/* Quick Navigation */}
           <div>
-            <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4">
+            <h4 className="text-xs font-mono uppercase text-[#E5FBD4] font-bold tracking-wider mb-4">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs font-mono">
@@ -34,7 +34,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-[#ccff00] transition-colors"
+                    className="hover:text-[#E5FBD4] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -45,7 +45,7 @@ export default function Footer() {
 
           {/* Metrics & Tools */}
           <div>
-            <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4">
+            <h4 className="text-xs font-mono uppercase text-[#E5FBD4] font-bold tracking-wider mb-4">
               Modules
             </h4>
             <ul className="space-y-2 text-xs font-mono">
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-[#ccff00] transition-colors"
+                    className="hover:text-[#E5FBD4] transition-colors"
                   >
                     {link.name}
                   </a>
@@ -64,7 +64,7 @@ export default function Footer() {
 
           {/* Social & Connect */}
           <div>
-            <h4 className="text-xs font-mono uppercase text-white font-bold tracking-wider mb-4">
+            <h4 className="text-xs font-mono uppercase text-[#E5FBD4] font-bold tracking-wider mb-4">
               Community
             </h4>
             <div className="flex items-center gap-2 mb-4">
@@ -73,7 +73,7 @@ export default function Footer() {
                 href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] flex items-center justify-center text-white hover:text-[#ccff00] hover:border-[#ccff00] transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#1B2804] border border-[rgba(229,251,212,0.15)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#2A3D08] transition-colors"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -86,7 +86,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] flex items-center justify-center text-white hover:text-[#ccff00] hover:border-[#ccff00] transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#1B2804] border border-[rgba(229,251,212,0.15)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#2A3D08] transition-colors"
                 aria-label="X / Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -99,7 +99,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] flex items-center justify-center text-white hover:text-[#ccff00] hover:border-[#ccff00] transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#1B2804] border border-[rgba(229,251,212,0.15)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#2A3D08] transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#1c1c1c] border border-[#2a2a2a] flex items-center justify-center text-white hover:text-[#ccff00] hover:border-[#ccff00] transition-colors"
+                className="w-8 h-8 rounded-lg bg-[#1B2804] border border-[rgba(229,251,212,0.15)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#2A3D08] transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -122,22 +122,22 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-[11px] font-mono text-[#71717a]">
+            <p className="text-[11px] font-mono text-[#B2CD9C]">
               HQ: San Francisco, CA
             </p>
           </div>
         </div>
 
         {/* Bottom Bar with Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#71717a]">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#B2CD9C]">
           <p>© {new Date().getFullYear()} SQUAT FITNESS LABS. ALL RIGHTS RESERVED.</p>
           
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-[#ccff00] transition-colors cursor-pointer"
+            className="flex items-center gap-2 hover:text-[#E5FBD4] transition-colors cursor-pointer"
           >
             <span>BACK TO TOP</span>
-            <div className="w-6 h-6 rounded bg-[#1e1e1e] border border-[#333] flex items-center justify-center text-white">
+            <div className="w-6 h-6 rounded bg-[#1B2804] border border-[rgba(229,251,212,0.15)] flex items-center justify-center text-[#E5FBD4]">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>
