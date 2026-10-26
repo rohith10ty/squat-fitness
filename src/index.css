@@ -163,12 +163,12 @@ header span, header a, header svg, header svg rect, header svg polygon {
   transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
 }
 
-/* Header 1 Centered directly below the arch in viewport center */
+/* Header 1 Centered directly below the arch with generous breathing room */
 .hero-header-1 {
   width: 60%;
   max-width: 900px;
   position: absolute;
-  top: 55%;
+  top: 61%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center center;
@@ -207,7 +207,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
   }
   .hero-header-1 {
     width: 75%;
-    top: 55%;
+    top: 61%;
   }
   .hero-header-2 {
     width: 44%;
@@ -239,7 +239,7 @@ header span, header a, header svg, header svg rect, header svg polygon {
   .hero-header-1 {
     width: 86%;
     max-width: 330px;
-    top: 55%;
+    top: 61%;
   }
   .hero-header-1 h1 {
     font-size: 1.65rem !important;

@@ -88,8 +88,9 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
 
           if (self.progress <= 0.5) {
             const yProgress = self.progress / 0.5;
-            gsap.set(headers[0], { y: `${yProgress * 100}%` });
-            gsap.set(headers[2], { y: `${yProgress * -100}%` });
+            gsap.set(headers[0], { y: `${yProgress * 100}%`, scale: 1 });
+            gsap.set(headers[1], { y: '0%', scale: 1 });
+            gsap.set(headers[2], { y: `${yProgress * -100}%`, scale: 1 });
 
             // Smooth background transition from Cream to Pure Black as FITNESS comes together
             const currentBg = interpolateBg(yProgress);
@@ -100,9 +101,6 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
               t.style.fill = currentTextFill;
             });
           } else {
-            gsap.set(headers[0], { y: '100%' });
-            gsap.set(headers[2], { y: '-100%' });
-
             // Fully lock to Pure Jet Black and Warm Cream
             servicesRef.current.style.backgroundColor = '#0A0A0A';
             svgTexts.forEach((t) => {
@@ -110,10 +108,15 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
             });
 
             const scaleProgress = (self.progress - 0.5) / 0.5;
-            const minScale = window.innerWidth <= 1000 ? 0.3 : 0.15;
+            const minScale = window.innerWidth <= 1000 ? 0.28 : 0.14;
             const scale = 1 - scaleProgress * (1 - minScale);
 
-            headers.forEach((header) => gsap.set(header, { scale }));
+            // Smoothly lift FITNESS upward as it scales so it sits directly above the incoming paragraph
+            const yLift = scaleProgress * 20; // 20vh upward lift
+
+            gsap.set(headers[0], { y: `calc(100% - ${yLift}vh)`, scale });
+            gsap.set(headers[1], { y: `calc(0% - ${yLift}vh)`, scale });
+            gsap.set(headers[2], { y: `calc(-100% - ${yLift}vh)`, scale });
           }
         },
       });
@@ -226,7 +229,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       </section>
 
       {/* ===== SECTION 3: SERVICES-COPY (Second Progressive Text Reveal on Pure Jet Black) ===== */}
-      <section id="dark-theme-trigger" className="services-copy relative w-full mt-[180vh] md:mt-[190vh] pt-28 sm:pt-36 pb-24 px-6 md:px-12 text-center bg-[#0A0A0A] text-[#F5F1E8]">
+      <section id="dark-theme-trigger" className="services-copy relative w-full mt-[105vh] md:mt-[112vh] pt-12 md:pt-16 pb-20 px-6 md:px-12 text-center bg-[#0A0A0A] text-[#F5F1E8]">
         <h1
           ref={text2Ref}
           className="animate-text-dark font-black text-xl sm:text-3xl md:text-5xl lg:text-6xl text-center tracking-tight leading-[1.22] select-none uppercase font-sans"

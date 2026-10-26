@@ -116,27 +116,27 @@ export default function Navbar({ activeSection }) {
   const logoColor = isOverDark ? '#FFFFFF' : '#1E1B18';
   const headerBg = hasScrolled
     ? (isOverDark
-        ? 'backdrop-blur-md bg-[#0A0A0A]/85 border-b border-white/10 shadow-lg'
-        : 'backdrop-blur-md bg-[#F5F1E8]/85 border-b border-[#1E1B18]/10 shadow-sm')
+        ? 'backdrop-blur-md bg-[#0A0A0A]/85 border-b border-white/10 shadow-sm'
+        : 'backdrop-blur-md bg-[#F5F1E8]/85 border-b border-[#1E1B18]/10 shadow-xs')
     : 'bg-transparent border-transparent';
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-14 py-3 sm:py-4 lg:py-6 flex items-center justify-between transition-all duration-300 pointer-events-none select-none ${headerBg}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 lg:px-12 py-2 sm:py-2.5 lg:py-3 flex items-center justify-between transition-all duration-300 pointer-events-none select-none ${headerBg}`}>
       <div className="flex items-center justify-between w-full">
         {/* Brand: Minimalist Geometric Arch Icon + Bold Squat Fitness on the Left */}
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, '#home')}
-          className="flex items-center gap-3 group cursor-pointer pointer-events-auto transition-opacity duration-200 hover:opacity-80"
+          className="flex items-center gap-2.5 group cursor-pointer pointer-events-auto transition-opacity duration-200 hover:opacity-80"
         >
-          <ArchLogo className="w-6 sm:w-7 h-auto shrink-0 transition-colors duration-200" color={logoColor} />
-          <span className={`text-lg sm:text-xl font-bold tracking-tight font-sans transition-colors duration-200 ${textColor}`}>
+          <ArchLogo className="w-5 sm:w-5.5 h-auto shrink-0 transition-colors duration-200" color={logoColor} />
+          <span className={`text-base sm:text-lg font-bold tracking-tight font-sans transition-colors duration-200 ${textColor}`}>
             Squat Fitness
           </span>
         </a>
 
         {/* Top Right Desktop Navigation: Exactly 6 Important Navlinks */}
-        <nav className="hidden lg:flex items-center gap-7 xl:gap-9 pointer-events-auto ml-auto">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 pointer-events-auto ml-auto">
           {NAV_LINKS.map((link) => {
             const isActive = activeSection === link.href.replace('#', '');
             return (
@@ -144,7 +144,7 @@ export default function Navbar({ activeSection }) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className={`relative text-[15px] tracking-wider font-bold transition-all duration-200 cursor-pointer py-1 border-b-2 inline-flex items-center justify-center leading-normal ${textColor} ${
+                className={`relative text-[13.5px] tracking-wider font-bold transition-all duration-200 cursor-pointer py-0.5 border-b-2 inline-flex items-center justify-center leading-normal ${textColor} ${
                   isActive
                     ? `${isOverDark ? 'border-white' : 'border-[#1E1B18]'} opacity-100`
                     : 'border-transparent opacity-75 hover:opacity-100'
