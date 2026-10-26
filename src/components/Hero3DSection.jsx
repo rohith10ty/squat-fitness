@@ -69,7 +69,7 @@ export default function Hero3DSection() {
         return start + (end - start) * progress;
       };
 
-      // Set initial positions matching Reference 42 exactly
+      // Set initial positions matching the centered Arch Logo
       if (cubesContainer) {
         cubesContainer.style.opacity = '0';
         Object.entries(cubesData).forEach(([cubeClass, data]) => {
@@ -79,7 +79,8 @@ export default function Hero3DSection() {
           cube.style.top = `${initial.top}%`;
           cube.style.left = `${initial.left}%`;
           cube.style.transform = `
-            translate3d(-50%, -50%, ${initial.z}px)
+            translate3d(-50%, -50%, 0px)
+            scale(${initial.scale})
             rotateX(${initial.rotateX}deg)
             rotateY(${initial.rotateY}deg)
             rotateZ(${initial.rotateZ}deg)
@@ -95,12 +96,9 @@ export default function Hero3DSection() {
         pin: true,
         pinSpacing: true,
         onUpdate: (self) => {
-          // If at the very top, ensure initial clean state
+          // If at the very top, ensure initial clean centered state
           if (self.progress <= 0.005) {
-            if (cubesContainer) {
-              cubesContainer.style.opacity = '0';
-              cubesContainer.style.filter = 'blur(8px)';
-            }
+            if (cubesContainer) cubesContainer.style.opacity = '0';
             if (logo) {
               logo.style.filter = 'blur(0px)';
               logo.style.opacity = '1';
@@ -116,21 +114,19 @@ export default function Hero3DSection() {
 
           // 1. Logo Blur & Fade Out
           const initialProgress = Math.min(self.progress * 20, 1);
-          if (logo) logo.style.filter = `blur(${interpolate(0, 20, initialProgress)}px)`;
+          if (logo) {
+            logo.style.filter = `blur(${interpolate(0, 16, initialProgress)}px)`;
+            logo.style.opacity = `${1 - initialProgress}`;
+          }
 
-          const logoOpacityProgress =
-            self.progress >= 0.02 ? Math.min((self.progress - 0.02) * 100, 1) : 0;
-          if (logo) logo.style.opacity = `${1 - logoOpacityProgress}`;
-
-          // 2. Cubes Container Fade In (fades in smoothly between 0.01 and 0.08)
-          const cubesOpacityProgress =
-            self.progress >= 0.01 ? Math.min((self.progress - 0.01) * 15, 1) : 0;
+          // 2. Cubes Fade In directly at the arch position
+          const cubesOpacityProgress = Math.min(self.progress * 25, 1);
           if (cubesContainer) cubesContainer.style.opacity = `${cubesOpacityProgress}`;
 
           // 3. Header 1 Scale & Blur Out
           const header1Progress = Math.min(self.progress * 2.5, 1);
           if (header1) {
-            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.5, header1Progress)})`;
+            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.4, header1Progress)})`;
             header1.style.filter = `blur(${interpolate(0, 20, header1Progress)}px)`;
             header1.style.opacity = `${1 - header1Progress}`;
           }
@@ -152,26 +148,22 @@ export default function Hero3DSection() {
             header2.style.opacity = `${header2Progress}`;
           }
 
-          // 6. 3D Cubes Interpolation into the Exact Arch from Reference 42
+          // 6. 3D Cubes Interpolation: Starts from the Arch in the Center, expands outward
           const firstPhaseProgress = Math.min(self.progress * 2, 1);
           const secondPhaseProgress =
             self.progress >= 0.5 ? (self.progress - 0.5) * 2 : 0;
-
-          // As cubes fly forward from deep space, distance blur resolves smoothly from 8px to 0px
-          const cubeBlur = interpolate(8, 0, Math.min(firstPhaseProgress * 2.5, 1));
-          if (cubesContainer) cubesContainer.style.filter = `blur(${cubeBlur}px)`;
 
           Object.entries(cubesData).forEach(([cubeClass, data]) => {
             const cube = cubesContainer ? cubesContainer.querySelector(`.${cubeClass}`) : null;
             if (!cube) return;
             const { initial, final } = data;
 
+            const currentScale = interpolate(initial.scale, final.scale, firstPhaseProgress);
             const currentTop = interpolate(initial.top, final.top, firstPhaseProgress);
             const currentLeft = interpolate(initial.left, final.left, firstPhaseProgress);
             const currentRotateX = interpolate(initial.rotateX, final.rotateX, firstPhaseProgress);
             const currentRotateY = interpolate(initial.rotateY, final.rotateY, firstPhaseProgress);
             const currentRotateZ = interpolate(initial.rotateZ, final.rotateZ, firstPhaseProgress);
-            const currentZ = interpolate(initial.z, final.z, firstPhaseProgress);
 
             let additionalRotation = 0;
             if (cubeClass === 'cube-2') {
@@ -183,7 +175,8 @@ export default function Hero3DSection() {
             cube.style.top = `${currentTop}%`;
             cube.style.left = `${currentLeft}%`;
             cube.style.transform = `
-              translate3d(-50%, -50%, ${currentZ}px)
+              translate3d(-50%, -50%, 0px)
+              scale(${currentScale})
               rotateX(${currentRotateX}deg)
               rotateY(${currentRotateY + additionalRotation}deg)
               rotateZ(${currentRotateZ}deg)
@@ -203,7 +196,7 @@ export default function Hero3DSection() {
         id="home"
         className="hero-sticky relative w-full h-[100vh] overflow-hidden flex items-center justify-center select-none bg-[#F5F1E8] text-[#1E1B18]"
       >
-        {/* Exact Reference 42 Logo Arch */}
+        {/* Centered Arch Logo */}
         <div ref={logoRef} className="hero-logo">
           <div className="hero-col">
             <div className="hero-block hero-block-1" />
@@ -219,7 +212,7 @@ export default function Hero3DSection() {
           </div>
         </div>
 
-        {/* 3D Cubes Viewport Container Matching Reference 42 */}
+        {/* 3D Cubes Viewport Container: Starts at the Arch in the Center and Expands Outward */}
         <div ref={cubesRef} className="cubes" style={{ opacity: 0 }}>
           {[1, 2, 3, 4, 5, 6].map((num, cubeIdx) => {
             const imgStart = cubeIdx * 6;
@@ -248,7 +241,7 @@ export default function Hero3DSection() {
           })}
         </div>
 
-        {/* Header 1 (The first performance company...) */}
+        {/* Header 1 (The first performance company...) Centered below Arch */}
         <div ref={header1Ref} className="hero-header-1">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-[#1E1B18] font-sans">
             The first performance company built for the disciplined generation.

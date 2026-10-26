@@ -133,6 +133,7 @@ export default function FitnessLinesSection({ onExploreWorkouts, onOpenDashboard
       {/* ===== SECTION 2: SERVICES / 3 FITNESS LINES PINNED EFFECT WITH COLOR CONVERSION ===== */}
       <section
         ref={servicesRef}
+        id="services-section"
         className="services relative w-full h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-[#F5F1E8] transition-colors"
       >
         {/* Layer 1: Starts translateX(+100%) */}

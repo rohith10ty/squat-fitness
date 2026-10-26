@@ -31,7 +31,12 @@
   }
 }
 
-/* === Exact Reference 42 Hero 3D Cubes Architecture === */
+/* === Inverted Navbar Effect === */
+.navbar-inverted {
+  mix-blend-mode: difference;
+}
+
+/* === Centered Hero Architecture: Arch and Text Centered in Viewport === */
 .hero-sticky {
   position: relative;
   width: 100vw;
@@ -43,11 +48,11 @@
 
 .hero-logo {
   position: absolute;
-  top: 25%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 24px;
+  gap: 32px;
   z-index: 2;
   pointer-events: none;
 }
@@ -59,12 +64,12 @@
 }
 
 .hero-col:nth-child(2) {
-  gap: 26px;
+  gap: 32px;
 }
 
 .hero-block {
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 48px;
   background-color: #1E1B18;
 }
 
@@ -78,7 +83,7 @@
   transform-origin: bottom left;
 }
 
-/* 3D Cubes Viewport Container from Reference 42 */
+/* 3D Cubes Viewport Container */
 .cubes {
   position: absolute;
   top: 0;
@@ -86,16 +91,17 @@
   width: 100vw;
   height: 100vh;
   transform-style: preserve-3d;
-  perspective: 10000px;
+  perspective: 1200px;
   pointer-events: none;
 }
 
-/* 150px Cube Dimensions from Reference 42 */
+/* 150px Cube Dimensions */
 .cube {
   position: absolute;
   width: 150px;
   height: 150px;
   transform-style: preserve-3d;
+  will-change: transform, top, left;
 }
 
 .cube > div {
@@ -120,48 +126,49 @@
 .top { transform: translateY(-75px) rotateX(90deg); }
 .bottom { transform: translateY(75px) rotateX(-90deg); }
 
-/* Exact Initial Deep-Space Coordinates (z: -30000px) from Reference 42 */
+/* Initial Centered Cube Transforms matching Arch Coordinates */
 .cube-1 {
-  top: -55%;
-  left: 37.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
+  top: 31.3%;
+  left: 46.5%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32) rotateZ(42deg);
 }
 
 .cube-2 {
-  top: -35%;
-  left: 32.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
+  top: 38.7%;
+  left: 45.8%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32);
 }
 
 .cube-3 {
-  top: -65%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  top: 31.3%;
+  left: 50.0%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32);
 }
 
 .cube-4 {
-  top: -35%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  top: 38.7%;
+  left: 50.0%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32);
 }
 
 .cube-5 {
-  top: -55%;
-  left: 62.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
+  top: 31.3%;
+  left: 53.5%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32) rotateZ(-42deg);
 }
 
 .cube-6 {
-  top: -35%;
-  left: 67.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
+  top: 38.7%;
+  left: 54.2%;
+  transform: translate3d(-50%, -50%, 0px) scale(0.32);
 }
 
-/* Header 1 & Header 2 Reference 42 Specs */
+/* Header 1 Centered directly below the arch */
 .hero-header-1 {
-  width: 60%;
+  width: 65%;
+  max-width: 900px;
   position: absolute;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center center;
@@ -170,8 +177,10 @@
   pointer-events: none;
 }
 
+/* Header 2 Centered Inside Cubes Arch */
 .hero-header-2 {
-  width: 30%;
+  width: 34%;
+  max-width: 520px;
   position: absolute;
   top: 50%;
   left: 50%;
