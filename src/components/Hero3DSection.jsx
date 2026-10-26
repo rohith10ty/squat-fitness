@@ -5,45 +5,8 @@ import { cubesData } from '../data/cubesData';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// 36 dynamic cube face images (fitness high quality)
-const CUBE_IMAGES = [
-  '/img/cubes/cardio.jpg',
-  '/img/cubes/fit1.jpg',
-  '/img/cubes/fit2.jpg',
-  '/img/cubes/fit3.jpg',
-  '/img/cubes/strength.jpg',
-  '/img/cubes/fit4.jpg',
-  '/img/cubes/fit5.jpg',
-  '/img/cubes/yoga.jpg',
-  '/img/cubes/fit6.jpg',
-  '/img/cubes/fit7.jpg',
-  '/img/cubes/hiit.jpg',
-  '/img/cubes/fit8.jpg',
-  '/img/cubes/fit9.jpg',
-  '/img/cubes/fitness-hero.jpg',
-  '/img/cubes/fit10.jpg',
-  '/img/cubes/fit11.jpg',
-  '/img/cubes/fit12.jpg',
-  '/img/cubes/breakfast.jpg',
-  '/img/cubes/fit1.jpg',
-  '/img/cubes/lunch.jpg',
-  '/img/cubes/fit2.jpg',
-  '/img/cubes/dinner.jpg',
-  '/img/cubes/fit3.jpg',
-  '/img/cubes/fitness-outro.jpg',
-  '/img/cubes/snack.jpg',
-  '/img/cubes/fit4.jpg',
-  '/img/cubes/fit5.jpg',
-  '/img/cubes/fit6.jpg',
-  '/img/cubes/cardio.jpg',
-  '/img/cubes/fit7.jpg',
-  '/img/cubes/fit8.jpg',
-  '/img/cubes/strength.jpg',
-  '/img/cubes/fit9.jpg',
-  '/img/cubes/fit10.jpg',
-  '/img/cubes/fit11.jpg',
-  '/img/cubes/fit12.jpg',
-];
+// 36 cube face images using original Reference 42 crisp textures
+const CUBE_IMAGES = Array.from({ length: 36 }, (_, i) => `/assets/img${(i % 33) + 1}.jpeg`);
 
 export default function Hero3DSection() {
   const containerRef = useRef(null);
@@ -69,7 +32,7 @@ export default function Hero3DSection() {
         return start + (end - start) * progress;
       };
 
-      // Set initial positions matching the centered Arch Logo
+      // Set initial state: cubes container 100% hidden at scroll = 0
       if (cubesContainer) {
         cubesContainer.style.opacity = '0';
         Object.entries(cubesData).forEach(([cubeClass, data]) => {
@@ -79,8 +42,7 @@ export default function Hero3DSection() {
           cube.style.top = `${initial.top}%`;
           cube.style.left = `${initial.left}%`;
           cube.style.transform = `
-            translate3d(-50%, -50%, 0px)
-            scale(${initial.scale})
+            translate3d(-50%, -50%, ${initial.z}px)
             rotateX(${initial.rotateX}deg)
             rotateY(${initial.rotateY}deg)
             rotateZ(${initial.rotateZ}deg)
@@ -96,8 +58,8 @@ export default function Hero3DSection() {
         pin: true,
         pinSpacing: true,
         onUpdate: (self) => {
-          // If at the very top, ensure initial clean centered state
-          if (self.progress <= 0.005) {
+          // At the very top, ensure clean initial state
+          if (self.progress <= 0.002) {
             if (cubesContainer) cubesContainer.style.opacity = '0';
             if (logo) {
               logo.style.filter = 'blur(0px)';
@@ -108,25 +70,34 @@ export default function Hero3DSection() {
               header1.style.filter = 'blur(0px)';
               header1.style.opacity = '1';
             }
+            if (header2) {
+              header2.style.opacity = '0';
+              header2.style.filter = 'blur(10px)';
+            }
             if (arrow) arrow.style.opacity = '1';
             return;
           }
 
-          // 1. Logo Blur & Fade Out
+          // 1. Logo Blur & Fade Out (Reference 42 exact formula)
           const initialProgress = Math.min(self.progress * 20, 1);
           if (logo) {
-            logo.style.filter = `blur(${interpolate(0, 16, initialProgress)}px)`;
-            logo.style.opacity = `${1 - initialProgress}`;
+            logo.style.filter = `blur(${interpolate(0, 20, initialProgress)}px)`;
+            const logoOpacityProgress =
+              self.progress >= 0.02 ? Math.min((self.progress - 0.02) * 100, 1) : 0;
+            logo.style.opacity = `${1 - logoOpacityProgress}`;
           }
 
-          // 2. Cubes Fade In directly at the arch position
-          const cubesOpacityProgress = Math.min(self.progress * 25, 1);
-          if (cubesContainer) cubesContainer.style.opacity = `${cubesOpacityProgress}`;
+          // 2. Cubes Opacity (Reference 42 exact formula)
+          const cubesOpacityProgress =
+            self.progress >= 0.01 ? Math.min((self.progress - 0.01) * 100, 1) : 0;
+          if (cubesContainer) {
+            cubesContainer.style.opacity = `${cubesOpacityProgress}`;
+          }
 
-          // 3. Header 1 Scale & Blur Out
+          // 3. Header 1 Scale & Blur Out (Reference 42 exact formula)
           const header1Progress = Math.min(self.progress * 2.5, 1);
           if (header1) {
-            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.4, header1Progress)})`;
+            header1.style.transform = `translate(-50%, -50%) scale(${interpolate(1, 1.5, header1Progress)})`;
             header1.style.filter = `blur(${interpolate(0, 20, header1Progress)}px)`;
             header1.style.opacity = `${1 - header1Progress}`;
           }
@@ -136,7 +107,7 @@ export default function Hero3DSection() {
             arrow.style.opacity = `${Math.max(0, 1 - self.progress * 8)}`;
           }
 
-          // 5. Header 2 Fade In & Unblur (starts at progress 0.4)
+          // 5. Header 2 Fade In & Unblur (Reference 42 exact formula)
           const header2StartProgress = (self.progress - 0.4) * 10;
           const header2Progress = Math.max(0, Math.min(header2StartProgress, 1));
           const header2Scale = interpolate(0.75, 1, header2Progress);
@@ -148,7 +119,7 @@ export default function Hero3DSection() {
             header2.style.opacity = `${header2Progress}`;
           }
 
-          // 6. 3D Cubes Interpolation: Starts from the Arch in the Center, expands outward
+          // 6. 3D Perspective Cubes Interpolation (Reference 42 exact formula)
           const firstPhaseProgress = Math.min(self.progress * 2, 1);
           const secondPhaseProgress =
             self.progress >= 0.5 ? (self.progress - 0.5) * 2 : 0;
@@ -158,12 +129,12 @@ export default function Hero3DSection() {
             if (!cube) return;
             const { initial, final } = data;
 
-            const currentScale = interpolate(initial.scale, final.scale, firstPhaseProgress);
             const currentTop = interpolate(initial.top, final.top, firstPhaseProgress);
             const currentLeft = interpolate(initial.left, final.left, firstPhaseProgress);
             const currentRotateX = interpolate(initial.rotateX, final.rotateX, firstPhaseProgress);
             const currentRotateY = interpolate(initial.rotateY, final.rotateY, firstPhaseProgress);
             const currentRotateZ = interpolate(initial.rotateZ, final.rotateZ, firstPhaseProgress);
+            const currentZ = interpolate(initial.z, final.z, firstPhaseProgress);
 
             let additionalRotation = 0;
             if (cubeClass === 'cube-2') {
@@ -175,8 +146,7 @@ export default function Hero3DSection() {
             cube.style.top = `${currentTop}%`;
             cube.style.left = `${currentLeft}%`;
             cube.style.transform = `
-              translate3d(-50%, -50%, 0px)
-              scale(${currentScale})
+              translate3d(-50%, -50%, ${currentZ}px)
               rotateX(${currentRotateX}deg)
               rotateY(${currentRotateY + additionalRotation}deg)
               rotateZ(${currentRotateZ}deg)
@@ -212,36 +182,36 @@ export default function Hero3DSection() {
           </div>
         </div>
 
-        {/* 3D Cubes Viewport Container: Starts at the Arch in the Center and Expands Outward */}
+        {/* 3D Cubes Viewport Container: True 3D perspective fly-in */}
         <div ref={cubesRef} className="cubes" style={{ opacity: 0 }}>
           {[1, 2, 3, 4, 5, 6].map((num, cubeIdx) => {
             const imgStart = cubeIdx * 6;
             return (
               <div key={num} className={`cube cube-${num}`}>
                 <div className="front">
-                  <img src={CUBE_IMAGES[imgStart % CUBE_IMAGES.length]} alt="Fitness 1" />
+                  <img src={CUBE_IMAGES[imgStart % CUBE_IMAGES.length]} alt="Cube Face Front" />
                 </div>
                 <div className="back">
-                  <img src={CUBE_IMAGES[(imgStart + 1) % CUBE_IMAGES.length]} alt="Fitness 2" />
+                  <img src={CUBE_IMAGES[(imgStart + 1) % CUBE_IMAGES.length]} alt="Cube Face Back" />
                 </div>
                 <div className="right">
-                  <img src={CUBE_IMAGES[(imgStart + 2) % CUBE_IMAGES.length]} alt="Fitness 3" />
+                  <img src={CUBE_IMAGES[(imgStart + 2) % CUBE_IMAGES.length]} alt="Cube Face Right" />
                 </div>
                 <div className="left">
-                  <img src={CUBE_IMAGES[(imgStart + 3) % CUBE_IMAGES.length]} alt="Fitness 4" />
+                  <img src={CUBE_IMAGES[(imgStart + 3) % CUBE_IMAGES.length]} alt="Cube Face Left" />
                 </div>
                 <div className="top">
-                  <img src={CUBE_IMAGES[(imgStart + 4) % CUBE_IMAGES.length]} alt="Fitness 5" />
+                  <img src={CUBE_IMAGES[(imgStart + 4) % CUBE_IMAGES.length]} alt="Cube Face Top" />
                 </div>
                 <div className="bottom">
-                  <img src={CUBE_IMAGES[(imgStart + 5) % CUBE_IMAGES.length]} alt="Fitness 6" />
+                  <img src={CUBE_IMAGES[(imgStart + 5) % CUBE_IMAGES.length]} alt="Cube Face Bottom" />
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* Header 1 (The first performance company...) Centered below Arch */}
+        {/* Header 1 (Disciplined generation headline) Centered below Arch */}
         <div ref={header1Ref} className="hero-header-1">
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal leading-[1.12] tracking-tight text-[#1E1B18] font-sans">
             The first performance company built for the disciplined generation.

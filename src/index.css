@@ -31,10 +31,7 @@
   }
 }
 
-/* === Inverted Navbar Effect === */
-.navbar-inverted {
-  mix-blend-mode: difference;
-}
+/* === Navbar Inversion: Managed via dynamic theme classes === */
 
 /* === Centered Hero Architecture: Arch and Text Centered in Viewport === */
 .hero-sticky {
@@ -48,11 +45,11 @@
 
 .hero-logo {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  gap: 32px;
+  gap: 28px;
   z-index: 2;
   pointer-events: none;
 }
@@ -64,12 +61,12 @@
 }
 
 .hero-col:nth-child(2) {
-  gap: 32px;
+  gap: 30px;
 }
 
 .hero-block {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   background-color: #1E1B18;
 }
 
@@ -83,7 +80,7 @@
   transform-origin: bottom left;
 }
 
-/* 3D Cubes Viewport Container */
+/* 3D Cubes Viewport Container: Exact Reference 42 10000px Perspective */
 .cubes {
   position: absolute;
   top: 0;
@@ -91,7 +88,7 @@
   width: 100vw;
   height: 100vh;
   transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 10000px;
   pointer-events: none;
 }
 
@@ -126,49 +123,49 @@
 .top { transform: translateY(-75px) rotateX(90deg); }
 .bottom { transform: translateY(75px) rotateX(-90deg); }
 
-/* Initial Centered Cube Transforms matching Arch Coordinates */
+/* Initial Exact 3D Perspective Transforms from Reference 42 */
 .cube-1 {
-  top: 31.3%;
-  left: 46.5%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32) rotateZ(42deg);
+  top: -55%;
+  left: 37.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
 }
 
 .cube-2 {
-  top: 38.7%;
-  left: 45.8%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32);
+  top: -35%;
+  left: 32.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
 }
 
 .cube-3 {
-  top: 31.3%;
-  left: 50.0%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32);
+  top: -65%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-4 {
-  top: 38.7%;
-  left: 50.0%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32);
+  top: -35%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
 
 .cube-5 {
-  top: 31.3%;
-  left: 53.5%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32) rotateZ(-42deg);
+  top: -55%;
+  left: 62.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
 }
 
 .cube-6 {
-  top: 38.7%;
-  left: 54.2%;
-  transform: translate3d(-50%, -50%, 0px) scale(0.32);
+  top: -35%;
+  left: 67.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
 }
 
 /* Header 1 Centered directly below the arch */
 .hero-header-1 {
   width: 65%;
-  max-width: 900px;
+  max-width: 960px;
   position: absolute;
-  top: 56%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   transform-origin: center center;
