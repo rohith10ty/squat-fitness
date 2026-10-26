@@ -18,8 +18,8 @@ export default function Navbar({ activeSection }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Transition navbar colors when entering the deep black converted section
-      setIsDarkNavbar(window.scrollY > window.innerHeight * 1.6);
+      // Transition navbar colors when entering the black section
+      setIsDarkNavbar(window.scrollY > window.innerHeight * 1.5);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -41,7 +41,7 @@ export default function Navbar({ activeSection }) {
         href="#home"
         onClick={(e) => scrollToSection(e, '#home')}
         className={`flex items-center gap-3 group cursor-pointer pointer-events-auto transition-colors duration-300 ${
-          isDarkNavbar ? 'text-[#E5FBD4]' : 'text-[#1E1B18]'
+          isDarkNavbar ? 'text-[#F5F1E8]' : 'text-[#1E1B18]'
         }`}
       >
         <ArchLogo className="w-6 sm:w-7 h-auto shrink-0" />
@@ -62,8 +62,8 @@ export default function Navbar({ activeSection }) {
               className={`text-sm tracking-wider font-semibold transition-all duration-300 cursor-pointer ${
                 isDarkNavbar
                   ? isActive
-                    ? 'text-[#E5FBD4] border-b-2 border-[#E5FBD4] pb-0.5'
-                    : 'text-[#E5FBD4]/75 hover:text-[#E5FBD4]'
+                    ? 'text-white border-b-2 border-white pb-0.5'
+                    : 'text-[#D4C9B7]/75 hover:text-white'
                   : isActive
                   ? 'text-[#1E1B18] border-b-2 border-[#1E1B18] pb-0.5'
                   : 'text-[#1E1B18]/70 hover:text-[#1E1B18]'
@@ -79,7 +79,7 @@ export default function Navbar({ activeSection }) {
       <button
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className={`lg:hidden p-2 rounded-lg transition-colors cursor-pointer pointer-events-auto ${
-          isDarkNavbar ? 'text-[#E5FBD4] hover:bg-white/10' : 'text-[#1E1B18] hover:bg-black/5'
+          isDarkNavbar ? 'text-[#F5F1E8] hover:bg-white/10' : 'text-[#1E1B18] hover:bg-black/5'
         }`}
         aria-label="Toggle menu"
       >
@@ -91,7 +91,7 @@ export default function Navbar({ activeSection }) {
         <div
           className={`absolute top-full left-0 right-0 backdrop-blur-xl border-b shadow-2xl py-6 px-6 lg:hidden flex flex-col gap-4 pointer-events-auto transition-colors duration-300 ${
             isDarkNavbar
-              ? 'bg-[#080D02]/98 border-[rgba(229,251,212,0.15)] text-[#E5FBD4]'
+              ? 'bg-[#0A0A0A]/98 border-[#262626] text-[#F5F1E8]'
               : 'bg-[#F5F1E8]/98 border-[#D8CFBF] text-[#1E1B18]'
           }`}
         >
@@ -105,8 +105,8 @@ export default function Navbar({ activeSection }) {
                 className={`text-base font-semibold py-1.5 border-b border-black/5 transition-colors ${
                   isDarkNavbar
                     ? isActive
-                      ? 'text-[#E5FBD4] font-bold'
-                      : 'text-[#E5FBD4]/75 hover:text-[#E5FBD4]'
+                      ? 'text-white font-bold'
+                      : 'text-[#D4C9B7]/75 hover:text-white'
                     : isActive
                     ? 'text-[#1E1B18] font-bold'
                     : 'text-[#1E1B18]/70 hover:text-[#1E1B18]'

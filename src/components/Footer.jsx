@@ -9,18 +9,18 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#030501] border-t border-[rgba(229,251,212,0.15)] text-[#E5FBD4] pt-16 pb-12 font-sans">
+    <footer className="relative bg-[#050505] border-t border-[#262626] text-[#F5F1E8] pt-16 pb-12 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[rgba(229,251,212,0.1)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#262626]">
           {/* Brand Column - Squat Fitness */}
           <div className="lg:col-span-2 space-y-4">
             <Logo size="md" showText={true} className="text-white" />
-            <p className="text-xs text-[#E5FBD4]/70 leading-relaxed max-w-sm">
+            <p className="text-xs text-[#D4C9B7]/70 leading-relaxed max-w-sm">
               Squat Fitness is a minimalist performance platform engineered with clarity and intention. We distill training telemetry, macro nutrition, and progressive overload into quiet order.
             </p>
             <div className="pt-2 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
-              <span className="text-[11px] font-mono text-[#E5FBD4] font-bold">SQUAT TELEMETRY v2.6 // ONLINE</span>
+              <span className="w-2 h-2 rounded-full bg-[#F5F1E8]" />
+              <span className="text-[11px] font-mono text-[#F5F1E8] font-bold">SQUAT TELEMETRY v2.6 // ONLINE</span>
             </div>
           </div>
 
@@ -34,7 +34,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="hover:text-white transition-colors text-[#E5FBD4]/70 font-medium"
+                    className="hover:text-white transition-colors text-[#D4C9B7]/70 font-medium"
                   >
                     {link.name}
                   </a>
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://github.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#141414] border border-[#333333] flex items-center justify-center text-[#F5F1E8] hover:border-white hover:bg-black transition-colors shadow-xs"
                 aria-label="GitHub"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#141414] border border-[#333333] flex items-center justify-center text-[#F5F1E8] hover:border-white hover:bg-black transition-colors shadow-xs"
                 aria-label="X / Twitter"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#141414] border border-[#333333] flex items-center justify-center text-[#F5F1E8] hover:border-white hover:bg-black transition-colors shadow-xs"
                 aria-label="Instagram"
               >
                 <svg className="w-4 h-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@ export default function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-lg bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] hover:border-[#E5FBD4] hover:bg-[#182405] transition-colors shadow-xs"
+                className="w-8 h-8 rounded-lg bg-[#141414] border border-[#333333] flex items-center justify-center text-[#F5F1E8] hover:border-white hover:bg-black transition-colors shadow-xs"
                 aria-label="YouTube"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -103,14 +103,14 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <p className="text-[11px] font-mono text-[#E5FBD4]/60">
+            <p className="text-[11px] font-mono text-[#D4C9B7]/60">
               HQ: San Francisco, CA
             </p>
           </div>
         </div>
 
         {/* Bottom Bar with Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#E5FBD4]/60">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#D4C9B7]/60">
           <p>© {new Date().getFullYear()} SQUAT FITNESS LABS. ALL RIGHTS RESERVED.</p>
           
           <button
@@ -118,7 +118,7 @@ export default function Footer() {
             className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer"
           >
             <span>BACK TO TOP</span>
-            <div className="w-6 h-6 rounded bg-[#0D1403] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] shadow-xs hover:border-[#E5FBD4]">
+            <div className="w-6 h-6 rounded bg-[#141414] border border-[#333333] flex items-center justify-center text-[#F5F1E8] shadow-xs hover:border-white">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </button>

@@ -3,49 +3,40 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  :root {
+    --font-outfit: 'Outfit', sans-serif;
   }
-  
+
+  /* Force global Outfit font across every element */
+  html, body, #root, * {
+    font-family: 'Outfit', sans-serif !important;
+  }
+
   html {
     scroll-behavior: smooth;
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
-  }
-
-  body {
-    background-color: #050801;
-    color: #E5FBD4;
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
-    scrollbar-width: none !important;
-    -ms-overflow-style: none !important;
   }
 
-  /* Completely remove scrollbars across all browsers */
+  /* Complete Scrollbar Removal across all browsers */
+  html, body {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+
   ::-webkit-scrollbar {
-    display: none !important;
+    display: none !important; /* Chrome, Safari, Opera */
     width: 0 !important;
     height: 0 !important;
+    background: transparent !important;
   }
 }
 
-/* === Exact 3D Cubes Scroll Architecture (Reference 42 Dimensions & Animation) === */
-.sticky-hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #F5F1E8;
-  color: #1E1B18;
-}
-
-/* Enlarged 6-Block Geometric Arch Logo Centered with Header 1 */
+/* === Reference 42 Hero 3D Cubes Architecture === */
 .hero-logo {
   display: flex;
   gap: 32px;
-  pointer-events: none;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .hero-col {
@@ -55,7 +46,7 @@
 }
 
 .hero-col:nth-child(2) {
-  gap: 36px;
+  gap: 34px;
 }
 
 .hero-block {
@@ -123,41 +114,41 @@
 .face-top { transform: translateY(-75px) rotateX(90deg); }
 .face-bottom { transform: translateY(75px) rotateX(-90deg); }
 
-/* Initial Deep-Space Coordinates (z: -30000px) from Reference 42 */
+/* Initial Coordinates: Boxes Start Exactly from the Arch Logo Blocks */
 .cube-1 {
-  top: -55%;
-  left: 37.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
+  top: 28%;
+  left: 45.5%;
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 .cube-2 {
-  top: -35%;
-  left: 32.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
+  top: 34%;
+  left: 45.5%;
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 .cube-3 {
-  top: -65%;
+  top: 24%;
   left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 .cube-4 {
-  top: -35%;
+  top: 34%;
   left: 50%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 .cube-5 {
-  top: -55%;
-  left: 62.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
+  top: 24%;
+  left: 54.5%;
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 .cube-6 {
-  top: -35%;
-  left: 67.5%;
-  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
+  top: 34%;
+  left: 54.5%;
+  transform: translate3d(-50%, -50%, 0) scale(0.35);
 }
 
 @media (max-width: 1024px) {
@@ -206,12 +197,12 @@
   .face-bottom { transform: translateY(40px) rotateX(-90deg); }
 }
 
-/* === Progressive Text Reveal Scrub (Sample 61 Deep Black & Mint White) === */
+/* === Progressive Text Reveal Scrub (Attachment 3 Fix: Pure Black on Cream) === */
 .animate-text {
   position: relative;
   width: 80%;
   margin: 0 auto;
-  color: #2D4409;
+  color: #C8BEAF; /* Muted warm beige-grey for unrevealed letters */
   --clip-value: 100%;
   line-height: 1.22;
   transition: color 0.2s ease;
@@ -225,19 +216,48 @@
   left: 0;
   width: 100%;
   height: 100%;
-  color: #E5FBD4;
+  color: #000000; /* PURE SOLID BLACK - ZERO GREEN! */
   clip-path: inset(0 0 var(--clip-value) 0);
   will-change: clip-path;
 }
 
+/* For dark background section */
+.animate-text-dark {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  color: #333333;
+  --clip-value: 100%;
+  line-height: 1.22;
+  transition: color 0.2s ease;
+  font-family: 'Outfit', sans-serif;
+}
+
+.animate-text-dark::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #F5F1E8; /* CRISP WARM CREAM - ZERO GREEN! */
+  clip-path: inset(0 0 var(--clip-value) 0);
+  will-change: clip-path;
+}
+
+/* Remove any background rectangles behind the 3 FITNESS lines */
+.services-header {
+  background-color: transparent !important;
+}
+
 @media (max-width: 1024px) {
-  .animate-text {
+  .animate-text, .animate-text-dark {
     width: 90%;
   }
 }
 
 @media (max-width: 640px) {
-  .animate-text {
+  .animate-text, .animate-text-dark {
     width: 100%;
   }
 }

@@ -77,10 +77,12 @@ export default function Hero3DSection() {
           const cube = cubesContainer.querySelector(`.${cubeClass}`);
           if (!cube) return;
           const { initial } = data;
+          const initialScale = initial.scale || 0.35;
           cube.style.top = `${initial.top}%`;
           cube.style.left = `${initial.left}%`;
           cube.style.transform = `
             translate3d(-50%, -50%, ${initial.z}px)
+            scale(${initialScale})
             rotateX(${initial.rotateX}deg)
             rotateY(${initial.rotateY}deg)
             rotateZ(${initial.rotateZ}deg)
@@ -150,6 +152,7 @@ export default function Hero3DSection() {
             const currentRotateY = interpolate(initial.rotateY, final.rotateY, firstPhaseProgress);
             const currentRotateZ = interpolate(initial.rotateZ, final.rotateZ, firstPhaseProgress);
             const currentZ = interpolate(initial.z, final.z, firstPhaseProgress);
+            const currentScale = interpolate(initial.scale || 0.35, final.scale || 1, firstPhaseProgress);
 
             let additionalRotation = 0;
             if (cubeClass === 'cube-2') {
@@ -162,6 +165,7 @@ export default function Hero3DSection() {
             cube.style.left = `${currentLeft}%`;
             cube.style.transform = `
               translate3d(-50%, -50%, ${currentZ}px)
+              scale(${currentScale})
               rotateX(${currentRotateX}deg)
               rotateY(${currentRotateY + additionalRotation}deg)
               rotateZ(${currentRotateZ}deg)
