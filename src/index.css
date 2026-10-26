@@ -5,7 +5,7 @@
 @layer base {
   * {
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
-    border-color: rgba(229, 251, 212, 0.15);
+    border-color: rgba(30, 27, 24, 0.12);
   }
   
   html {
@@ -16,8 +16,8 @@
   }
 
   body {
-    background-color: #050801;
-    color: #E5FBD4;
+    background-color: #F5F1E8;
+    color: #1E1B18;
     font-family: 'Outfit', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scrollbar-width: none !important;
@@ -32,17 +32,55 @@
   }
 }
 
-/* === 3D Cubes Scroll Architecture (Sample 42 Reference Dimensions) === */
+/* === Exact 3D Cubes Scroll Architecture (Reference 42 Dimensions & Animation) === */
 .sticky-hero {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: #1D2B04;
-  color: #E5FBD4;
-  will-change: background-color;
+  background-color: #F5F1E8;
+  color: #1E1B18;
 }
 
+/* 6-Block Geometric Arch Logo from Reference 42 */
+.hero-logo {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 24px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.hero-col:nth-child(2) {
+  gap: 26px;
+}
+
+.hero-block {
+  width: 35px;
+  height: 35px;
+  background-color: #1E1B18;
+}
+
+.hero-block-1 {
+  transform: rotate(42deg);
+  transform-origin: bottom right;
+}
+
+.hero-block-5 {
+  transform: rotate(-42deg);
+  transform-origin: bottom left;
+}
+
+/* 3D Cubes Viewport Container — Initial Opacity 0 */
 .cubes-viewport {
   position: absolute;
   top: 0;
@@ -51,10 +89,11 @@
   height: 100%;
   transform-style: preserve-3d;
   perspective: 10000px;
+  opacity: 0;
   pointer-events: none;
 }
 
-/* 150px cube size from Sample 42 — perfectly proportioned around center text */
+/* 150px Cube Dimensions from Reference 42 */
 .cube-3d {
   position: absolute;
   width: 150px;
@@ -70,35 +109,60 @@
   transform-style: preserve-3d;
   backface-visibility: visible;
   overflow: hidden;
-  border: 1px solid rgba(229, 251, 212, 0.25);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.65);
-  background-color: #0D1403;
+  border: 1px solid rgba(30, 27, 24, 0.12);
+  box-shadow: 0 16px 36px rgba(30, 27, 24, 0.12);
+  background-color: #EAE3D5;
 }
 
 .cube-3d > div img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: contrast(110%) brightness(95%);
+  filter: contrast(105%) brightness(98%);
 }
 
-.face-front {
-  transform: translateZ(75px);
+.face-front { transform: translateZ(75px); }
+.face-back { transform: translateZ(-75px) rotateY(180deg); }
+.face-right { transform: translateX(75px) rotateY(90deg); }
+.face-left { transform: translateX(-75px) rotateY(-90deg); }
+.face-top { transform: translateY(-75px) rotateX(90deg); }
+.face-bottom { transform: translateY(75px) rotateX(-90deg); }
+
+/* Initial Deep-Space Coordinates (z: -30000px) from Reference 42 */
+.cube-1 {
+  top: -55%;
+  left: 37.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(360deg) rotateY(-360deg) rotateZ(-48deg);
 }
-.face-back {
-  transform: translateZ(-75px) rotateY(180deg);
+
+.cube-2 {
+  top: -35%;
+  left: 32.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-180deg) rotateY(180deg) rotateZ(90deg);
 }
-.face-right {
-  transform: translateX(75px) rotateY(90deg);
+
+.cube-3 {
+  top: -65%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
-.face-left {
-  transform: translateX(-75px) rotateY(-90deg);
+
+.cube-4 {
+  top: -35%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-90deg) rotateZ(-180deg);
 }
-.face-top {
-  transform: translateY(-75px) rotateX(90deg);
+
+.cube-5 {
+  top: -55%;
+  left: 62.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(180deg) rotateY(180deg) rotateZ(-135deg);
 }
-.face-bottom {
-  transform: translateY(75px) rotateX(-90deg);
+
+.cube-6 {
+  top: -35%;
+  left: 67.5%;
+  transform: translate3d(-50%, -50%, -30000px) rotateX(-90deg) rotateY(-180deg) rotateZ(-180deg);
 }
 
 @media (max-width: 1024px) {
@@ -115,6 +179,17 @@
 }
 
 @media (max-width: 640px) {
+  .hero-logo {
+    gap: 16px;
+    top: 20%;
+  }
+  .hero-col:nth-child(2) {
+    gap: 18px;
+  }
+  .hero-block {
+    width: 24px;
+    height: 24px;
+  }
   .cube-3d, .cube-3d > div {
     width: 80px;
     height: 80px;
@@ -127,12 +202,12 @@
   .face-bottom { transform: translateY(40px) rotateX(-90deg); }
 }
 
-/* === Progressive Text Reveal Scrub (Sample 61 Deep Black & Mint White) === */
+/* === Progressive Text Reveal Scrub (Sample 61 Cream & Beige Aesthetic) === */
 .animate-text {
   position: relative;
   width: 80%;
   margin: 0 auto;
-  color: #2D4409;
+  color: #C8BFAF;
   --clip-value: 100%;
   line-height: 1.22;
   transition: color 0.2s ease;
@@ -146,7 +221,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  color: #E5FBD4;
+  color: #1E1B18;
   clip-path: inset(0 0 var(--clip-value) 0);
   will-change: clip-path;
 }

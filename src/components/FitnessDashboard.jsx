@@ -43,64 +43,64 @@ export default function FitnessDashboard() {
   const durPercent = Math.min(Math.round((duration / durationGoal) * 100), 100);
 
   return (
-    <section id="dashboard" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans bg-[#050801] text-[#E5FBD4]">
+    <section id="dashboard" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto font-sans bg-[#F5F1E8] text-[#1E1B18]">
       {/* Section Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[rgba(229,251,212,0.15)] pb-6">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#D8CFBF] pb-6">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#E5FBD4] uppercase mb-2 font-bold">
-            <span className="w-2 h-2 rounded-full bg-[#E5FBD4]" />
+          <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-[#1E1B18] uppercase mb-2 font-bold">
+            <span className="w-2 h-2 rounded-full bg-[#1E1B18]" />
             <span>METRIC TELEMETRY</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#E5FBD4]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1E1B18]">
             Daily Fitness Dashboard
           </h2>
         </div>
         <div className="mt-3 md:mt-0 flex items-center gap-3">
-          <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#182405] border border-[rgba(229,251,212,0.2)] text-[#E5FBD4] flex items-center gap-1.5 shadow-sm">
-            <Calendar className="w-3.5 h-3.5 text-[#E5FBD4]" />
+          <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#EAE3D5] border border-[#D8CFBF] text-[#1E1B18] flex items-center gap-1.5 shadow-sm">
+            <Calendar className="w-3.5 h-3.5 text-[#1E1B18]" />
             <span>TODAY: {todayName.toUpperCase()}</span>
           </span>
-          <p className="text-xs text-[#E5FBD4]/75 font-mono">
-            RECOVERY SCORE: <span className="text-[#E5FBD4] font-bold">94%</span>
+          <p className="text-xs text-[#6A6055] font-mono">
+            RECOVERY SCORE: <span className="text-[#1E1B18] font-bold">94%</span>
           </p>
         </div>
       </div>
 
-      {/* 4 Metric Cards in Deep Black Luxury Palette */}
+      {/* 4 Metric Cards in Warm Cream & Beige Palette */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {/* Card 1: Daily Steps */}
-        <div className="bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl p-5 hover:border-[rgba(229,251,212,0.3)] transition-all flex flex-col justify-between shadow-xl">
+        <div className="bg-[#EAE3D5] border border-[#D8CFBF] rounded-2xl p-5 hover:border-[#1E1B18]/30 transition-all flex flex-col justify-between shadow-md">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#182405] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#DFD7C8] border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] shadow-sm">
               <Footprints className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono font-bold text-[#E5FBD4]">{stepPercent}%</span>
+            <span className="text-xs font-mono font-bold text-[#1E1B18]">{stepPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#E5FBD4]/70 font-mono font-medium">Daily Steps</p>
+            <p className="text-xs uppercase tracking-wider text-[#6A6055] font-mono font-bold">Daily Steps</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-[#E5FBD4] tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#1E1B18] tracking-tight font-mono">
                 {steps.toLocaleString()}
               </span>
-              <span className="text-xs text-[#E5FBD4]/60 font-mono">/ {stepGoal.toLocaleString()}</span>
+              <span className="text-xs text-[#6A6055] font-mono">/ {stepGoal.toLocaleString()}</span>
             </div>
-            <div className="w-full bg-[#182405] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#DFD7C8] h-1.5 rounded-full mt-3 overflow-hidden border border-[#D8CFBF]/40">
               <div
-                className="bg-[#E5FBD4] h-full rounded-full transition-all duration-500"
+                className="bg-[#1E1B18] h-full rounded-full transition-all duration-500"
                 style={{ width: `${stepPercent}%` }}
               />
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[rgba(229,251,212,0.12)] flex items-center gap-2">
+          <div className="mt-4 pt-3 border-t border-[#D8CFBF]/60 flex items-center gap-2">
             <button
               onClick={() => addSteps(500)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors flex items-center gap-1 cursor-pointer font-bold"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-white hover:bg-[#F5F1E8] border border-[#D8CFBF] text-[#1E1B18] transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs"
             >
               <Plus className="w-3 h-3" /> 500
             </button>
             <button
               onClick={() => addSteps(1000)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors flex items-center gap-1 cursor-pointer font-bold"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-white hover:bg-[#F5F1E8] border border-[#D8CFBF] text-[#1E1B18] transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs"
             >
               <Plus className="w-3 h-3" /> 1,000
             </button>
@@ -108,217 +108,244 @@ export default function FitnessDashboard() {
         </div>
 
         {/* Card 2: Calories Burned */}
-        <div className="bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl p-5 hover:border-[rgba(229,251,212,0.3)] transition-all flex flex-col justify-between shadow-xl">
+        <div className="bg-[#EAE3D5] border border-[#D8CFBF] rounded-2xl p-5 hover:border-[#1E1B18]/30 transition-all flex flex-col justify-between shadow-md">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#182405] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] shadow-sm">
-              <Flame className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-[#DFD7C8] border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] shadow-sm">
+              <Flame className="w-5 h-5 text-orange-600" />
             </div>
-            <span className="text-xs font-mono font-bold text-[#E5FBD4]">{calPercent}%</span>
+            <span className="text-xs font-mono font-bold text-[#1E1B18]">{calPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#E5FBD4]/70 font-mono font-medium">Active Burn</p>
+            <p className="text-xs uppercase tracking-wider text-[#6A6055] font-mono font-bold">Active Burn</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-[#E5FBD4] tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#1E1B18] tracking-tight font-mono">
                 {calories}
               </span>
-              <span className="text-xs text-[#E5FBD4]/60 font-mono">/ {calorieGoal} kcal</span>
+              <span className="text-xs text-[#6A6055] font-mono">/ {calorieGoal} kcal</span>
             </div>
-            <div className="w-full bg-[#182405] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#DFD7C8] h-1.5 rounded-full mt-3 overflow-hidden border border-[#D8CFBF]/40">
               <div
-                className="bg-[#E5FBD4] h-full rounded-full transition-all duration-500"
+                className="bg-[#1E1B18] h-full rounded-full transition-all duration-500"
                 style={{ width: `${calPercent}%` }}
               />
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[rgba(229,251,212,0.12)] flex items-center gap-2">
-            <button
-              onClick={() => setCalories((prev) => Math.min(prev + 100, 2500))}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors flex items-center gap-1 cursor-pointer font-bold"
-            >
-              <Plus className="w-3 h-3" /> 100 kcal
-            </button>
+          <div className="mt-4 pt-3 border-t border-[#D8CFBF]/60 flex items-center justify-between text-xs font-mono text-[#6A6055]">
+            <span>Est. Fat: <strong>58g</strong></span>
+            <span>METs: <strong>6.2</strong></span>
           </div>
         </div>
 
         {/* Card 3: Workout Duration */}
-        <div className="bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl p-5 hover:border-[rgba(229,251,212,0.3)] transition-all flex flex-col justify-between shadow-xl">
+        <div className="bg-[#EAE3D5] border border-[#D8CFBF] rounded-2xl p-5 hover:border-[#1E1B18]/30 transition-all flex flex-col justify-between shadow-md">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#182405] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-[#E5FBD4] shadow-sm">
+            <div className="w-10 h-10 rounded-xl bg-[#DFD7C8] border border-[#D8CFBF] flex items-center justify-center text-[#1E1B18] shadow-sm">
               <Clock className="w-5 h-5" />
             </div>
-            <span className="text-xs font-mono font-bold text-[#E5FBD4]">{durPercent}%</span>
+            <span className="text-xs font-mono font-bold text-[#1E1B18]">{durPercent}%</span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#E5FBD4]/70 font-mono font-medium">Training Duration</p>
+            <p className="text-xs uppercase tracking-wider text-[#6A6055] font-mono font-bold">Workout Time</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-2xl sm:text-3xl font-extrabold text-[#E5FBD4] tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#1E1B18] tracking-tight font-mono">
                 {duration}
               </span>
-              <span className="text-xs text-[#E5FBD4]/60 font-mono">/ {durationGoal} mins</span>
+              <span className="text-xs text-[#6A6055] font-mono">/ {durationGoal} mins</span>
             </div>
-            <div className="w-full bg-[#182405] h-1.5 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-[#DFD7C8] h-1.5 rounded-full mt-3 overflow-hidden border border-[#D8CFBF]/40">
               <div
-                className="bg-[#E5FBD4] h-full rounded-full transition-all duration-500"
+                className="bg-[#1E1B18] h-full rounded-full transition-all duration-500"
                 style={{ width: `${durPercent}%` }}
               />
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[rgba(229,251,212,0.12)] flex items-center gap-2">
+          <div className="mt-4 pt-3 border-t border-[#D8CFBF]/60 flex items-center gap-2">
             <button
               onClick={() => addDuration(15)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors flex items-center gap-1 cursor-pointer font-bold"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-white hover:bg-[#F5F1E8] border border-[#D8CFBF] text-[#1E1B18] transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs"
             >
               <Plus className="w-3 h-3" /> 15m
             </button>
             <button
               onClick={() => addDuration(30)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors flex items-center gap-1 cursor-pointer font-bold"
+              className="px-2.5 py-1 text-[11px] font-mono rounded bg-white hover:bg-[#F5F1E8] border border-[#D8CFBF] text-[#1E1B18] transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs"
             >
               <Plus className="w-3 h-3" /> 30m
             </button>
           </div>
         </div>
 
-        {/* Card 4: Live Heart Rate BPM Monitor */}
-        <div className="bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl p-5 hover:border-[rgba(229,251,212,0.3)] transition-all flex flex-col justify-between shadow-xl">
+        {/* Card 4: Biometric Heart Rate */}
+        <div className="bg-[#EAE3D5] border border-[#D8CFBF] rounded-2xl p-5 hover:border-[#1E1B18]/30 transition-all flex flex-col justify-between shadow-md">
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl bg-[#182405] border border-[rgba(229,251,212,0.2)] flex items-center justify-center text-rose-400 shadow-sm">
-              <Heart className="w-5 h-5 animate-pulse" />
+            <div className="w-10 h-10 rounded-xl bg-[#DFD7C8] border border-[#D8CFBF] flex items-center justify-center text-rose-600 shadow-sm">
+              <Heart className={`w-5 h-5 ${isTrainingBpm ? 'animate-ping' : ''}`} />
             </div>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-rose-950/70 text-rose-300 border border-rose-800/60 font-semibold">
-              {isTrainingBpm ? 'ZONE 4 / PEAK' : 'ZONE 1 / RESTING'}
+            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-white border border-[#D8CFBF] text-[#1E1B18] font-bold">
+              {isTrainingBpm ? 'ZONE 4 // HIIT' : 'ZONE 1 // REST'}
             </span>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-wider text-[#E5FBD4]/70 font-mono font-medium">Telemetry Heart Rate</p>
+            <p className="text-xs uppercase tracking-wider text-[#6A6055] font-mono font-bold">Live Heart Rate</p>
             <div className="flex items-baseline gap-2 mt-1">
-              <span className="text-3xl sm:text-4xl font-extrabold text-[#E5FBD4] font-mono tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-[#1E1B18] tracking-tight font-mono">
                 {heartRate}
               </span>
-              <span className="text-xs text-[#E5FBD4]/60 font-mono">BPM</span>
+              <span className="text-xs text-[#6A6055] font-mono">BPM</span>
             </div>
-            <div className="h-1.5 w-full bg-[#182405] rounded-full mt-3 overflow-hidden">
-              <div
-                className="h-full bg-rose-500 transition-all duration-300 rounded-full"
-                style={{ width: `${Math.min(100, Math.round((heartRate / 180) * 100))}%` }}
-              />
+            <div className="flex items-center gap-1 mt-3 h-3">
+              {[40, 60, 35, 80, 55, 90, 70, 45, 65, 85].map((h, i) => (
+                <div
+                  key={i}
+                  className="flex-1 bg-[#1E1B18] rounded-full transition-all duration-300"
+                  style={{
+                    height: `${isTrainingBpm ? Math.min(100, h * 1.3) : h}%`,
+                    opacity: 0.35 + (i / 10) * 0.65,
+                  }}
+                />
+              ))}
             </div>
           </div>
-          <div className="mt-4 pt-3 border-t border-[rgba(229,251,212,0.12)] flex items-center justify-between">
-            <span className="text-[11px] font-mono text-[#E5FBD4]/70">Simulate:</span>
+          <div className="mt-4 pt-3 border-t border-[#D8CFBF]/60 flex items-center justify-between">
             <button
               onClick={() => setIsTrainingBpm(!isTrainingBpm)}
-              className="px-2.5 py-1 text-[11px] font-mono rounded bg-[#182405] hover:bg-[#253708] border border-[rgba(229,251,212,0.15)] text-[#E5FBD4] transition-colors cursor-pointer font-bold"
+              className="text-xs font-mono font-bold text-[#1E1B18] hover:underline cursor-pointer"
             >
-              {isTrainingBpm ? 'Set Resting (72)' : 'Set Workout (145)'}
+              {isTrainingBpm ? 'Switch to Resting' : 'Simulate Workout BPM'}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Weekly Activity Section with Dynamic Current Day */}
-      <div className="bg-[#0D1403] border border-[rgba(229,251,212,0.15)] rounded-2xl p-6 sm:p-8 shadow-xl">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 pb-4 border-b border-[rgba(229,251,212,0.12)] gap-2">
+      {/* Weekly Activity Breakdown with Dynamic Current Day Highlight */}
+      <div className="bg-[#EAE3D5] border border-[#D8CFBF] rounded-2xl p-6 sm:p-8 shadow-md">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4 border-b border-[#D8CFBF]/60 pb-4">
           <div>
-            <h3 className="text-lg font-bold text-[#E5FBD4] flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-[#E5FBD4]" />
-              Weekly Activity Telemetry
+            <h3 className="text-xl font-bold text-[#1E1B18] flex items-center gap-2">
+              <TrendingUp className="w-5 h-5 text-[#1E1B18]" />
+              Weekly Workload &amp; Volume
             </h3>
-            <p className="text-xs text-[#E5FBD4]/70 font-mono mt-0.5">
-              Current Day highlighted // Click any day to examine training logs
+            <p className="text-xs text-[#6A6055] font-mono mt-1">
+              Click any bar to inspect training intensity and caloric load
             </p>
           </div>
-          <div className="text-xs font-mono text-[#E5FBD4]/80">
-            TOTAL 7-DAY LOAD: <span className="font-bold text-[#E5FBD4]">4,710 kcal</span>
+          <div className="flex items-center gap-4 text-xs font-mono">
+            <span className="flex items-center gap-1.5 text-[#1E1B18] font-bold">
+              <span className="w-2.5 h-2.5 rounded-sm bg-[#1E1B18]" />
+              Active Day
+            </span>
+            <span className="flex items-center gap-1.5 text-[#6A6055]">
+              <span className="w-2.5 h-2.5 rounded-sm bg-[#DFD7C8] border border-[#D8CFBF]" />
+              Rest / Target
+            </span>
           </div>
         </div>
 
-        {/* Weekly Bar Chart & Inspector */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-          {/* Daily Bar Visualizer with Current Day Badge */}
-          <div className="lg:col-span-8 grid grid-cols-7 gap-2 sm:gap-4 items-end h-48 sm:h-56 pt-4 pb-2">
-            {WEEKLY_ACTIVITY.map((day) => {
-              const isSelected = selectedDay.day === day.day;
-              const isCurrentDay = day.day === todayName;
-              const barHeightPercent = Math.round((day.calories / 800) * 100);
-              return (
-                <div
-                  key={day.day}
-                  onClick={() => setSelectedDay(day)}
-                  className="flex flex-col items-center h-full justify-end cursor-pointer group"
-                >
-                  {/* Today Badge */}
-                  {isCurrentDay ? (
-                    <span className="text-[9px] font-mono font-black text-[#050801] bg-[#E5FBD4] px-1.5 py-0.2 rounded mb-1 tracking-tight shadow-xs">
-                      TODAY
-                    </span>
-                  ) : (
-                    <span className="text-[10px] font-mono text-[#E5FBD4]/60 group-hover:text-[#E5FBD4] mb-1 transition-colors">
-                      {day.calories}
-                    </span>
-                  )}
+        {/* 7-Day Bar Chart */}
+        <div className="grid grid-cols-7 gap-2 sm:gap-6 items-end h-64 pt-6 pb-2">
+          {WEEKLY_ACTIVITY.map((item) => {
+            const isToday = item.day === todayName;
+            const isSelected = selectedDay.day === item.day;
+            const heightPercent = Math.min(Math.round((item.steps / 14000) * 100), 100);
 
-                  <div className="w-full max-w-[42px] bg-[#182405] h-full rounded-xl overflow-hidden flex items-end p-1 transition-all border border-[rgba(229,251,212,0.1)]">
-                    <div
-                      className={`w-full rounded-lg transition-all duration-300 ${
-                        isSelected
-                          ? 'bg-[#E5FBD4] shadow-md shadow-[#E5FBD4]/30'
-                          : isCurrentDay
-                          ? 'bg-[#A8DB84] shadow-xs'
-                          : 'bg-[#31480A] group-hover:bg-[#46670E]'
-                      }`}
-                      style={{ height: `${barHeightPercent}%` }}
-                    />
+            return (
+              <div
+                key={item.day}
+                onClick={() => setSelectedDay(item)}
+                className="group flex flex-col items-center justify-end h-full cursor-pointer relative"
+              >
+                {/* Prominent Current Day Pill Banner */}
+                {isToday && (
+                  <div className="absolute -top-7 px-2 py-0.5 rounded-full bg-[#1E1B18] text-[#F5F1E8] text-[9px] font-mono font-black tracking-wider uppercase shadow-md animate-bounce">
+                    TODAY
                   </div>
+                )}
+
+                {/* Hover / Selected Value Tooltip */}
+                <span
+                  className={`text-[10px] sm:text-xs font-mono mb-2 transition-all ${
+                    isSelected
+                      ? 'text-[#1E1B18] font-black scale-110'
+                      : 'text-[#6A6055] group-hover:text-[#1E1B18]'
+                  }`}
+                >
+                  {(item.steps / 1000).toFixed(1)}k
+                </span>
+
+                {/* Bar */}
+                <div className="w-full max-w-[48px] bg-[#DFD7C8] rounded-xl h-full flex items-end overflow-hidden border border-[#D8CFBF] p-1">
+                  <div
+                    className={`w-full rounded-lg transition-all duration-500 ${
+                      isToday
+                        ? 'bg-[#1E1B18] shadow-md'
+                        : isSelected
+                        ? 'bg-[#1E1B18]/80'
+                        : 'bg-[#C2B7A3] group-hover:bg-[#1E1B18]/60'
+                    }`}
+                    style={{ height: `${heightPercent}%` }}
+                  />
+                </div>
+
+                {/* Day Label with Today Indicator */}
+                <div className="flex flex-col items-center mt-3">
                   <span
-                    className={`mt-2 text-xs font-mono font-bold transition-colors ${
-                      isSelected
-                        ? 'text-[#E5FBD4] underline underline-offset-4'
-                        : isCurrentDay
-                        ? 'text-[#A8DB84]'
-                        : 'text-[#E5FBD4]/65 group-hover:text-[#E5FBD4]'
+                    className={`text-xs font-mono uppercase tracking-wider transition-colors ${
+                      isToday
+                        ? 'text-[#1E1B18] font-black border-b-2 border-[#1E1B18]'
+                        : isSelected
+                        ? 'text-[#1E1B18] font-bold'
+                        : 'text-[#6A6055] group-hover:text-[#1E1B18]'
                     }`}
                   >
-                    {day.day}
+                    {item.day}
                   </span>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Selected Day Telemetry Breakdown */}
+        <div className="mt-8 p-5 rounded-xl bg-white border border-[#D8CFBF] flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-[#EAE3D5] border border-[#D8CFBF] flex items-center justify-center font-mono font-black text-sm text-[#1E1B18]">
+              {selectedDay.day}
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h4 className="text-sm font-bold text-[#1E1B18] uppercase">
+                  {selectedDay.day}'s Logged Performance
+                </h4>
+                {selectedDay.day === todayName && (
+                  <span className="px-2 py-0.5 rounded text-[9px] font-mono bg-[#1E1B18] text-[#F5F1E8] font-black">
+                    CURRENT DAY
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-[#6A6055] font-mono mt-0.5">
+                Session telemetry and biomechanical output
+              </p>
+            </div>
           </div>
 
-          {/* Selected Day Telemetry Inspector */}
-          <div className="lg:col-span-4 bg-[#131E04] border border-[rgba(229,251,212,0.18)] rounded-xl p-5 shadow-lg">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-[#E5FBD4]/60 block">
-                INSPECTED INTERVAL
+          <div className="grid grid-cols-3 gap-4 text-center sm:text-right text-xs font-mono">
+            <div className="p-2 sm:p-0">
+              <span className="text-[#6A6055] block text-[10px]">STEPS LOGGED</span>
+              <span className="text-sm font-bold text-[#1E1B18]">
+                {selectedDay.steps.toLocaleString()}
               </span>
-              {selectedDay.day === todayName && (
-                <span className="px-2 py-0.5 rounded text-[9px] font-mono font-bold bg-[#E5FBD4] text-[#050801]">
-                  CURRENT DAY
-                </span>
-              )}
             </div>
-            <h4 className="text-xl font-bold text-[#E5FBD4]">
-              {selectedDay.day} {selectedDay.day === todayName ? '(Today)' : ''} Training Breakdown
-            </h4>
-
-            <div className="mt-4 space-y-3 font-mono text-xs">
-              <div className="flex justify-between items-center py-1.5 border-b border-[rgba(229,251,212,0.1)]">
-                <span className="text-[#E5FBD4]/70">Expenditure</span>
-                <span className="font-bold text-[#E5FBD4]">{selectedDay.calories} kcal</span>
-              </div>
-              <div className="flex justify-between items-center py-1.5 border-b border-[rgba(229,251,212,0.1)]">
-                <span className="text-[#E5FBD4]/70">Step Count</span>
-                <span className="font-bold text-[#E5FBD4]">{selectedDay.steps.toLocaleString()} steps</span>
-              </div>
-              <div className="flex justify-between items-center py-1.5 border-b border-[rgba(229,251,212,0.1)]">
-                <span className="text-[#E5FBD4]/70">Duration</span>
-                <span className="font-bold text-[#E5FBD4]">{selectedDay.duration} minutes</span>
-              </div>
-              <div className="flex justify-between items-center py-1.5">
-                <span className="text-[#E5FBD4]/70">Intensity Rating</span>
-                <span className="font-bold text-[#E5FBD4]">HIGH // RPE 8.5</span>
-              </div>
+            <div className="p-2 sm:p-0 border-x sm:border-none border-[#D8CFBF]">
+              <span className="text-[#6A6055] block text-[10px]">ENERGY EXPENDED</span>
+              <span className="text-sm font-bold text-orange-600 font-mono">
+                {selectedDay.calories} kcal
+              </span>
+            </div>
+            <div className="p-2 sm:p-0">
+              <span className="text-[#6A6055] block text-[10px]">TIME IN MOTION</span>
+              <span className="text-sm font-bold text-[#1E1B18] font-mono">
+                {selectedDay.duration} mins
+              </span>
             </div>
           </div>
         </div>

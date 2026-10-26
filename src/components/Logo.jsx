@@ -10,9 +10,9 @@ export default function Logo({ size = 'md', showText = true, className = '' }) {
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      <ArchLogo className={`${iconSizes[size]} text-[#E5FBD4] shrink-0`} />
+      <ArchLogo className={`${iconSizes[size]} text-[#1E1B18] shrink-0`} />
       {showText && (
-        <span className="text-base font-semibold tracking-tight text-[#E5FBD4] leading-tight font-sans">
+        <span className="text-base font-bold tracking-tight text-[#1E1B18] leading-tight font-sans">
           Squat Fitness
         </span>
       )}

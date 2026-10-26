@@ -77,14 +77,14 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050801] text-[#E5FBD4] overflow-x-hidden selection:bg-[#E5FBD4] selection:text-[#050801] font-sans">
+    <div className="min-h-screen bg-[#F5F1E8] text-[#1E1B18] overflow-x-hidden selection:bg-[#1E1B18] selection:text-[#F5F1E8] font-sans">
       {/* 42 Minimal Edge-to-Edge Navbar */}
       <Navbar activeSection={activeSection} />
 
-      {/* Part 1: Exact 3D Cubes Scroll Hero from Sample 42 starting in Forest Green and transitioning to Sleek Black */}
+      {/* Part 1: Exact 3D Cubes Scroll Hero from Reference 42 in Luxury Cream / Beige Aesthetic */}
       <Hero3DSection />
 
-      {/* Part 2: The 3 "FITNESS" Parallax Lines & Progressive Text Reveal from Sample 61 in Sleek Black Theme */}
+      {/* Part 2: The 3 "FITNESS" Parallax Lines & Progressive Text Reveal from Reference 61 */}
       <FitnessLinesSection
         onExploreWorkouts={() => scrollTo('workouts')}
         onOpenDashboard={() => scrollTo('dashboard')}
@@ -92,7 +92,7 @@ export default function App() {
 
       {/* Section Divider Bar */}
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(229,251,212,0.15)] to-transparent" />
+        <div className="h-px bg-gradient-to-r from-transparent via-[#D8CFBF] to-transparent" />
       </div>
 
       {/* Fitness Dashboard */}
