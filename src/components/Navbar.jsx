@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import ArchLogo from './ArchLogo';
 
 export const NAV_LINKS = [
   { name: 'Home', href: '#home' },
@@ -47,22 +48,7 @@ export default function Navbar({ activeSection }) {
         onClick={(e) => scrollToSection(e, '#home')}
         className="flex items-center gap-3.5 group cursor-pointer select-none"
       >
-        {/* Exact 6-block arch geometry scaled to navbar */}
-        <div className="flex gap-1.5 items-end shrink-0">
-          <div className="flex flex-col justify-end">
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4] origin-bottom-right rotate-[42deg]" />
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4] mt-1" />
-          </div>
-          <div className="flex flex-col justify-end gap-1.5">
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4]" />
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4]" />
-          </div>
-          <div className="flex flex-col justify-end">
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4] origin-bottom-left -rotate-[42deg]" />
-            <div className="w-2.5 h-2.5 bg-[#E5FBD4] mt-1" />
-          </div>
-        </div>
-
+        <ArchLogo className="w-7 h-auto text-[#E5FBD4] shrink-0" />
         <span className="text-xl font-medium tracking-tight text-[#E5FBD4] font-sans">
           Squat Fitness
         </span>

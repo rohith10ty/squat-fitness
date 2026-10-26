@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { cubesData } from '../data/cubesData';
+import ArchLogo from './ArchLogo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,7 +136,6 @@ export default function Hero3DSection() {
             const colorProgress = (self.progress - 0.65) / 0.35;
             stickySection.style.backgroundColor = interpolateColor(colorProgress);
             if (header2) {
-              // Smoothly transition text color from mint white to deep forest contrast
               const textColorProgress = Math.min(colorProgress * 1.5, 1);
               const tr = Math.round(229 - (229 - 29) * textColorProgress);
               const tg = Math.round(251 - (251 - 43) * textColorProgress);
@@ -163,20 +163,12 @@ export default function Hero3DSection() {
         id="home"
         className="sticky-hero relative w-full h-[100vh] overflow-hidden flex items-center justify-center select-none bg-[#1D2B04] text-[#E5FBD4]"
       >
-        {/* 42 Geometric Arch Logo (Top 25%) */}
-        <div ref={logoRef} className="hero-42-logo">
-          <div className="hero-42-col">
-            <div className="hero-42-block hero-42-block-1" />
-            <div className="hero-42-block mt-4" />
-          </div>
-          <div className="hero-42-col">
-            <div className="hero-42-block mb-3.5" />
-            <div className="hero-42-block" />
-          </div>
-          <div className="hero-42-col">
-            <div className="hero-42-block hero-42-block-5" />
-            <div className="hero-42-block mt-4" />
-          </div>
+        {/* Exact Geometric 6-Block Arch Logo (Top 26%, Matching Sample 42 Reference) */}
+        <div
+          ref={logoRef}
+          className="absolute top-[26%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none"
+        >
+          <ArchLogo className="w-28 sm:w-36 md:w-44 lg:w-48 h-auto text-[#E5FBD4]" />
         </div>
 
         {/* 3D Cubes Viewport Container (Forms the Proper Arch Around Center) */}
