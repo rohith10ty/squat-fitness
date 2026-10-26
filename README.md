@@ -1,90 +1,85 @@
-# AURA // Minimal Performance & Fitness Tracker
+# Squat Fitness // Performance & Athletic Conditioning Platform
 
-A modern, responsive, and minimalist Fitness Tracker web application developed with **React + Vite + Tailwind CSS**, featuring an editorial aesthetic inspired by high-end minimal design systems and the interactive GSAP scroll animation from sample `61`.
+A modern, responsive, and high-performance Fitness Tracking web application built with **React + Vite + Tailwind CSS**, featuring an editorial aesthetic, smooth **Lenis** scrolling, and an interactive **3D kinetic arch & tumbling cubes** landing experience powered by **GSAP ScrollTrigger**.
 
 ---
 
 ## ✦ Live Features & Architectural Overview
 
-### 1. The Pinned Typographic & Reveal Landing Effect (Adapted from Sample 61)
-- **5/7 Minimal Portrait Card**: Clean athletic portrait hero card with subtle border frames and editorial coordinates.
-- **Progressive Text Reveal Scrub**: Custom GSAP ScrollTrigger animating CSS `--clip-value` inset scrub from 100% to 0%, dynamically revealing text on scroll.
-- **3-Layer Parallax Slide-in**: Triple-stacked typography layer that slides in from alternating directions (`+100%`, `-100%`, `+100%`).
-- **Pinned Convergence & Scaling**: Pinned scroll animation where header 0 descends, header 2 ascends, and all layers scale down smoothly (`scale: 1 -> 0.1`) on scroll, transitioning seamlessly into the live app telemetry.
-- **Vector Typographic Banner**: Pure SVG vector path rendition of `FITNESS` matching sample geometry.
+### 1. Interactive 3D Arch & Kinetic Cubes Landing Experience
+- **Centered Arch Logo**: Clean 6-block geometric arch hero logo centered with mathematical precision.
+- **True 3D Cube Perspective Fly-in**: 6 3D cubes emerge seamlessly from the arch geometry, tumbling and rotating across 3 axes (`X`, `Y`, `Z`) under a `10,000px` 3D perspective viewport.
+- **36 Authentic Fitness Textures**: Every single face of the 6 cubes is mapped to authentic high-resolution fitness training photography—capturing barbell back squats, deadlifts, dumbbell racks, overhead presses, battle ropes, and athletic conditioning.
+- **Phase 2 Precision Framing**: As scroll progresses, the cubes smoothly arrange around the centered statement *"Where innovation meets precision"*.
 
-### 2. Daily Fitness Dashboard
-- **Telemetry Indicators**:
-  - **Daily Steps**: Live counter (e.g. 8,450 / 10,000) with animated progress bar and `+500` / `+1,000` step increment controls.
-  - **Active Burn**: Caloric expenditure counter (640 / 800 kcal) with basal metabolic rate summary.
-  - **Workout Duration**: Active minutes tracker (48 / 60 min) with quick `+10m` / `+20m` log buttons.
-  - **Heart Rate Monitor**: Live simulated BPM fluctuation and continuous ECG pulse wave animation with `Resting` / `Training` state toggling.
-- **7-Day Weekly Activity Bar Chart**: Visual daily step comparison (Mon - Sun) with clickable day inspection tooltips.
+### 2. Kinetic Typographic Convergence ("FITNESS")
+- **3-Layer Parallax Slide-in**: Triple-stacked `FITNESS` typography slides in smoothly from alternating horizontal trajectories.
+- **Seamless Merge & Lift**: Layers merge into a single solid wordmark at 50% scroll and dynamically elevate `-18vh` to align cleanly above the manifesto statement without any overlap.
+- **Dynamic Luminance-Aware Navbar**: Floating navigation automatically adapts its typography and border contrast when crossing between the warm cream hero (`#F5F1E8`) and the deep jet black downstream sections (`#0A0A0A`).
 
-### 3. Modular Workouts & Regimens
-- **Category Filter Tabs**: Cardio, Strength Training, Yoga, and HIIT.
-- **Detailed Exercise Cards**: High-res visual covers, difficulty badges (`Beginner`, `Intermediate`, `Advanced`), duration, calories, and progress percentage.
+### 3. Comprehensive Fitness Tracking Modules
+
+#### 🏋️ Workouts & Regimens
+- **Category Filter Tabs**: Strength Training, Cardio, HIIT, and Yoga.
+- **Exercise Cards**: High-definition cover imagery, difficulty ratings (`Beginner`, `Intermediate`, `Advanced`), estimated burn, duration, and completion indicators.
 - **Interactive Workout Modal & Timer**:
   - Live countdown interval timer with Play, Pause, and Reset controls.
   - Step-by-step movement checklist with rest periods.
   - Confetti celebration upon session completion (`canvas-confetti`).
-  - Direct "Mark Complete" toggle.
 
-### 4. Progress Tracking & Performance Curves
-- **Load Progression Chart**: Interactive SVG line & area chart visualizing caloric burn and active training hours across cycles.
-- **Data Point Inspection**: Dynamic hover tooltips displaying exact timestamped workout telemetry.
-- **Muscle Load Distribution**: Visual percentage bars tracking load balance across Lower Body, Posterior Chain, Chest/Deltoids, and Core Stability.
-- **Milestone Cards**: Consecutive streak counter, total 30-day burn, VO2 max estimate, and compliance rates.
+#### 📊 Daily Performance Dashboard
+- **Live Telemetry Counters**:
+  - **Daily Steps**: Real-time counter (8,450 / 10,000) with quick `+500` / `+1,000` step controls.
+  - **Active Burn**: Caloric expenditure gauge (640 / 800 kcal).
+  - **Workout Duration**: Active minutes tracker (48 / 60 min) with `+10m` / `+20m` log shortcuts.
+  - **Dynamic Heart Rate Monitor**: Simulated BPM fluctuation and continuous ECG pulse wave animation with `Resting` / `Training` state toggling.
+- **7-Day Activity Chart**: Interactive daily volume and step comparison (Mon - Sun) with hover tooltips.
 
-### 5. Precision BMI Calculator
-- **Dual Unit Support**: Metric (`cm`, `kg`) and Imperial (`ft/in`, `lbs`) with smooth real-time conversion.
-- **Interactive Sliders & Numeric Controls**: Live dynamic recalculation on every slider change.
-- **Visual Multi-Zone Gauge**: Color-coded spectrum with a dynamic marker indicating Underweight, Optimal, Overweight, and Obese brackets.
-- **Coach Recommendations**: Tailored clinical and training advice based on calculated body composition.
+#### 📈 Progress Analytics & Load Curves
+- **Load Progression Chart**: Interactive SVG curve visualizing caloric burn and active training load across cycles.
+- **Muscle Load Distribution**: Visual percentage indicators tracking volume across Lower Body, Posterior Chain, Chest/Deltoids, and Core Stability.
+- **Milestone Metrics**: Streak tracking, 30-day burn totals, and consistency scoring.
 
-### 6. Targeted Nutrition & Hydration
-- **Macronutrient Precision**: Daily target bars for Protein (`2.0g/kg`), Complex Carbohydrates, and Essential Fats.
-- **Meal Plans by Course**: Filterable meal suggestions for Breakfast, Lunch, Dinner, and Snacks with macro breakdowns and ingredient tags.
-- **Interactive Hydration Tracker**: Daily water intake gauge (e.g. 2.50L / 3.2L) with `+250ml`, `+500ml`, and `-250ml` controls.
+#### ⚖️ Precision BMI & Composition Calculator
+- **Dual Unit Support**: Metric (`cm`, `kg`) and Imperial (`ft/in`, `lbs`) with dynamic real-time conversion.
+- **Visual Gauge**: Interactive slider controls with a multi-zone gauge indicating Underweight, Optimal, Overweight, and Obese brackets with personalized recommendations.
 
-### 7. Personal Fitness Objectives (Goals Section)
-- **Active Objectives**: Weekly distance, strength sessions, hydration consistency, and sleep recovery.
-- **Interactive Completion**: Checkbox toggle that triggers celebratory confetti and updates overall completion metrics.
-- **Custom Goal Creation Modal**: Add custom titles, target metrics, categories, and deadlines.
+#### 🥗 Targeted Nutrition & Hydration
+- **Macronutrient Tracking**: Daily target bars for Protein, Complex Carbohydrates, and Healthy Fats.
+- **Course-Based Meal Plans**: Filterable meals for Breakfast, Lunch, Dinner, and Snacks with ingredient tags and macro breakdowns.
+- **Interactive Hydration Gauge**: Daily water intake counter with `+250ml`, `+500ml`, and `-250ml` quick-log buttons.
 
-### 8. Coach Inquiries (Contact Section)
-- **Direct Form**: Name, email, inquiry focus, and message fields with validation and animated transmission feedback.
-- **HQ Telemetry**: Email, phone support, physical flagship address, and operating hours.
-
-### 9. Modern Navbar & Minimal Footer
-- **Fixed Blur Header**: Floating glassmorphism navbar with active scroll section indicator.
-- **Mobile Drawer**: Responsive slide-down navigation menu for screens under 1024px.
-- **Footer**: Quick navigation links, module indexes, social icon links, and back-to-top button.
+#### 🎯 Objectives & Inquiries
+- **Interactive Goals**: Target checklist with progress bars, status toggles, and celebratory animations.
+- **Coach Consultations**: Contact and inquiry form with validation and direct HQ support telemetry.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Framework**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS v3](https://tailwindcss.com/)
-- **Typography**: [Google Fonts: Manrope](https://fonts.google.com/specimen/Manrope)
-- **Animations**: [GSAP 3](https://greensock.com/gsap/) + [ScrollTrigger](https://greensock.com/scrolltrigger/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Micro-Interactions**: [canvas-confetti](https://www.npmjs.com/package/canvas-confetti)
+| Layer | Technologies |
+|---|---|
+| **Core Framework** | [React 18](https://react.dev/) + [Vite](https://vitejs.dev/) |
+| **Styling** | [Tailwind CSS v3](https://tailwindcss.com/) |
+| **Animations** | [GSAP 3](https://greensock.com/gsap/) + [ScrollTrigger](https://greensock.com/scrolltrigger/) |
+| **Smooth Scroll** | [@studio-freight/lenis](https://github.com/darkroomengineering/lenis) |
+| **Typography** | [Outfit (Google Fonts)](https://fonts.google.com/specimen/Outfit) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Micro-Interactions** | [canvas-confetti](https://www.npmjs.com/package/canvas-confetti) |
 
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18+ or v20+ recommended)
-- npm or pnpm or yarn
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- npm, pnpm, or yarn
 
 ### 1. Installation
 Clone the repository and install dependencies:
 ```bash
-git clone <your-repository-url>
-cd "FITNESS TRACKER"
+git clone https://github.com/rohith10ty/squat-fitness.git
+cd squat-fitness
 npm install
 ```
 
@@ -92,13 +87,13 @@ npm install
 ```bash
 npm run dev
 ```
-Open your browser at `http://localhost:5173/` to view the application with Hot Module Replacement (HMR).
+Open your browser at `http://localhost:5173/` (or the port indicated in your terminal) to explore the live application with Hot Module Replacement (HMR).
 
 ### 3. Production Build
 ```bash
 npm run build
 ```
-The optimized production bundle will be generated in the `dist/` directory.
+The optimized production bundle will be output to the `dist/` directory.
 
 ### 4. Preview Production Build
 ```bash
@@ -109,69 +104,68 @@ npm run preview
 
 ## 🌐 Deployment
 
-The project is pre-configured for one-click deployment:
+The application is fully configured for deployment on any modern hosting platform:
 
 ### Deploy to Vercel
 1. Push your repository to GitHub.
-2. Go to [Vercel](https://vercel.com/) and import the repository.
-3. Vercel will automatically detect `vercel.json` and Vite configuration.
+2. Import the repository in [Vercel](https://vercel.com/).
+3. Vercel automatically detects `vercel.json` and the Vite build settings.
 4. Click **Deploy**.
 
 ### Deploy to Netlify
-1. Push your repository to GitHub.
-2. Go to [Netlify](https://www.netlify.com/) and import the repository.
-3. The included `netlify.toml` automatically configures:
-   - Build Command: `npm run build`
-   - Publish Directory: `dist`
-   - SPA Redirects: `/* /index.html 200`
-4. Click **Deploy Site**.
+1. Import the repository in [Netlify](https://www.netlify.com/).
+2. Netlify reads `netlify.toml` automatically:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - SPA redirects: `/* /index.html 200`
+3. Click **Deploy Site**.
 
 ---
 
 ## 📂 Project Structure
 
 ```
-FITNESS TRACKER/
+squat-fitness/
 ├── public/
-│   ├── favicon.svg
-│   ├── _redirects
+│   ├── favicon.svg            # Arch logo geometric favicon
+│   ├── _redirects             # SPA static routing rule
 │   └── img/
-│       ├── fitness.svg            # Pure vector letter banner for GSAP pinned animation
-│       ├── fitness-hero.jpg       # Hero 5/7 portrait image
-│       ├── fitness-outro.jpg      # Outro 5/7 portrait image
-│       ├── cardio.jpg             # Workout & meal imagery
+│       ├── cubes/             # 36 high-resolution fitness textures for 3D cubes
+│       ├── cardio.jpg         # Regimen cover assets
 │       ├── strength.jpg
-│       ├── yoga.jpg
 │       ├── hiit.jpg
-│       ├── breakfast.jpg
+│       ├── yoga.jpg
+│       ├── breakfast.jpg      # Nutrition meal cards
 │       ├── lunch.jpg
 │       ├── dinner.jpg
 │       └── snack.jpg
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx             # Sleek minimal navigation with active section tracker
-│   │   ├── LandingHeroEffect.jsx  # Exact 61 pinned 3-layer parallax & text scrub
-│   │   ├── FitnessDashboard.jsx   # Live steps, calories, time, ECG BPM & 7-day chart
-│   │   ├── WorkoutsSection.jsx    # Category filter tabs & exercise cards
-│   │   ├── WorkoutModal.jsx       # Interactive countdown timer & exercise checklist
-│   │   ├── ProgressTracking.jsx   # SVG load trajectory curves & muscle load distribution
-│   │   ├── BmiCalculator.jsx      # Metric/Imperial interactive BMI gauge & advice
-│   │   ├── NutritionSection.jsx   # Macro target bars, meal cards & hydration tracker
-│   │   ├── GoalsSection.jsx       # Objective progress, custom goal creator & confetti
-│   │   ├── ContactSection.jsx     # Coach inquiry form & HQ support
-│   │   └── Footer.jsx             # Minimalist footer with quick links & social buttons
+│   │   ├── Navbar.jsx               # Sleek luminance-aware floating navbar & mobile drawer
+│   │   ├── Hero3DSection.jsx        # Reference 42 3D kinetic arch & tumbling cubes
+│   │   ├── FitnessLinesSection.jsx  # Pinned 3-layer parallax & single wordmark convergence
+│   │   ├── WorkoutsSection.jsx      # Regimen catalog with filter tabs
+│   │   ├── WorkoutModal.jsx         # Live interval timer & exercise checklist
+│   │   ├── FitnessDashboard.jsx     # Live steps, calories, time, ECG BPM & 7-day chart
+│   │   ├── ProgressTracking.jsx     # SVG load trajectory curves & muscle load distribution
+│   │   ├── BmiCalculator.jsx        # Dual-unit interactive BMI calculator & gauge
+│   │   ├── NutritionSection.jsx     # Macronutrient targets, meal cards & hydration tracker
+│   │   ├── GoalsSection.jsx         # Performance objectives & milestone tracker
+│   │   ├── ContactSection.jsx       # Consultation inquiry form & HQ support
+│   │   └── Footer.jsx               # Minimalist footer with quick navigation links
 │   ├── data/
-│   │   └── fitnessData.js         # Comprehensive datasets for regimens, macros & trends
-│   ├── App.jsx                    # Root application component with scroll observer
-│   ├── index.css                  # Tailwind styles + sample 61 text reveal clip-path
-│   └── main.jsx                   # React root entrypoint
-├── netlify.toml                   # Netlify build & rewrite configuration
-├── vercel.json                    # Vercel deployment configuration
-├── tailwind.config.js             # Minimal dark fitness theme tokens
+│   │   ├── cubesData.js             # 3D spatial coordinates & rotations for all 6 cubes
+│   │   └── fitnessData.js           # Datasets for workouts, metrics, meals & goals
+│   ├── App.jsx                      # App root with section observer & Lenis smooth scroll
+│   ├── index.css                    # Tailwind setup & 3D perspective transforms
+│   └── main.jsx                     # Vite React entry point
+├── netlify.toml                     # Netlify build & rewrite configuration
+├── vercel.json                      # Vercel deployment configuration
+├── tailwind.config.js               # Tailwind design system tokens
 └── package.json
 ```
 
 ---
 
 ## 📝 License
-MIT License. Built with clarity, discipline, and intention.
+MIT License. Built with discipline, precision, and performance.
